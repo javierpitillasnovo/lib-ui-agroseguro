@@ -1,18 +1,16 @@
 // ============================================================================
-// AGROSEGURO - TIPOGRAFÍA CORPORATIVA
-// Mulish - Según Manual de Marca Agroseguro
+// AGROSEGURO - TIPOGRAFÍA
+// Mulish - Tipografía Corporativa según Manual de Marca
 // ============================================================================
 
 // Google Fonts Import
-@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700&display=swap');
 
-// Variable de tipografía (formato prototipos)
+// Variables de tipografía
 $font: 'Mulish', -apple-system, BlinkMacSystemFont, sans-serif;
 $font-family-primary: $font;
 
-// Pesos tipográficos según Manual de Marca
-// Se priorizan: Regular (400), Semibold (600), Bold (700)
-// Evitar: Extralight (200), Extrabold (800), Black (900)
+// Pesos tipográficos
 $font-weight-light: 300;
 $font-weight-regular: 400;
 $font-weight-medium: 500;
