@@ -1,82 +1,296 @@
+// ============================================================================
+// AGROSEGURO - ESTILOS BASE
+// Tipografía y elementos base según Manual de Marca
+// ============================================================================
+
+@import 'variables';
+@import 'fonts';
+
+// ============================================================================
+// MIXINS DE ENCABEZADOS - Mulish según jerarquía visual
+// ============================================================================
+
+// H1 - Títulos principales (Mulish Regular, grande)
 @mixin h1 {
-	font-family: 'FrutigerBold';
-	font-size: 90px;
-	font-weight: 700;
-	font-style: normal;
-	line-height: 120%;
+  font-family: $font-family-primary;
+  font-size: 3rem;      // 48px
+  font-weight: $font-weight-regular;
+  font-style: normal;
+  line-height: 1.2;
+  color: $color-primary-black;
 }
 
+// H2 - Títulos de sección
 @mixin h2 {
-	font-family: 'FrutigerBold';
-	font-size: 72px;
-	font-weight: 700;
-	font-style: normal;
-	line-height: 120%;
+  font-family: $font-family-primary;
+  font-size: 2.25rem;   // 36px
+  font-weight: $font-weight-regular;
+  font-style: normal;
+  line-height: 1.25;
+  color: $color-primary-black;
 }
 
+// H3 - Subtítulos
 @mixin h3 {
-	font-family: 'FrutigerBold';
-	font-size: 56px;
-	font-weight: 700;
-	font-style: normal;
-	line-height: 120%;
+  font-family: $font-family-primary;
+  font-size: 1.875rem;  // 30px
+  font-weight: $font-weight-semibold;
+  font-style: normal;
+  line-height: 1.3;
+  color: $color-primary-black;
 }
 
+// H4 - Títulos de componente
 @mixin h4 {
-	font-family: 'FrutigerBold';
-	font-size: 40px;
-	font-weight: 700;
-	font-style: normal;
-	line-height: 120%;
+  font-family: $font-family-primary;
+  font-size: 1.5rem;    // 24px
+  font-weight: $font-weight-semibold;
+  font-style: normal;
+  line-height: 1.35;
+  color: $color-primary-black;
 }
 
+// H5 - Títulos pequeños
 @mixin h5 {
-	font-family: 'FrutigerBold';
-	font-size: 32px;
-	font-weight: 700;
-	font-style: normal;
-	line-height: 120%;
+  font-family: $font-family-primary;
+  font-size: 1.25rem;   // 20px
+  font-weight: $font-weight-semibold;
+  font-style: normal;
+  line-height: 1.4;
+  color: $color-primary-black;
 }
 
+// H6 - Títulos mínimos / Labels
 @mixin h6 {
-	font-family: 'FrutigerBold';
-	font-size: 24px;
-	font-weight: 700;
-	font-style: normal;
-	line-height: 120%;
+  font-family: $font-family-primary;
+  font-size: 1rem;      // 16px
+  font-weight: $font-weight-bold;
+  font-style: normal;
+  line-height: 1.5;
+  color: $color-primary-black;
 }
 
+// ============================================================================
+// MIXINS DE CUERPO DE TEXTO
+// ============================================================================
+
+// Cuerpo regular (Mulish Regular)
 @mixin body-regular {
-	font-family: 'FrutigerRoman';
-	font-size: 18px;
-	font-weight: 400;
-	font-style: normal;
+  font-family: $font-family-primary;
+  font-size: 1rem;      // 16px
+  font-weight: $font-weight-regular;
+  font-style: normal;
+  line-height: 1.6;
+  color: $color-primary-black;
 }
 
+// Cuerpo regular italic
 @mixin body-regular-italic {
-	font-family: 'FrutigerRoman';
-	font-size: 18px;
-	font-weight: 400;
-	font-style: italic;
+  font-family: $font-family-primary;
+  font-size: 1rem;
+  font-weight: $font-weight-regular;
+  font-style: italic;
+  line-height: 1.6;
 }
 
+// Cuerpo bold (para destacados/entradillas)
 @mixin body-bold {
-	font-family: 'FrutigerRoman';
-	font-size: 18px;
-	font-weight: 700;
-	font-style: normal;
+  font-family: $font-family-primary;
+  font-size: 1rem;
+  font-weight: $font-weight-bold;
+  font-style: normal;
+  line-height: 1.6;
 }
 
+// Cuerpo bold italic
 @mixin body-bold-italic {
-	font-family: 'FrutigerRoman';
-	font-size: 18px;
-	font-weight: 700;
-	font-style: italic;
+  font-family: $font-family-primary;
+  font-size: 1rem;
+  font-weight: $font-weight-bold;
+  font-style: italic;
+  line-height: 1.6;
 }
 
-@mixin links {
-	font-family: 'FrutigerLight';
-	font-size: 16px;
-	font-weight: 600;
-	font-style: normal;
+// Cuerpo pequeño
+@mixin body-small {
+  font-family: $font-family-primary;
+  font-size: 0.875rem;  // 14px
+  font-weight: $font-weight-regular;
+  font-style: normal;
+  line-height: 1.5;
 }
+
+// Cuerpo extra pequeño (notas, captions)
+@mixin body-xs {
+  font-family: $font-family-primary;
+  font-size: 0.75rem;   // 12px
+  font-weight: $font-weight-regular;
+  font-style: normal;
+  line-height: 1.5;
+}
+
+// ============================================================================
+// MIXINS ESPECIALES SEGÚN MANUAL DE MARCA
+// ============================================================================
+
+// Antetítulo (Mulish Bold Mayúscula)
+@mixin antetitulo {
+  font-family: $font-family-primary;
+  font-size: 0.75rem;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $color-primary-green;
+}
+
+// Entradilla / Destacado (Mulish Bold)
+@mixin entradilla {
+  font-family: $font-family-primary;
+  font-size: 1.125rem;  // 18px
+  font-weight: $font-weight-bold;
+  line-height: 1.5;
+  color: $color-primary-black;
+}
+
+// Nota al pie (Mulish Regular, gris)
+@mixin nota-pie {
+  font-family: $font-family-primary;
+  font-size: 0.75rem;
+  font-weight: $font-weight-regular;
+  color: $color-grey;
+}
+
+// Pie de documento (Mulish Bold Mayúscula, verde)
+@mixin pie-documento {
+  font-family: $font-family-primary;
+  font-size: 0.875rem;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  color: $color-primary-green;
+}
+
+// ============================================================================
+// MIXINS DE ENLACES Y BOTONES
+// ============================================================================
+
+// Enlaces
+@mixin links {
+  font-family: $font-family-primary;
+  font-size: 1rem;
+  font-weight: $font-weight-semibold;
+  font-style: normal;
+  color: $color-primary-green;
+  text-decoration: none;
+  transition: color $transition-fast;
+  
+  &:hover {
+    color: $color-verde-hover;
+    text-decoration: underline;
+  }
+  
+  &:active {
+    color: $color-verde-active;
+  }
+}
+
+// Texto de botón
+@mixin button-text {
+  font-family: $font-family-primary;
+  font-size: 0.875rem;
+  font-weight: $font-weight-semibold;
+  text-transform: none;
+  letter-spacing: 0.01em;
+}
+
+// Label de formulario
+@mixin form-label {
+  font-family: $font-family-primary;
+  font-size: 0.875rem;
+  font-weight: $font-weight-semibold;
+  color: $color-grey-700;
+  margin-bottom: 0.5rem;
+}
+
+// ============================================================================
+// ESTILOS GLOBALES BASE
+// ============================================================================
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  @include body-regular;
+  background-color: $color-white;
+}
+
+// Headings
+h1, .h1 { @include h1; margin-bottom: 1.5rem; }
+h2, .h2 { @include h2; margin-bottom: 1.25rem; }
+h3, .h3 { @include h3; margin-bottom: 1rem; }
+h4, .h4 { @include h4; margin-bottom: 0.875rem; }
+h5, .h5 { @include h5; margin-bottom: 0.75rem; }
+h6, .h6 { @include h6; margin-bottom: 0.5rem; }
+
+// Párrafos
+p {
+  margin-bottom: 1rem;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Enlaces
+a {
+  @include links;
+}
+
+// Texto destacado
+strong, b {
+  font-weight: $font-weight-bold;
+}
+
+em, i {
+  font-style: italic;
+}
+
+// Listas
+ul, ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  
+  li {
+    margin-bottom: 0.5rem;
+  }
+}
+
+// ============================================================================
+// CLASES DE UTILIDAD TIPOGRÁFICAS
+// ============================================================================
+
+.text-antetitulo { @include antetitulo; }
+.text-entradilla { @include entradilla; }
+.text-nota { @include nota-pie; }
+.text-pie { @include pie-documento; }
+.text-small { @include body-small; }
+.text-xs { @include body-xs; }
+
+// Colores de texto
+.text-primary { color: $color-primary-green !important; }
+.text-secondary { color: $color-grey-600 !important; }
+.text-success { color: $color-success !important; }
+.text-warning { color: $color-warning !important; }
+.text-error { color: $color-error !important; }
+.text-info { color: $color-info !important; }
+.text-muted { color: $color-grey-400 !important; }
+
+// Pesos
+.font-light { font-weight: $font-weight-light !important; }
+.font-regular { font-weight: $font-weight-regular !important; }
+.font-medium { font-weight: $font-weight-medium !important; }
+.font-semibold { font-weight: $font-weight-semibold !important; }
+.font-bold { font-weight: $font-weight-bold !important; }

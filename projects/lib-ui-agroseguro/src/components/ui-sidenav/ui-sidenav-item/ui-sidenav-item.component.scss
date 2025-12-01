@@ -1,118 +1,246 @@
+// ============================================================================
+// AGROSEGURO - UI SIDENAV ITEM COMPONENT
+// Menú lateral con nueva imagen corporativa 2024
+// ============================================================================
+
 @use '../../../../assets/variables' as *;
 @use '../../../../assets/base' as *;
 
+// ========================================
+// ESTILOS BASE DE ENLACES
+// ========================================
 a {
-	@include body-regular;
-	font-size: 14px;
-	font-weight: 400;
-	color: $color-white;
-	text-decoration: none;
-	display: block;
-	width: 100%;
+  font-family: $font-family-primary;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-regular;
+  color: $color-white;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  transition: color $transition-fast;
 }
 
 i {
-	font-size: 24px;
-	color: $color-white;
+  font-size: 20px;
+  color: $color-white;
+  opacity: 0.8;
+  transition: opacity $transition-fast;
 }
 
+// ========================================
+// ITEM DEL MENÚ
+// ========================================
 .menu__item {
-	padding: 12px;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
-	width: 100%;
-	cursor: pointer;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+  border-radius: $radius-md;
+  margin-bottom: 4px;
+  transition: all $transition-fast;
 
-	&--title {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		gap: 8px;
-		width: 100%;
-	}
+  &--title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+  }
+  
+  // Flecha indicadora de submenu
+  &--arrow {
+    font-size: 16px !important;
+    opacity: 0.6;
+    transition: transform $transition-fast, opacity $transition-fast;
+  }
 
-	&:hover {
-		background-color: $color-secondary-black-33;
-		border-radius: 4px;
-	}
-	&.active {
-		background-color: $color-secondary-black-66;
-		border-radius: 4px;
-	}
-	&.activeGroup {
-		background-color: $color-secondary-black-66;
-		border-top-left-radius: 4px;
-		border-top-right-radius: 4px;
-		&:hover {
-			border-bottom-left-radius: 0px;
-			border-bottom-right-radius: 0px;
-		}
-	}
+  // Hover
+  &:hover {
+    background-color: rgba($color-white, 0.1);
+    
+    i {
+      opacity: 1;
+    }
+    
+    a {
+      color: $color-white;
+    }
+  }
+  
+  // Activo (seleccionado)
+  &.active {
+    background-color: rgba($color-white, 0.15);
+    
+    a {
+      font-weight: $font-weight-semibold;
+      color: $color-white;
+    }
+    
+    i {
+      opacity: 1;
+    }
+    
+    // Indicador lateral
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 60%;
+      background: $color-verde-light;
+      border-radius: 0 2px 2px 0;
+    }
+  }
+  
+  // Grupo activo (con submenu abierto)
+  &.activeGroup {
+    background-color: rgba($color-white, 0.1);
+    border-radius: $radius-md $radius-md 0 0;
+    
+    .menu__item--arrow {
+      transform: rotate(180deg);
+      opacity: 1;
+    }
+    
+    &:hover {
+      border-radius: $radius-md $radius-md 0 0;
+    }
+  }
 }
 
+// ========================================
+// SUBMENU
+// ========================================
 .submenu {
-	max-height: 0;
-	overflow: hidden;
-	transition: max-height 0s ease-out;
-	border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 4px;
-	background-color: $color-secondary-black-10;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  border-radius: 0 0 $radius-md $radius-md;
+  background-color: rgba($color-black, 0.2);
+  margin-bottom: 4px;
 
-	&.active {
-		max-height: 1000px;
-	}
+  &.active {
+    max-height: 1000px;
+    transition: max-height 0.5s ease-in;
+  }
 
-	&__item {
-		padding: 12px;
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: space-between;
-		background-color: $color-secondary-black-33;
-		cursor: pointer;
+  &__item {
+    padding: 10px 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    position: relative;
+    transition: all $transition-fast;
 
-		&--title {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			gap: 8px;
-			width: 100%;
-		}
+    &--title {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      
+      i {
+        font-size: 18px;
+        opacity: 0.6;
+      }
+    }
+    
+    a {
+      font-size: $font-size-xs;
+      opacity: 0.85;
+    }
 
-		&.active {
-			a {
-				color: $color-primary-yellow;
-			}
-		}
-		&:hover {
-			background-color: $color-secondary-black-66;
-			border-bottom-left-radius: 0px;
-			border-bottom-right-radius: 0px;
-		}
-		&.activeGroup {
-			background-color: $color-secondary-black-66;
-		}
-	}
+    // Item activo en submenu
+    &.active {
+      background-color: rgba($color-white, 0.1);
+      
+      a {
+        color: $color-verde-light;
+        font-weight: $font-weight-semibold;
+        opacity: 1;
+      }
+      
+      i {
+        color: $color-verde-light;
+        opacity: 1;
+      }
+      
+      // Indicador
+      &::before {
+        content: '';
+        position: absolute;
+        left: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 6px;
+        height: 6px;
+        background: $color-verde-light;
+        border-radius: 50%;
+      }
+    }
+    
+    &:hover {
+      background-color: rgba($color-white, 0.08);
+      
+      a {
+        opacity: 1;
+      }
+      
+      i {
+        opacity: 0.9;
+      }
+    }
+    
+    &.activeGroup {
+      background-color: rgba($color-white, 0.1);
+    }
+  }
 }
-/* Estilo para el primer nivel de submenús */
+
+// ========================================
+// NIVELES DE INDENTACIÓN
+// ========================================
+
+// Primer nivel de submenús
 .submenu > ui-sidenav-item > .submenu__item {
-	padding-left: 36px;
+  padding-left: 40px;
 }
 
-/* Estilo para el segundo nivel de submenús */
+// Segundo nivel de submenús
 .submenu > ui-sidenav-item > .submenu > ui-sidenav-item > .submenu__item {
-	padding-left: 62px;
+  padding-left: 56px;
 }
 
-/* Estilo para el tercer nivel de submenús */
-.submenu
-	> ui-sidenav-item
-	> .submenu
-	> ui-sidenav-item
-	> .submenu
-	> ui-sidenav-item
-	> .submenu__item {
-	padding-left: 86px;
+// Tercer nivel de submenús
+.submenu > ui-sidenav-item > .submenu > ui-sidenav-item > .submenu > ui-sidenav-item > .submenu__item {
+  padding-left: 72px;
+}
+
+// ========================================
+// VARIANTE COLAPSADA
+// ========================================
+:host-context(.sidenav--collapsed) {
+  .menu__item {
+    padding: 12px;
+    justify-content: center;
+    
+    &--title {
+      justify-content: center;
+      
+      span {
+        display: none;
+      }
+    }
+    
+    &--arrow {
+      display: none;
+    }
+  }
 }

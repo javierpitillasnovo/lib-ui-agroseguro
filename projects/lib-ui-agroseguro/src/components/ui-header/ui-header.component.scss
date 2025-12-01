@@ -1,55 +1,226 @@
+// ============================================================================
+// AGROSEGURO - UI HEADER COMPONENT
+// Cabecera con nueva imagen corporativa 2024
+// ============================================================================
+
 @use '../../../assets/variables' as *;
 @use '../../../assets/base' as *;
 
 .header {
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
-	padding: 24px 48px;
-	box-shadow: 0px 2px 4px 0px $color-shadow;
-	&__logo {
-		img {
-			width: 220px;
-		}
-	}
-	&__userActions {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		gap: 24px;
-		color: $color-primary-green;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  background: $color-white;
+  box-shadow: $shadow-sm;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: box-shadow $transition-normal;
+  
+  // Elevación al hacer scroll
+  &--elevated {
+    box-shadow: $shadow-md;
+  }
+  
+  // ========================================
+  // LOGO
+  // ========================================
+  &__logo {
+    display: flex;
+    align-items: center;
+    
+    img {
+      width: 180px;
+      height: auto;
+      transition: opacity $transition-fast;
+      
+      &:hover {
+        opacity: 0.85;
+      }
+    }
+    
+    // Logo compacto para móvil
+    &--compact img {
+      width: 140px;
+    }
+  }
+  
+  // ========================================
+  // NAVEGACIÓN CENTRAL (opcional)
+  // ========================================
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    
+    &-item {
+      font-family: $font-family-primary;
+      font-size: $font-size-sm;
+      font-weight: $font-weight-medium;
+      color: $color-grey-600;
+      padding: 8px 16px;
+      border-radius: $radius-md;
+      text-decoration: none;
+      transition: all $transition-fast;
+      
+      &:hover {
+        color: $color-primary-green;
+        background: $color-verde-50;
+      }
+      
+      &--active {
+        color: $color-primary-green;
+        background: $color-verde-50;
+        font-weight: $font-weight-semibold;
+      }
+    }
+  }
+  
+  // ========================================
+  // ACCIONES DE USUARIO
+  // ========================================
+  &__userActions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    color: $color-primary-green;
 
-		i {
-			font-size: 24px;
-			cursor: pointer;
-			color: $color-primary-green;
-		}
+    // Iconos de acción
+    i {
+      font-size: 22px;
+      cursor: pointer;
+      color: $color-grey-500;
+      padding: 8px;
+      border-radius: $radius-md;
+      transition: all $transition-fast;
+      
+      &:hover {
+        color: $color-primary-green;
+        background: $color-verde-50;
+      }
+    }
+    
+    // Badge de notificación
+    &--badge {
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        width: 8px;
+        height: 8px;
+        background: $color-error;
+        border-radius: 50%;
+        border: 2px solid $color-white;
+      }
+    }
+    
+    // Separador
+    &--divider {
+      width: 1px;
+      height: 32px;
+      background: $color-grey-200;
+    }
 
-		&--info {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			justify-content: space-between;
-			border: 1px solid $color-primary-green;
-			border-radius: 12px;
-			padding: 12px;
-			gap: 8px;
-			@include body-regular;
-			cursor: pointer;
-
-			i {
-				&.icon-user {
-					border: 1px solid $color-primary-green;
-					padding: 6px;
-					border-radius: 50%;
-				}
-				&.icon-more {
-					transform: rotate(90deg);
-					margin-left: 12px;
-				}
-			}
-		}
-	}
+    // Info de usuario
+    &--info {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid $color-grey-200;
+      border-radius: $radius-lg;
+      padding: 8px 12px;
+      gap: 12px;
+      font-family: $font-family-primary;
+      font-size: $font-size-sm;
+      cursor: pointer;
+      transition: all $transition-fast;
+      background: $color-white;
+      
+      &:hover {
+        border-color: $color-primary-green;
+        background: $color-verde-50;
+      }
+      
+      // Avatar del usuario
+      i.icon-user {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border: 2px solid $color-primary-green;
+        background: $color-verde-50;
+        padding: 0;
+        border-radius: 50%;
+        font-size: 18px;
+        color: $color-primary-green;
+      }
+      
+      // Nombre del usuario
+      &-name {
+        display: flex;
+        flex-direction: column;
+        
+        span {
+          font-weight: $font-weight-semibold;
+          color: $color-primary-black;
+        }
+        
+        small {
+          font-size: $font-size-xs;
+          color: $color-grey-500;
+        }
+      }
+      
+      // Flecha dropdown
+      i.icon-more {
+        transform: rotate(90deg);
+        font-size: 16px;
+        color: $color-grey-400;
+        margin-left: 4px;
+        transition: transform $transition-fast;
+      }
+      
+      &--open {
+        i.icon-more {
+          transform: rotate(-90deg);
+        }
+      }
+    }
+  }
+  
+  // ========================================
+  // RESPONSIVE
+  // ========================================
+  @media (max-width: 768px) {
+    padding: 12px 16px;
+    
+    &__logo img {
+      width: 140px;
+    }
+    
+    &__nav {
+      display: none;
+    }
+    
+    &__userActions {
+      gap: 8px;
+      
+      &--info {
+        padding: 6px 10px;
+        
+        &-name {
+          display: none;
+        }
+      }
+    }
+  }
 }

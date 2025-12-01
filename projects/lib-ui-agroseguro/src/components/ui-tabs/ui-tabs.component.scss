@@ -1,46 +1,98 @@
+// ============================================================================
+// AGROSEGURO - UI TABS COMPONENT
+// ============================================================================
 @use '../../../assets/variables' as *;
 @use '../../../assets/base' as *;
 
-ui-tabs {
-	flex-grow: 1;
-	display: flex;
-	flex-direction: column;
-	overflow: hidden;
+.tabs {
+  &__nav {
+    display: flex;
+    border-bottom: 2px solid $color-grey-200;
+    gap: 4px;
+    overflow-x: auto;
+    
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  
+  &__tab {
+    font-family: $font-family-primary;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-grey-500;
+    padding: $space-md $space-lg;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all $transition-fast;
+    
+    &:hover {
+      color: $color-primary-green;
+      background: $color-verde-50;
+    }
+    
+    &--active {
+      color: $color-primary-green;
+      font-weight: $font-weight-semibold;
+      border-bottom-color: $color-primary-green;
+    }
+    
+    &:disabled {
+      color: $color-grey-300;
+      cursor: not-allowed;
+      
+      &:hover {
+        background: transparent;
+      }
+    }
+    
+    i {
+      margin-right: 8px;
+      font-size: 18px;
+    }
+  }
+  
+  &__content {
+    padding: $space-xl 0;
+  }
+  
+  &__panel {
+    display: none;
+    animation: fadeIn $transition-normal;
+    
+    &--active {
+      display: block;
+    }
+  }
+  
+  // Variante pills
+  &--pills {
+    .tabs__nav {
+      border-bottom: none;
+      background: $color-grey-100;
+      padding: 4px;
+      border-radius: $radius-lg;
+      gap: 0;
+    }
+    
+    .tabs__tab {
+      border-radius: $radius-md;
+      margin-bottom: 0;
+      border-bottom: none;
+      
+      &--active {
+        background: $color-white;
+        box-shadow: $shadow-sm;
+      }
+    }
+  }
 }
 
-.tabs {
-	flex-grow: 1;
-	overflow: hidden;
-	display: flex;
-	flex-direction: column;
-	&__menu {
-		display: flex;
-		align-items: center;
-		&--title {
-			@include body-regular;
-			font-size: 16px;
-			color: $color-grey;
-			border-bottom: 1px solid $color-grey;
-			flex: auto;
-			display: flex;
-			justify-content: center;
-			padding: 12px;
-			cursor: pointer;
-			&.active {
-				color: $color-primary-green;
-				border-color: $color-primary-green;
-			}
-
-			&:hover {
-				color: $color-secondary-green-80;
-				border-color: $color-secondary-green-80;
-			}
-		}
-	}
-	&__content {
-		margin-top: 24px;
-		padding: 0px 24px 24px 24px;
-		overflow: auto;
-		flex-grow: 1;
-	}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }

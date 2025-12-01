@@ -1,39 +1,87 @@
+// ============================================================================
+// AGROSEGURO - UI LINK COMPONENT
+// ============================================================================
 @use '../../../assets/variables' as *;
 @use '../../../assets/base' as *;
 
-a {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	gap: 8px;
-	color: $color-primary-green;
-	text-decoration: none;
-
-	span {
-		@include links;
-	}
-
-	i {
-		font-size: 18px;
-		color: $color-primary-green;
-	}
-
-	&:hover {
-		span {
-			text-decoration: underline;
-			text-shadow: 0px 1px 1px $color-shadow;
-		}
-		cursor: pointer;
-	}
-
-	&.secondary {
-		color: $color-white;
-		i {
-			color: $color-white;
-		}
-	}
-
-	&.iFirst {
-		flex-direction: row-reverse;
-	}
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: $font-family-primary;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-primary-green;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all $transition-fast;
+  
+  i {
+    font-size: 18px;
+    transition: transform $transition-fast;
+  }
+  
+  &:hover {
+    color: $color-verde-hover;
+    text-decoration: underline;
+    
+    i {
+      transform: translateX(2px);
+    }
+  }
+  
+  &:active {
+    color: $color-verde-active;
+  }
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba($color-primary-green, 0.2);
+    border-radius: 2px;
+  }
+  
+  // Variantes
+  &--secondary {
+    color: $color-grey-600;
+    
+    &:hover {
+      color: $color-primary-black;
+    }
+  }
+  
+  &--danger {
+    color: $color-primary-red;
+    
+    &:hover {
+      color: darken($color-primary-red, 10%);
+    }
+  }
+  
+  &--disabled {
+    color: $color-grey-400;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  
+  // Con icono a la derecha
+  &--icon-right {
+    flex-direction: row-reverse;
+    
+    &:hover i {
+      transform: translateX(-2px);
+    }
+  }
+  
+  // Tamaños
+  &--sm {
+    font-size: $font-size-xs;
+    
+    i { font-size: 16px; }
+  }
+  
+  &--lg {
+    font-size: $font-size-base;
+    
+    i { font-size: 20px; }
+  }
 }

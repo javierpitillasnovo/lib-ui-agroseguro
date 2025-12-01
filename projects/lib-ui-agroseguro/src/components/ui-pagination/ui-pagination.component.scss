@@ -1,29 +1,93 @@
+// ============================================================================
+// AGROSEGURO - UI PAGINATION COMPONENT
+// ============================================================================
 @use '../../../assets/variables' as *;
 @use '../../../assets/base' as *;
 
 .pagination {
-	@include body-regular;
-	color: $color-primary-green;
-	padding: 12px;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
-	border-top: 1px solid $color-grey;
-	i {
-		font-size: 32px;
-		cursor: pointer;
-		color: $color-primary-green;
-	}
-	&__pageSize {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		gap: 12px;
-	}
-	&__current {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-	}
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: $font-family-primary;
+  
+  &__item {
+    min-width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 8px;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-grey-600;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: $radius-md;
+    cursor: pointer;
+    transition: all $transition-fast;
+    
+    &:hover:not(:disabled) {
+      background: $color-grey-100;
+      color: $color-primary-black;
+    }
+    
+    &--active {
+      background: $color-primary-green;
+      color: $color-white;
+      font-weight: $font-weight-semibold;
+      
+      &:hover:not(:disabled) {
+        background: $color-verde-hover;
+        color: $color-white;
+      }
+    }
+    
+    &--disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    
+    i {
+      font-size: 18px;
+    }
+  }
+  
+  &__ellipsis {
+    color: $color-grey-400;
+    padding: 0 4px;
+  }
+  
+  // Info de páginas
+  &__info {
+    margin-left: 16px;
+    font-size: $font-size-sm;
+    color: $color-grey-500;
+  }
+  
+  // Selector de items por página
+  &__per-page {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 24px;
+    
+    span {
+      font-size: $font-size-sm;
+      color: $color-grey-500;
+    }
+    
+    select {
+      padding: 6px 28px 6px 10px;
+      font-size: $font-size-sm;
+      border: 1px solid $color-grey-300;
+      border-radius: $radius-sm;
+      background: $color-white;
+      cursor: pointer;
+      
+      &:focus {
+        outline: none;
+        border-color: $color-primary-green;
+      }
+    }
+  }
 }

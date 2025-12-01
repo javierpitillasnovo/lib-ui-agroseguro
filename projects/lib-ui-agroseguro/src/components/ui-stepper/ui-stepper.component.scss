@@ -1,73 +1,108 @@
+// ============================================================================
+// AGROSEGURO - UI STEPPER COMPONENT
+// ============================================================================
 @use '../../../assets/variables' as *;
 @use '../../../assets/base' as *;
 
 .stepper {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 24px;
-	width: 100%;
-
-	&__steps {
-		width: 100%;
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: center;
-		gap: 8px;
-		.steps__step {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			gap: 8px;
-			&--number {
-				@include body-regular;
-				background: $color-secondary-black-33;
-				border: 1px solid $color-primary-black;
-				border-radius: 50%;
-				color: $color-white;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				height: 32px;
-				width: 32px;
-			}
-			&--title {
-				@include body-regular;
-				color: $color-secondary-black-33;
-			}
-
-			&.active {
-				.steps__step--number {
-					background: $color-primary-green;
-				}
-				.steps__step--title {
-					color: $color-primary-green;
-				}
-			}
-			hr {
-				border: 1px solid $color-primary-black;
-				width: 56px;
-			}
-		}
-	}
-
-	&__content {
-		width: 100%;
-
-		> * {
-			width: 100%;
-			overflow: auto;
-			display: flex;
-			flex-direction: column;
-		}
-	}
-
-	&__actions {
-		width: 100%;
-		display: flex;
-		justify-content: flex-end !important;
-		gap: 12px !important;
-	}
+  display: flex;
+  align-items: flex-start;
+  font-family: $font-family-primary;
+  
+  &__step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    position: relative;
+    
+    // Línea conectora
+    &:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 18px;
+      left: calc(50% + 20px);
+      width: calc(100% - 40px);
+      height: 2px;
+      background: $color-grey-200;
+      z-index: 0;
+    }
+    
+    &--completed::after {
+      background: $color-primary-green;
+    }
+  }
+  
+  &__indicator {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    background: $color-grey-200;
+    color: $color-grey-500;
+    border: 2px solid $color-grey-200;
+    position: relative;
+    z-index: 1;
+    transition: all $transition-fast;
+    
+    .stepper__step--active & {
+      background: $color-white;
+      border-color: $color-primary-green;
+      color: $color-primary-green;
+    }
+    
+    .stepper__step--completed & {
+      background: $color-primary-green;
+      border-color: $color-primary-green;
+      color: $color-white;
+    }
+    
+    i {
+      font-size: 18px;
+    }
+  }
+  
+  &__label {
+    margin-top: 8px;
+    font-size: $font-size-xs;
+    color: $color-grey-500;
+    text-align: center;
+    max-width: 120px;
+    
+    .stepper__step--active & {
+      color: $color-primary-green;
+      font-weight: $font-weight-semibold;
+    }
+    
+    .stepper__step--completed & {
+      color: $color-primary-green;
+    }
+  }
+  
+  // Variante vertical
+  &--vertical {
+    flex-direction: column;
+    
+    .stepper__step {
+      flex-direction: row;
+      align-items: flex-start;
+      
+      &:not(:last-child)::after {
+        top: 36px;
+        left: 17px;
+        width: 2px;
+        height: calc(100% - 20px);
+      }
+    }
+    
+    .stepper__label {
+      margin-top: 0;
+      margin-left: 12px;
+      text-align: left;
+    }
+  }
 }

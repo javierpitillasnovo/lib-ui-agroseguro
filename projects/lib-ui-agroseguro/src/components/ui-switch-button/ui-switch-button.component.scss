@@ -1,109 +1,102 @@
+// ============================================================================
+// AGROSEGURO - UI SWITCH BUTTON COMPONENT
+// ============================================================================
 @use '../../../assets/variables' as *;
 @use '../../../assets/base' as *;
 
 .switch {
-	position: relative;
-	display: flex;
-
-	input {
-		opacity: 0;
-		width: 0;
-		height: 0;
-	}
-
-	.slider {
-		position: absolute;
-		cursor: pointer;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		box-shadow: 0px 0px 2px 0px $color-shadow;
-		border: 1px solid $color-white;
-		border-radius: 16px;
-		-webkit-transition: 0.4s;
-		transition: 0.4s;
-	}
-
-	&.text {
-		width: 72px;
-		height: 36px;
-
-		.slider {
-			&__round {
-				position: absolute;
-				border-radius: 50%;
-				background: $color-white;
-				box-shadow: 0px 0px 2px 0px $color-shadow;
-				-webkit-transition: 0.4s;
-				transition: 0.4s;
-				top: 4px;
-				left: 5px;
-				width: 26px;
-				height: 26px;
-			}
-
-			&__text {
-				@include body-bold;
-				font-size: 16px;
-				color: $color-white;
-				position: absolute;
-				top: 6px;
-				right: 8px;
-				-webkit-transition: 0.4s;
-				transition: 0.4s;
-			}
-		}
-
-		input:not(:checked) + .slider {
-			background: $color-primary-red;
-		}
-
-		input:checked + .slider {
-			background: $color-primary-green;
-			.slider__round {
-				-webkit-transform: translateX(34px);
-				-ms-transform: translateX(34px);
-				transform: translateX(34px);
-			}
-			.slider__text {
-				-webkit-transform: translateX(-28px);
-				-ms-transform: translateX(-28px);
-				transform: translateX(-28px);
-			}
-		}
-	}
-
-	&.noText {
-		width: 30px;
-		height: 18px;
-
-		.slider {
-			&__round {
-				position: absolute;
-				border-radius: 50%;
-				background: $color-white;
-				box-shadow: 0px 0px 2px 0px $color-shadow;
-				-webkit-transition: 0.4s;
-				transition: 0.4s;
-				top: 1px;
-				left: 1px;
-				width: 14px;
-				height: 14px;
-			}
-		}
-
-		input:not(:checked) + .slider {
-			background: $color-primary-red;
-		}
-
-		input:checked + .slider {
-			background: $color-primary-green;
-			.slider__round {
-				-webkit-transform: translateX(12px);
-				-ms-transform: translateX(12px);
-				transform: translateX(12px);
-			}
-		}
-	}
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-family: $font-family-primary;
+  
+  &__input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    
+    &:checked + .switch__track {
+      background: $color-primary-green;
+      
+      .switch__thumb {
+        transform: translateX(20px);
+      }
+    }
+    
+    &:focus + .switch__track {
+      box-shadow: 0 0 0 3px rgba($color-primary-green, 0.2);
+    }
+    
+    &:disabled + .switch__track {
+      background: $color-grey-200;
+      cursor: not-allowed;
+      
+      .switch__thumb {
+        background: $color-grey-300;
+      }
+    }
+    
+    &:disabled:checked + .switch__track {
+      background: rgba($color-primary-green, 0.4);
+    }
+  }
+  
+  &__track {
+    width: 44px;
+    height: 24px;
+    background: $color-grey-300;
+    border-radius: $radius-full;
+    position: relative;
+    transition: all $transition-fast;
+    flex-shrink: 0;
+  }
+  
+  &__thumb {
+    width: 20px;
+    height: 20px;
+    background: $color-white;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: all $transition-fast;
+    box-shadow: $shadow-sm;
+  }
+  
+  &__label {
+    font-size: $font-size-sm;
+    color: $color-primary-black;
+    user-select: none;
+    
+    &--left {
+      order: -1;
+    }
+  }
+  
+  &--disabled {
+    cursor: not-allowed;
+    
+    .switch__label {
+      color: $color-grey-400;
+    }
+  }
+  
+  // Tamaño pequeño
+  &--sm {
+    .switch__track {
+      width: 36px;
+      height: 20px;
+    }
+    
+    .switch__thumb {
+      width: 16px;
+      height: 16px;
+    }
+    
+    .switch__input:checked + .switch__track .switch__thumb {
+      transform: translateX(16px);
+    }
+  }
 }

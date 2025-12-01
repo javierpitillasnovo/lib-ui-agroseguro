@@ -1,67 +1,246 @@
+// ============================================================================
+// AGROSEGURO - UI BUTTON COMPONENT
+// Botones con nueva imagen corporativa 2024
+// ============================================================================
+
 @use '../../../assets/variables' as *;
 @use '../../../assets/base' as *;
 
 .btn {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	flex-wrap: nowrap;
-	gap: 8px;
-	color: $color-white;
-	padding: 6px 12px;
-	border-radius: 16px;
-	border: none;
-	text-transform: uppercase;
-	width: fit-content;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 8px;
+  color: $color-white;
+  padding: 10px 20px;
+  border-radius: $radius-md;
+  border: 2px solid transparent;
+  font-family: $font-family-primary;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  text-transform: none;
+  width: fit-content;
+  cursor: pointer;
+  transition: all $transition-fast;
+  text-decoration: none;
 
-	i {
-		font-size: 24px;
-		color: $color-white;
-	}
+  i {
+    font-size: 20px;
+    color: inherit;
+    transition: color $transition-fast;
+  }
 
-	span {
-		@include body-bold;
-	}
+  span {
+    font-weight: $font-weight-semibold;
+  }
 
-	&:hover {
-		box-shadow: 0px 0px 3px 0px $color-shadow;
-		cursor: pointer;
-	}
+  &:hover:not(:disabled) {
+    box-shadow: $shadow-md;
+    transform: translateY(-1px);
+  }
+  
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
 
-	&.xl {
-		padding: 12px 24px;
-		border-radius: 24px;
-	}
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($color-primary-green, 0.25);
+  }
 
-	&.iFirst {
-		flex-direction: row-reverse;
-	}
+  // Tamaños
+  &.sm {
+    padding: 6px 12px;
+    font-size: $font-size-xs;
+    border-radius: $radius-sm;
+    
+    i {
+      font-size: 16px;
+    }
+  }
+  
+  &.xl {
+    padding: 14px 28px;
+    font-size: $font-size-base;
+    border-radius: $radius-lg;
+    
+    i {
+      font-size: 24px;
+    }
+  }
 
-	&__primary {
-		background: $color-primary-green;
-		&:disabled {
-			background: $color-grey !important;
-			cursor: not-allowed;
-		}
+  // Icono primero
+  &.iFirst {
+    flex-direction: row-reverse;
+  }
+  
+  // Solo icono
+  &.icon-only {
+    padding: 10px;
+    border-radius: $radius-full;
+    
+    &.sm {
+      padding: 6px;
+    }
+    
+    &.xl {
+      padding: 14px;
+    }
+  }
 
-		&--red {
-			background: $color-primary-red;
-		}
-	}
-	&__secondary {
-		background: $color-white;
-		border: 1px solid $color-primary-green;
-		color: $color-primary-green;
-		i {
-			color: $color-primary-green;
-		}
-		&:disabled {
-			border: 1px solid $color-grey;
-			color: $color-grey;
-			cursor: not-allowed;
-			i {
-				color: $color-grey;
-			}
-		}
-	}
+  // ========================================
+  // VARIANTES DE COLOR
+  // ========================================
+
+  // Botón primario (verde corporativo)
+  &__primary {
+    background: $color-primary-green;
+    color: $color-white;
+    
+    &:hover:not(:disabled) {
+      background: $color-verde-hover;
+    }
+    
+    &:active:not(:disabled) {
+      background: $color-verde-active;
+    }
+    
+    &:disabled {
+      background: $color-grey-300 !important;
+      color: $color-grey-500;
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: none;
+    }
+
+    // Variante roja
+    &--red {
+      background: $color-primary-red;
+      
+      &:hover:not(:disabled) {
+        background: darken($color-primary-red, 8%);
+      }
+      
+      &:focus {
+        box-shadow: 0 0 0 3px rgba($color-primary-red, 0.25);
+      }
+    }
+    
+    // Variante azul
+    &--blue {
+      background: $color-primary-blue;
+      
+      &:hover:not(:disabled) {
+        background: darken($color-primary-blue, 8%);
+      }
+      
+      &:focus {
+        box-shadow: 0 0 0 3px rgba($color-primary-blue, 0.25);
+      }
+    }
+  }
+  
+  // Botón secundario (outline verde)
+  &__secondary {
+    background: transparent;
+    border: 2px solid $color-primary-green;
+    color: $color-primary-green;
+    
+    i {
+      color: $color-primary-green;
+    }
+    
+    &:hover:not(:disabled) {
+      background: $color-verde-50;
+      box-shadow: none;
+    }
+    
+    &:active:not(:disabled) {
+      background: $color-verde-100;
+    }
+    
+    &:disabled {
+      border-color: $color-grey-300;
+      color: $color-grey-400;
+      cursor: not-allowed;
+      
+      i {
+        color: $color-grey-400;
+      }
+    }
+    
+    // Variante roja
+    &--red {
+      border-color: $color-primary-red;
+      color: $color-primary-red;
+      
+      i {
+        color: $color-primary-red;
+      }
+      
+      &:hover:not(:disabled) {
+        background: rgba($color-primary-red, 0.05);
+      }
+    }
+  }
+  
+  // Botón terciario (ghost/text)
+  &__tertiary {
+    background: transparent;
+    color: $color-primary-green;
+    padding: 10px 12px;
+    
+    i {
+      color: $color-primary-green;
+    }
+    
+    &:hover:not(:disabled) {
+      background: $color-verde-50;
+      box-shadow: none;
+    }
+    
+    &:disabled {
+      color: $color-grey-400;
+      cursor: not-allowed;
+      
+      i {
+        color: $color-grey-400;
+      }
+    }
+  }
+  
+  // Botón de peligro
+  &__danger {
+    background: $color-error;
+    color: $color-white;
+    
+    &:hover:not(:disabled) {
+      background: darken($color-error, 8%);
+    }
+    
+    &:focus {
+      box-shadow: 0 0 0 3px rgba($color-error, 0.25);
+    }
+    
+    &:disabled {
+      background: $color-grey-300 !important;
+      color: $color-grey-500;
+      cursor: not-allowed;
+    }
+  }
+}
+
+// ========================================
+// GRUPO DE BOTONES
+// ========================================
+
+.btn-group {
+  display: inline-flex;
+  gap: 8px;
+  
+  &--vertical {
+    flex-direction: column;
+  }
 }

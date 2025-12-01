@@ -1,210 +1,124 @@
+// ============================================================================
+// AGROSEGURO - UI TABLE COMPONENT
+// ============================================================================
 @use '../../../assets/variables' as *;
 @use '../../../assets/base' as *;
 
-.tableBasic {
-	display: block;
-	border-radius: 12px;
-	border: 1px solid $color-grey;
-	min-width: fit-content;
-
-	&.hasError {
-		.tableBasic__table {
-			table {
-				thead tr th {
-					background: $color-secondary-red-80;
-					border-color: $color-primary-red;
-				}
-			}
-		}
-		.tableBasic__pagination {
-			color: $color-primary-red;
-			i {
-				color: $color-primary-red;
-			}
-		}
-	}
-
-	&__title {
-		@include body-bold;
-		color: $color-primary-green;
-		padding: 12px;
-		text-transform: uppercase;
-	}
-
-	&__table {
-		table {
-			overflow: hidden;
-			border-collapse: collapse;
-			width: 100%;
-			table-layout: auto;
-
-			thead th,
-			tbody td {
-				padding: 12px;
-			}
-
-			thead tr {
-				&:first-child {
-					th {
-						&:first-child {
-							border-radius: 12px 0px 0px 0px;
-							border-left: none;
-						}
-						&:last-child {
-							border-right: none;
-							border-radius: 0px 12px 0px 0px;
-						}
-					}
-				}
-				&:last-child {
-					border-bottom: 1px solid $color-grey;
-				}
-				th {
-					@include body-bold;
-					text-align: center;
-					background: $color-secondary-green-80;
-					color: $color-white;
-					border-bottom: 1px solid $color-primary-green;
-					text-transform: uppercase;
-					i {
-						color: $color-white;
-					}
-
-					&:first-child {
-						border-left: none;
-					}
-					&:last-child {
-						border-right: none;
-					}
-				}
-			}
-
-			tbody tr {
-				border-bottom: 1px solid $color-grey;
-				// Estilos para las filas pares
-				&:nth-of-type(even) {
-					background: rgba($color-grey-03, 0.7);
-				}
-				&.selected {
-					background: $color-secondary-green-15;
-				}
-				&:last-child {
-					border: none;
-					td {
-						&:first-child {
-							border-radius: 0px 0px 0px 12px;
-							border: transparent;
-						}
-						&:last-child {
-							border-radius: 0px 0px 12px 0px;
-							border: transparent;
-						}
-					}
-				}
-				td {
-					@include body-regular;
-					color: $color-secondary-black-66;
-					i {
-						color: $color-primary-green;
-						&.icon-cross {
-							color: $color-primary-red;
-						}
-						&.icon-trash {
-							color: $color-primary-red;
-						}
-					}
-				}
-			}
-		}
-
-		i {
-			font-size: 18px;
-			color: $color-secondary-black-66;
-			cursor: pointer;
-		}
-	}
-
-	&.headersGroups {
-		.tableBasic__table {
-			table {
-				thead tr {
-					th {
-						border: 1px solid $color-primary-green;
-						border-top: none;
-						&:first-child {
-							border-left: none;
-						}
-						&:last-child {
-							border-right: none;
-						}
-					}
-				}
-			}
-		}
-	}
-
-	&.showHeader {
-		.tableBasic__title {
-			border-bottom: 2px solid $color-primary-green;
-		}
-		.tableBasic__table {
-			table {
-				thead tr {
-					th {
-						&:first-child {
-							border-radius: 0px;
-						}
-						&:last-child {
-							border-radius: 0px;
-						}
-					}
-				}
-			}
-		}
-	}
-
-	&.showPag {
-		tbody tr {
-			&:last-child {
-				td {
-					&:first-child {
-						border-radius: 0px;
-						border: transparent;
-					}
-					&:last-child {
-						border-radius: 0px;
-						border: transparent;
-					}
-				}
-			}
-		}
-	}
-
-	&__pagination {
-		@include body-regular;
-		color: $color-primary-green;
-		padding: 12px;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: space-between;
-		border-top: 1px solid $color-grey;
-		i {
-			font-size: 32px;
-			cursor: pointer;
-			color: $color-primary-green;
-		}
-		&--pageSize {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			gap: 12px;
-		}
-		&--current {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-		}
-	}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: $font-family-primary;
+  background: $color-white;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  box-shadow: $shadow-sm;
+  
+  &__header {
+    background: $color-verde-50;
+    
+    th {
+      padding: $space-md $space-lg;
+      text-align: left;
+      font-weight: $font-weight-semibold;
+      font-size: $font-size-xs;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: $color-primary-green;
+      border-bottom: 2px solid $color-primary-green;
+      white-space: nowrap;
+      
+      &.sortable {
+        cursor: pointer;
+        user-select: none;
+        
+        &:hover {
+          background: rgba($color-primary-green, 0.1);
+        }
+        
+        i {
+          margin-left: 8px;
+          font-size: 14px;
+          opacity: 0.5;
+        }
+        
+        &.sorted i {
+          opacity: 1;
+          color: $color-primary-green;
+        }
+      }
+    }
+  }
+  
+  &__body {
+    tr {
+      transition: background $transition-fast;
+      
+      &:hover {
+        background: $color-grey-50;
+      }
+      
+      &:nth-child(even) {
+        background: $color-grey-50;
+        
+        &:hover {
+          background: $color-grey-100;
+        }
+      }
+      
+      &.selected {
+        background: $color-verde-50 !important;
+      }
+    }
+    
+    td {
+      padding: $space-md $space-lg;
+      font-size: $font-size-sm;
+      color: $color-primary-black;
+      border-bottom: 1px solid $color-grey-200;
+      vertical-align: middle;
+    }
+  }
+  
+  // Acciones en celda
+  &__actions {
+    display: flex;
+    gap: 8px;
+    
+    button {
+      padding: 6px;
+      border: none;
+      background: transparent;
+      border-radius: $radius-sm;
+      cursor: pointer;
+      color: $color-grey-500;
+      transition: all $transition-fast;
+      
+      &:hover {
+        background: $color-grey-100;
+        color: $color-primary-green;
+      }
+      
+      &.danger:hover {
+        background: $color-error-light;
+        color: $color-error;
+      }
+    }
+  }
+  
+  // Estado vacío
+  &__empty {
+    text-align: center;
+    padding: $space-3xl;
+    color: $color-grey-500;
+    
+    i {
+      font-size: 48px;
+      margin-bottom: $space-md;
+      opacity: 0.5;
+    }
+    
+    p {
+      font-size: $font-size-sm;
+    }
+  }
 }

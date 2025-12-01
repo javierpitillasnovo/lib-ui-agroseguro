@@ -1,56 +1,99 @@
+// ============================================================================
+// AGROSEGURO - UI NOTIFICATION COMPONENT
+// ============================================================================
 @use '../../../assets/variables' as *;
 @use '../../../assets/base' as *;
 
 .notification {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	gap: 10px;
-	padding: 12px 24px 12px 12px;
-	border-radius: 12px;
-	width: fit-content;
-	transition: all 0.3s ease-in-out; /* Para animar las notificaciones */
-	box-shadow: 0px 4px 10px $color-shadow;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: $space-md $space-lg;
+  border-radius: $radius-md;
+  border-left: 4px solid;
+  font-family: $font-family-primary;
+  animation: slideIn $transition-normal;
+  
+  &__icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  
+  &__content {
+    flex: 1;
+    
+    h5 {
+      font-size: $font-size-sm;
+      font-weight: $font-weight-semibold;
+      margin: 0 0 4px 0;
+    }
+    
+    p {
+      font-size: $font-size-sm;
+      margin: 0;
+      opacity: 0.9;
+    }
+  }
+  
+  &__close {
+    background: transparent;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    border-radius: $radius-sm;
+    opacity: 0.6;
+    transition: all $transition-fast;
+    
+    &:hover {
+      opacity: 1;
+      background: rgba($color-black, 0.05);
+    }
+    
+    i { font-size: 18px; }
+  }
+  
+  // Variantes
+  &--success {
+    background: $color-success-light;
+    border-color: $color-success;
+    color: darken($color-success, 25%);
+    
+    .notification__icon { color: $color-success; }
+  }
+  
+  &--warning {
+    background: $color-warning-light;
+    border-color: $color-warning;
+    color: darken($color-warning, 30%);
+    
+    .notification__icon { color: $color-warning; }
+  }
+  
+  &--error {
+    background: $color-error-light;
+    border-color: $color-error;
+    color: darken($color-error, 15%);
+    
+    .notification__icon { color: $color-error; }
+  }
+  
+  &--info {
+    background: $color-info-light;
+    border-color: $color-info;
+    color: darken($color-info, 25%);
+    
+    .notification__icon { color: $color-info; }
+  }
+}
 
-	&__icon {
-		display: flex;
-		align-items: center;
-		padding: 8px;
-		border-radius: 50%;
-		background: $color-white;
-	}
-
-	&__message {
-		@include body-regular;
-		color: $color-white;
-		margin-right: 24px;
-	}
-
-	i {
-		font-size: 18px;
-		color: $color-white;
-		&.icon-cross {
-			cursor: pointer;
-		}
-	}
-
-	&.error {
-		background: $color-secondary-red-80;
-		.notification__icon {
-			i {
-				font-size: 24px;
-				color: $color-primary-red;
-			}
-		}
-	}
-
-	&.success {
-		background: $color-primary-green;
-		.notification__icon {
-			i {
-				font-size: 24px;
-				color: $color-primary-green;
-			}
-		}
-	}
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

@@ -1,53 +1,232 @@
-//Variables de colores
+// ============================================================================
+// AGROSEGURO - SISTEMA DE DISEÑO
+// Variables SCSS - Paleta Corporativa Oficial 2024
+// ============================================================================
 
-//Primarys
-$color-primary-black: #1b1b1f;
-$color-primary-red: #e60003;
-$color-primary-yellow: #ffd300;
-$color-primary-green: #007c2a;
+// ============================================================================
+// COLORES PRINCIPALES (Manual de Marca Agroseguro)
+// ============================================================================
 
-//Secondarys
+// Verde Principal - Color identificativo de la marca
+$color-primary-green: #587A43;      // PANTONE 2279C - RGB: 88, 122, 67
+
+// Verde Claro - Uso puntual en piezas
+$color-verde-light: #8CAF75;        // PANTONE 2262C - RGB: 140, 175, 117
+
+// Colores Secundarios
+$color-primary-red: #823030;        // PANTONE 1955C - RGB: 130, 48, 48
+$color-primary-blue: #64848C;       // PANTONE 2177C - RGB: 100, 132, 140
+$color-primary-yellow: #E3CC8D;     // PANTONE 7402C - RGB: 227, 204, 141
+$color-primary-brown: #56483F;      // PANTONE 2478C - RGB: 86, 72, 63
+
+// Neutros
+$color-white: #FFFFFF;
+$color-grey: #D3D3D3;               // Pantone Cool Gray 1C
+$color-primary-black: #262824;      // Pantone Black C - RGB: 38, 40, 36
+
+
+// ============================================================================
+// VARIACIONES DE VERDE (para estados y jerarquías)
+// ============================================================================
+$color-verde-hover: #4a6638;        // Verde oscurecido para hover
+$color-verde-active: #3d5530;       // Verde más oscuro para active
+$color-verde-50: #f3f7f0;           // Verde muy claro - backgrounds
+$color-verde-100: #e6eee1;          // Verde claro - backgrounds alternativos
+
+
+// ============================================================================
+// VARIACIONES CON OPACIDAD (compatibilidad con versión anterior)
+// ============================================================================
+
+// Variaciones de Negro
 $color-secondary-black-66: rgba($color-primary-black, 0.66);
 $color-secondary-black-33: rgba($color-primary-black, 0.33);
 $color-secondary-black-10: rgba($color-primary-black, 0.1);
+
+// Variaciones de Rojo
 $color-secondary-red-80: rgba($color-primary-red, 0.8);
 $color-secondary-red-30: rgba($color-primary-red, 0.3);
+
+// Variaciones de Verde
 $color-secondary-green-80: rgba($color-primary-green, 0.8);
 $color-secondary-green-60: rgba($color-primary-green, 0.6);
 $color-secondary-green-30: rgba($color-primary-green, 0.4);
 $color-secondary-green-15: rgba($color-primary-green, 0.15);
 $color-secondary-green-07: rgba($color-primary-green, 0.07);
+
+// Variaciones de Amarillo
 $color-secondary-yellow-80: rgba($color-primary-yellow, 0.8);
 $color-secondary-yellow-60: rgba($color-primary-yellow, 0.6);
 $color-secondary-yellow-30: rgba($color-primary-yellow, 0.3);
 
-//Gradient
+// Variaciones de Azul (nuevas)
+$color-secondary-blue-80: rgba($color-primary-blue, 0.8);
+$color-secondary-blue-60: rgba($color-primary-blue, 0.6);
+$color-secondary-blue-30: rgba($color-primary-blue, 0.3);
+
+// Variaciones de Marrón (nuevas)
+$color-secondary-brown-80: rgba($color-primary-brown, 0.8);
+$color-secondary-brown-60: rgba($color-primary-brown, 0.6);
+$color-secondary-brown-30: rgba($color-primary-brown, 0.3);
+
+
+// ============================================================================
+// GRADIENTES
+// ============================================================================
 $color-gradient: linear-gradient(
-	90deg,
-	rgba($color-primary-green, 0) 0%,
-	rgba($color-primary-green, 0.1) 49.91%,
-	rgba($color-primary-green, 0.66) 50.04%,
-	$color-primary-green 100%
+  90deg,
+  rgba($color-primary-green, 0) 0%,
+  rgba($color-primary-green, 0.1) 49.91%,
+  rgba($color-primary-green, 0.66) 50.04%,
+  $color-primary-green 100%
 );
 
-//Dark, White, Greys
-$color-white: #ffffff;
+$color-gradient-vertical: linear-gradient(
+  180deg,
+  $color-primary-green 0%,
+  $color-verde-light 100%
+);
+
+$color-gradient-subtle: linear-gradient(
+  135deg,
+  $color-verde-50 0%,
+  $color-white 100%
+);
+
+
+// ============================================================================
+// GRISES EXTENDIDOS
+// ============================================================================
 $color-black: #000000;
-$color-grey: #c1c1c1;
 $color-grey-02: #e8ebed;
 $color-grey-03: #f5f5f5;
+$color-grey-50: #F9FAFB;
+$color-grey-100: #F3F4F6;
+$color-grey-200: #E5E7EB;
+$color-grey-300: #D1D5DB;
+$color-grey-400: #9CA3AF;
+$color-grey-500: #6B7280;
+$color-grey-600: #4B5563;
+$color-grey-700: #374151;
+$color-grey-800: #1F2937;
+$color-grey-900: #111827;
 
-//Errors
-$color-error: #fdf2f2;
+
+// ============================================================================
+// COLORES DE ESTADO
+// ============================================================================
+$color-success: #10B981;
+$color-success-light: #D1FAE5;
+$color-warning: #F59E0B;
+$color-warning-light: #FEF3C7;
+$color-error: #EF4444;
+$color-error-light: #FEE2E2;
+$color-info: #3B82F6;
+$color-info-light: #DBEAFE;
+
+
+// ============================================================================
+// SOMBRAS
+// ============================================================================
 $color-shadow: rgba($color-black, 0.25);
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 
-//Puntos de corte
+
+// ============================================================================
+// ESPACIADO
+// ============================================================================
+$space-xs: 4px;
+$space-sm: 8px;
+$space-md: 16px;
+$space-lg: 24px;
+$space-xl: 32px;
+$space-2xl: 48px;
+$space-3xl: 64px;
+
+
+// ============================================================================
+// BORDER RADIUS
+// ============================================================================
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-xl: 16px;
+$radius-2xl: 24px;
+$radius-full: 9999px;
+
+
+// ============================================================================
+// TRANSICIONES
+// ============================================================================
+$transition-fast: 150ms ease;
+$transition-normal: 250ms ease;
+$transition-slow: 350ms ease;
+
+
+// ============================================================================
+// PUNTOS DE CORTE (Breakpoints)
+// ============================================================================
 $grid-columns: 12;
 $grid-breakpoints: (
-	xs: 0,
-	sm: 576px,
-	md: 768px,
-	lg: 992px,
-	xl: 1250px,
-	x2: 1440px
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1250px,
+  x2: 1440px
 );
+
+
+// ============================================================================
+// CSS CUSTOM PROPERTIES (para uso en componentes)
+// ============================================================================
+:root {
+  // Colores principales
+  --agro-verde-primary: #{$color-primary-green};
+  --agro-verde-light: #{$color-verde-light};
+  --agro-verde-hover: #{$color-verde-hover};
+  --agro-verde-active: #{$color-verde-active};
+  --agro-verde-50: #{$color-verde-50};
+  --agro-verde-100: #{$color-verde-100};
+  
+  // Colores secundarios
+  --agro-rojo: #{$color-primary-red};
+  --agro-azul: #{$color-primary-blue};
+  --agro-amarillo: #{$color-primary-yellow};
+  --agro-marron: #{$color-primary-brown};
+  
+  // Neutros
+  --agro-blanco: #{$color-white};
+  --agro-gris: #{$color-grey};
+  --agro-negro: #{$color-primary-black};
+  
+  // Estados
+  --agro-success: #{$color-success};
+  --agro-warning: #{$color-warning};
+  --agro-error: #{$color-error};
+  --agro-info: #{$color-info};
+  
+  // Sombras
+  --agro-shadow-sm: #{$shadow-sm};
+  --agro-shadow-md: #{$shadow-md};
+  --agro-shadow-lg: #{$shadow-lg};
+  
+  // Espaciado
+  --agro-space-xs: #{$space-xs};
+  --agro-space-sm: #{$space-sm};
+  --agro-space-md: #{$space-md};
+  --agro-space-lg: #{$space-lg};
+  --agro-space-xl: #{$space-xl};
+  
+  // Border radius
+  --agro-radius-sm: #{$radius-sm};
+  --agro-radius-md: #{$radius-md};
+  --agro-radius-lg: #{$radius-lg};
+  
+  // Transiciones
+  --agro-transition-fast: #{$transition-fast};
+  --agro-transition-normal: #{$transition-normal};
+}

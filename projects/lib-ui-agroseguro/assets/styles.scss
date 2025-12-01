@@ -1,42 +1,363 @@
-//Import all
+// ============================================================================
+// AGROSEGURO - DESIGN SYSTEM
+// Archivo principal de estilos - Nueva Imagen Corporativa 2024
+// ============================================================================
 
-// Reset
+// Reset y normalización
 @import './reset';
 
-//Variables and utilities
+// Variables y utilidades (colores, espaciado, etc.)
 @import './variables';
 @import './extensible';
 
-//Fonts
-@import './base';
+// Tipografía (Mulish)
 @import './fonts';
+@import './base';
 
-// Bootstrap
+// Bootstrap Grid
 @import './vendors/bootstrap/bootstrap-grid';
 
-// Project icons
+// Iconos del proyecto
 @import './icons/variables.scss';
 @import './icons/style.scss';
 
+// Estilos generales
 @import './general';
 
-// Dev-only styles
+// Dev-only styles (remover en producción)
 @import './devGrid';
 
+// ============================================================================
+// ESTILOS GLOBALES CORPORATIVOS
+// ============================================================================
+
+// Párrafos con estilo corporativo
 p {
-	@include body-regular;
-	color: $color-secondary-black-66;
-	i {
-		color: $color-primary-green;
-		vertical-align: middle;
-	}
+  @include body-regular;
+  color: $color-primary-black;
+  
+  i {
+    color: $color-primary-green;
+    vertical-align: middle;
+  }
+  
+  &.text-muted {
+    color: $color-grey-500;
+  }
+  
+  &.text-small {
+    @include body-small;
+  }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	color: $color-primary-green;
+// Encabezados con colores corporativos
+h1, h2, h3, h4, h5, h6 {
+  color: $color-primary-black;
+  
+  &.text-primary {
+    color: $color-primary-green;
+  }
+}
+
+// ============================================================================
+// CLASES DE UTILIDAD DE COLORES CORPORATIVOS
+// ============================================================================
+
+// Backgrounds
+.bg-verde { background-color: $color-primary-green !important; }
+.bg-verde-light { background-color: $color-verde-light !important; }
+.bg-verde-50 { background-color: $color-verde-50 !important; }
+.bg-rojo { background-color: $color-primary-red !important; }
+.bg-azul { background-color: $color-primary-blue !important; }
+.bg-amarillo { background-color: $color-primary-yellow !important; }
+.bg-marron { background-color: $color-primary-brown !important; }
+.bg-gris { background-color: $color-grey-100 !important; }
+.bg-white { background-color: $color-white !important; }
+
+// Bordes
+.border-verde { border-color: $color-primary-green !important; }
+.border-rojo { border-color: $color-primary-red !important; }
+.border-azul { border-color: $color-primary-blue !important; }
+
+// ============================================================================
+// COMPONENTES BASE
+// ============================================================================
+
+// Cards corporativas
+.card-agro {
+  background: $color-white;
+  border: 1px solid $color-grey-200;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-sm;
+  padding: $space-lg;
+  transition: box-shadow $transition-normal, transform $transition-normal;
+  
+  &:hover {
+    box-shadow: $shadow-md;
+  }
+  
+  .card-header {
+    @include h5;
+    color: $color-primary-green;
+    margin-bottom: $space-md;
+    padding-bottom: $space-sm;
+    border-bottom: 2px solid $color-verde-50;
+  }
+  
+  .card-body {
+    @include body-regular;
+  }
+  
+  .card-footer {
+    margin-top: $space-md;
+    padding-top: $space-sm;
+    border-top: 1px solid $color-grey-200;
+  }
+}
+
+// Badges corporativos
+.badge-agro {
+  display: inline-flex;
+  align-items: center;
+  padding: $space-xs $space-sm;
+  font-family: $font-family-primary;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  border-radius: $radius-full;
+  
+  &.badge-verde {
+    background-color: $color-verde-50;
+    color: $color-primary-green;
+  }
+  
+  &.badge-rojo {
+    background-color: $color-error-light;
+    color: $color-primary-red;
+  }
+  
+  &.badge-azul {
+    background-color: $color-info-light;
+    color: $color-primary-blue;
+  }
+  
+  &.badge-amarillo {
+    background-color: $color-warning-light;
+    color: $color-warning;
+  }
+}
+
+// Alerts corporativos
+.alert-agro {
+  padding: $space-md $space-lg;
+  border-radius: $radius-md;
+  border-left: 4px solid;
+  
+  &.alert-success {
+    background-color: $color-success-light;
+    border-color: $color-success;
+    color: darken($color-success, 20%);
+  }
+  
+  &.alert-warning {
+    background-color: $color-warning-light;
+    border-color: $color-warning;
+    color: darken($color-warning, 20%);
+  }
+  
+  &.alert-error {
+    background-color: $color-error-light;
+    border-color: $color-error;
+    color: darken($color-error, 10%);
+  }
+  
+  &.alert-info {
+    background-color: $color-info-light;
+    border-color: $color-info;
+    color: darken($color-info, 20%);
+  }
+}
+
+// ============================================================================
+// FORMULARIOS CORPORATIVOS
+// ============================================================================
+
+.form-group-agro {
+  margin-bottom: $space-lg;
+  
+  label {
+    @include form-label;
+    display: block;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: $space-sm $space-md;
+    font-family: $font-family-primary;
+    font-size: $font-size-base;
+    border: 1px solid $color-grey-300;
+    border-radius: $radius-md;
+    transition: border-color $transition-fast, box-shadow $transition-fast;
+    
+    &:focus {
+      outline: none;
+      border-color: $color-primary-green;
+      box-shadow: 0 0 0 3px rgba($color-primary-green, 0.15);
+    }
+    
+    &::placeholder {
+      color: $color-grey-400;
+    }
+    
+    &:disabled {
+      background-color: $color-grey-100;
+      cursor: not-allowed;
+    }
+    
+    &.is-invalid {
+      border-color: $color-error;
+      
+      &:focus {
+        box-shadow: 0 0 0 3px rgba($color-error, 0.15);
+      }
+    }
+    
+    &.is-valid {
+      border-color: $color-success;
+      
+      &:focus {
+        box-shadow: 0 0 0 3px rgba($color-success, 0.15);
+      }
+    }
+  }
+  
+  .form-text {
+    @include body-small;
+    color: $color-grey-500;
+    margin-top: $space-xs;
+  }
+  
+  .invalid-feedback {
+    @include body-small;
+    color: $color-error;
+    margin-top: $space-xs;
+  }
+}
+
+// ============================================================================
+// BOTONES CORPORATIVOS
+// ============================================================================
+
+.btn-agro {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-sm;
+  padding: $space-sm $space-lg;
+  font-family: $font-family-primary;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  border-radius: $radius-md;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all $transition-fast;
+  text-decoration: none;
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  // Botón primario (verde)
+  &.btn-primary {
+    background-color: $color-primary-green;
+    color: $color-white;
+    
+    &:hover:not(:disabled) {
+      background-color: $color-verde-hover;
+    }
+    
+    &:active:not(:disabled) {
+      background-color: $color-verde-active;
+    }
+  }
+  
+  // Botón secundario (outline verde)
+  &.btn-secondary {
+    background-color: transparent;
+    border-color: $color-primary-green;
+    color: $color-primary-green;
+    
+    &:hover:not(:disabled) {
+      background-color: $color-verde-50;
+    }
+  }
+  
+  // Botón de peligro (rojo)
+  &.btn-danger {
+    background-color: $color-primary-red;
+    color: $color-white;
+    
+    &:hover:not(:disabled) {
+      background-color: darken($color-primary-red, 10%);
+    }
+  }
+  
+  // Botón ghost
+  &.btn-ghost {
+    background-color: transparent;
+    color: $color-primary-green;
+    
+    &:hover:not(:disabled) {
+      background-color: $color-verde-50;
+    }
+  }
+  
+  // Tamaños
+  &.btn-sm {
+    padding: $space-xs $space-md;
+    font-size: $font-size-xs;
+  }
+  
+  &.btn-lg {
+    padding: $space-md $space-xl;
+    font-size: $font-size-base;
+  }
+}
+
+// ============================================================================
+// TABLAS CORPORATIVAS
+// ============================================================================
+
+.table-agro {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: $font-family-primary;
+  
+  th {
+    @include antetitulo;
+    padding: $space-md;
+    text-align: left;
+    background-color: $color-verde-50;
+    border-bottom: 2px solid $color-primary-green;
+  }
+  
+  td {
+    padding: $space-md;
+    border-bottom: 1px solid $color-grey-200;
+    @include body-regular;
+  }
+  
+  tr {
+    transition: background-color $transition-fast;
+    
+    &:hover {
+      background-color: $color-grey-50;
+    }
+  }
+  
+  &.table-striped {
+    tr:nth-child(even) {
+      background-color: $color-grey-50;
+    }
+  }
 }
