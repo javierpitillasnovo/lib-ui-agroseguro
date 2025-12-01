@@ -1,0 +1,12 @@
+<div class="fieldSearch__content">
+	@if (icon()) {
+		<i class="{{ icon() }}"></i>
+	}
+	<input
+		type="search"
+		placeholder="{{ placeholder() }}"
+		(blur)="onInputBlur()"
+		(input)="onInputChange($event)"
+		[value]="value()"
+	/>
+</div>

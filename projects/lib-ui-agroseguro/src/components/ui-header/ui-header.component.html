@@ -1,0 +1,12 @@
+<div class="header__logo">
+	<ng-content></ng-content>
+</div>
+<div class="header__userActions">
+	<i class="icon-bell"></i>
+	<div class="header__userActions--info">
+		<i class="icon-user"></i>
+		{{ userEmail() }}
+		<i class="icon-more"></i>
+	</div>
+	<i class="icon-logout" alt="Cerrar sesión" (click)="logOut()"></i>
+</div>

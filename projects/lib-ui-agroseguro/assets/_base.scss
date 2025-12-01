@@ -1,0 +1,82 @@
+@mixin h1 {
+	font-family: 'FrutigerBold';
+	font-size: 90px;
+	font-weight: 700;
+	font-style: normal;
+	line-height: 120%;
+}
+
+@mixin h2 {
+	font-family: 'FrutigerBold';
+	font-size: 72px;
+	font-weight: 700;
+	font-style: normal;
+	line-height: 120%;
+}
+
+@mixin h3 {
+	font-family: 'FrutigerBold';
+	font-size: 56px;
+	font-weight: 700;
+	font-style: normal;
+	line-height: 120%;
+}
+
+@mixin h4 {
+	font-family: 'FrutigerBold';
+	font-size: 40px;
+	font-weight: 700;
+	font-style: normal;
+	line-height: 120%;
+}
+
+@mixin h5 {
+	font-family: 'FrutigerBold';
+	font-size: 32px;
+	font-weight: 700;
+	font-style: normal;
+	line-height: 120%;
+}
+
+@mixin h6 {
+	font-family: 'FrutigerBold';
+	font-size: 24px;
+	font-weight: 700;
+	font-style: normal;
+	line-height: 120%;
+}
+
+@mixin body-regular {
+	font-family: 'FrutigerRoman';
+	font-size: 18px;
+	font-weight: 400;
+	font-style: normal;
+}
+
+@mixin body-regular-italic {
+	font-family: 'FrutigerRoman';
+	font-size: 18px;
+	font-weight: 400;
+	font-style: italic;
+}
+
+@mixin body-bold {
+	font-family: 'FrutigerRoman';
+	font-size: 18px;
+	font-weight: 700;
+	font-style: normal;
+}
+
+@mixin body-bold-italic {
+	font-family: 'FrutigerRoman';
+	font-size: 18px;
+	font-weight: 700;
+	font-style: italic;
+}
+
+@mixin links {
+	font-family: 'FrutigerLight';
+	font-size: 16px;
+	font-weight: 600;
+	font-style: normal;
+}

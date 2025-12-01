@@ -1,0 +1,31 @@
+image: node:18
+pipelines:
+  branches:
+    cicd:
+      - step:
+          name: Validate, Install, Test, and Build
+          caches:
+            - node
+          script:
+            - echo "Validando versión..."
+            - chmod +x validate-version.sh
+            - ./validate-version.sh
+            - echo "Configurando Nexus para dependencias..."
+            - echo "registry=https://$NEXUS_URL/repository/npm-snapshots/
+                //$NEXUS_URL/repository/npm-snapshots/:_auth=$NEXUS_AUTH_TOKEN" > ~/.npmrc
+            - echo "Instalando dependencias..."
+            - npm install
+            - echo "Construyendo librería..."
+            - npm run build
+          artifacts:
+            - dist/**  # Guardamos los archivos generados en dist/ para el siguiente paso.
+
+      - step:
+          name: Publish Snapshot
+          caches:
+            - node
+          script:
+            - echo "Configurando Nexus para snapshots..."
+            - echo "//$NEXUS_URL/repository/npm-snapshots/:_authToken=$NEXUS_AUTH_TOKEN" > ~/.npmrc
+            - echo "Publicando snapshot..."
+            - npm run publish:snapshot

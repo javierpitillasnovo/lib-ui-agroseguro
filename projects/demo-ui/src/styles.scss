@@ -1,0 +1,82 @@
+/* You can add global styles to this file, and also import other style files */
+@use '@ui-styles/styles.scss';
+@use '@ui-styles/_variables.scss' as *;
+@use '@ui-styles/_base.scss' as *;
+
+html,
+body {
+	height: 100%;
+}
+body {
+	margin: 0;
+	padding: 0;
+}
+
+#page {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	/* Contenedor principal de las notificaciones */
+	#notifications {
+		position: fixed;
+		top: 20px; /* Espacio desde la parte superior de la pantalla */
+		right: 20px; /* Espacio desde el borde derecho */
+		display: flex;
+		flex-direction: column; /* Asegura que las notificaciones se apilen verticalmente */
+		align-items: flex-end;
+		gap: 12px; /* Espaciado entre las notificaciones */
+		z-index: 1000; /* Asegura que las notificaciones estén en frente de otros elementos */
+	}
+	#main {
+		flex-grow: 1;
+		height: 100%;
+		.container-fluid {
+			height: 100%;
+			.flex__h {
+				display: flex;
+				flex-direction: row;
+				flex-grow: 1;
+				padding: 12px;
+				gap: 24px;
+				width: 100%;
+			}
+			.flex__v {
+				display: flex;
+				flex-direction: column;
+				flex-grow: 1;
+				padding: 12px;
+				gap: 24px;
+				width: 100%;
+			}
+			h1 {
+				@include h6;
+				color: $color-primary-green;
+				margin-top: 24px;
+				margin-bottom: 6px;
+				&:first-child {
+					margin-top: 0px;
+				}
+				&:last-child {
+					margin-bottom: 0px;
+				}
+			}
+			p {
+				@include body-regular;
+				span {
+					color: $color-primary-green;
+				}
+			}
+			pre {
+				@include body-regular;
+				line-height: 140%;
+				color: $color-secondary-black-66;
+				span {
+					color: $color-primary-green;
+					&.required {
+						color: $color-primary-red;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,6 @@
+<a [ngClass]="additionalClasses()">
+	<span>{{ text() }}</span>
+	@if (icon()) {
+		<i class="{{ icon() }}"></i>
+	}
+</a>

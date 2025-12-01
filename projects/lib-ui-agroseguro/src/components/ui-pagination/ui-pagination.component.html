@@ -1,0 +1,19 @@
+<div class="pagination__pageSize">
+	Número de registros por página:
+	<ui-select
+		[selectOptions]="rowsPerPageOptions()"
+		[width]="80"
+		[value]="pageSize()"
+		(selectChanges)="rowPerPageChange($event)"
+	></ui-select>
+</div>
+<div class="pagination__current">
+	Mostrando los registros {{ startIndex() + 1 }} - {{ endIndex() }} de
+	{{ totalItemsComputed() }}
+	@if (currentPage() > 0) {
+		<i class="icon-arrow-double-left" (click)="previous()"></i>
+	}
+	@if (currentPage() < totalPages() - 1) {
+		<i class="icon-arrow-double-right" (click)="next()"></i>
+	}
+</div>

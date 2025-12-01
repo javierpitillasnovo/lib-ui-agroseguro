@@ -1,0 +1,51 @@
+<div class="fieldSelect__main" [ngClass]="{ 'fieldSelect__main--row': align() === 'row' }">
+	@if (label() || required()) {
+		<div class="fieldSelect__label">
+			@if (label()) {
+				<label>{{ label() }}</label>
+			}
+			@if (required()) {
+				<span class="fieldSelect__label--required">*</span>
+			}
+		</div>
+	}
+	<div class="fieldSelect__content">
+		<div
+			class="fieldSelect__field"
+			[ngStyle]="{ width: width() === 'full' ? '100%' : width() + 'px' }"
+		>
+			<select
+				(blur)="onInputBlur()"
+				(change)="onInputChange($event)"
+				[required]="required()"
+				[value]="value()"
+				[ngStyle]="{ width: width() === 'full' ? '100%' : width() + 'px' }"
+			>
+				<option value="null" hidden>
+					{{ placeholder() || 'Selecciona una opción' }}
+				</option>
+
+				<option value="" hidden>
+					{{ placeholder() || 'Selecciona una opción' }}
+				</option>
+
+				@if (selectOptions().length > 0) {
+					@for (option of selectOptions(); track $index) {
+						<option [value]="option.value" [selected]="option.value === value()">
+							{{ option.text }}
+						</option>
+					}
+				}
+			</select>
+		</div>
+		@if (error() && errorMessage()) {
+			<span class="fieldSelect__errorMessage">{{ errorMessage() }}</span>
+		}
+
+		@if (helpText()) {
+			<span class="fieldSelect__helpText">
+				{{ helpText() }}
+			</span>
+		}
+	</div>
+</div>

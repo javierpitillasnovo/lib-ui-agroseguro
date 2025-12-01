@@ -1,0 +1,210 @@
+@use '../../../assets/variables' as *;
+@use '../../../assets/base' as *;
+
+.tableBasic {
+	display: block;
+	border-radius: 12px;
+	border: 1px solid $color-grey;
+	min-width: fit-content;
+
+	&.hasError {
+		.tableBasic__table {
+			table {
+				thead tr th {
+					background: $color-secondary-red-80;
+					border-color: $color-primary-red;
+				}
+			}
+		}
+		.tableBasic__pagination {
+			color: $color-primary-red;
+			i {
+				color: $color-primary-red;
+			}
+		}
+	}
+
+	&__title {
+		@include body-bold;
+		color: $color-primary-green;
+		padding: 12px;
+		text-transform: uppercase;
+	}
+
+	&__table {
+		table {
+			overflow: hidden;
+			border-collapse: collapse;
+			width: 100%;
+			table-layout: auto;
+
+			thead th,
+			tbody td {
+				padding: 12px;
+			}
+
+			thead tr {
+				&:first-child {
+					th {
+						&:first-child {
+							border-radius: 12px 0px 0px 0px;
+							border-left: none;
+						}
+						&:last-child {
+							border-right: none;
+							border-radius: 0px 12px 0px 0px;
+						}
+					}
+				}
+				&:last-child {
+					border-bottom: 1px solid $color-grey;
+				}
+				th {
+					@include body-bold;
+					text-align: center;
+					background: $color-secondary-green-80;
+					color: $color-white;
+					border-bottom: 1px solid $color-primary-green;
+					text-transform: uppercase;
+					i {
+						color: $color-white;
+					}
+
+					&:first-child {
+						border-left: none;
+					}
+					&:last-child {
+						border-right: none;
+					}
+				}
+			}
+
+			tbody tr {
+				border-bottom: 1px solid $color-grey;
+				// Estilos para las filas pares
+				&:nth-of-type(even) {
+					background: rgba($color-grey-03, 0.7);
+				}
+				&.selected {
+					background: $color-secondary-green-15;
+				}
+				&:last-child {
+					border: none;
+					td {
+						&:first-child {
+							border-radius: 0px 0px 0px 12px;
+							border: transparent;
+						}
+						&:last-child {
+							border-radius: 0px 0px 12px 0px;
+							border: transparent;
+						}
+					}
+				}
+				td {
+					@include body-regular;
+					color: $color-secondary-black-66;
+					i {
+						color: $color-primary-green;
+						&.icon-cross {
+							color: $color-primary-red;
+						}
+						&.icon-trash {
+							color: $color-primary-red;
+						}
+					}
+				}
+			}
+		}
+
+		i {
+			font-size: 18px;
+			color: $color-secondary-black-66;
+			cursor: pointer;
+		}
+	}
+
+	&.headersGroups {
+		.tableBasic__table {
+			table {
+				thead tr {
+					th {
+						border: 1px solid $color-primary-green;
+						border-top: none;
+						&:first-child {
+							border-left: none;
+						}
+						&:last-child {
+							border-right: none;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&.showHeader {
+		.tableBasic__title {
+			border-bottom: 2px solid $color-primary-green;
+		}
+		.tableBasic__table {
+			table {
+				thead tr {
+					th {
+						&:first-child {
+							border-radius: 0px;
+						}
+						&:last-child {
+							border-radius: 0px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&.showPag {
+		tbody tr {
+			&:last-child {
+				td {
+					&:first-child {
+						border-radius: 0px;
+						border: transparent;
+					}
+					&:last-child {
+						border-radius: 0px;
+						border: transparent;
+					}
+				}
+			}
+		}
+	}
+
+	&__pagination {
+		@include body-regular;
+		color: $color-primary-green;
+		padding: 12px;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		border-top: 1px solid $color-grey;
+		i {
+			font-size: 32px;
+			cursor: pointer;
+			color: $color-primary-green;
+		}
+		&--pageSize {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			gap: 12px;
+		}
+		&--current {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+		}
+	}
+}

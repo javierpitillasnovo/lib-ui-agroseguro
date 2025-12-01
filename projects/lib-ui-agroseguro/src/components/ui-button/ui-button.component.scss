@@ -1,0 +1,67 @@
+@use '../../../assets/variables' as *;
+@use '../../../assets/base' as *;
+
+.btn {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	flex-wrap: nowrap;
+	gap: 8px;
+	color: $color-white;
+	padding: 6px 12px;
+	border-radius: 16px;
+	border: none;
+	text-transform: uppercase;
+	width: fit-content;
+
+	i {
+		font-size: 24px;
+		color: $color-white;
+	}
+
+	span {
+		@include body-bold;
+	}
+
+	&:hover {
+		box-shadow: 0px 0px 3px 0px $color-shadow;
+		cursor: pointer;
+	}
+
+	&.xl {
+		padding: 12px 24px;
+		border-radius: 24px;
+	}
+
+	&.iFirst {
+		flex-direction: row-reverse;
+	}
+
+	&__primary {
+		background: $color-primary-green;
+		&:disabled {
+			background: $color-grey !important;
+			cursor: not-allowed;
+		}
+
+		&--red {
+			background: $color-primary-red;
+		}
+	}
+	&__secondary {
+		background: $color-white;
+		border: 1px solid $color-primary-green;
+		color: $color-primary-green;
+		i {
+			color: $color-primary-green;
+		}
+		&:disabled {
+			border: 1px solid $color-grey;
+			color: $color-grey;
+			cursor: not-allowed;
+			i {
+				color: $color-grey;
+			}
+		}
+	}
+}

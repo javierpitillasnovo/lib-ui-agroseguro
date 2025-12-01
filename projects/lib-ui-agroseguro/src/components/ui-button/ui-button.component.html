@@ -1,0 +1,6 @@
+<button class="btn" [ngClass]="additionalClasses()" [disabled]="disabled()">
+	<span>{{ text() }}</span>
+	@if (icon()) {
+		<i class="{{ icon() }}"></i>
+	}
+</button>

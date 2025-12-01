@@ -1,9 +1,3 @@
-# lib-ui-agroseguro
+# UiAgroseguro
 
-Librería de componentes UI Angular para Agroseguro - Design System
-
-## Tecnologías
-- Angular 18
-- Bootstrap 5
-- Standalone Components
-
+Workspace de angular con varios project, leer el README.md del proyecto a usar en cuestión para ver como funciona cada uno.

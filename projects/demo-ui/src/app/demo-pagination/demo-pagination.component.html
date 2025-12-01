@@ -1,0 +1,30 @@
+<h1>Código a incluir en TS para el correcto funcionamiento</h1>
+<pre>
+<span>Imports</span>
+import &#123; UiPaginationComponent &#125; from '&#64;agroseguro/lib-ui-agroseguro';
+
+<span>Dentro del decorador &#64;Component incluir:</span>
+imports: [UiPaginationComponent]
+</pre>
+
+<h1>Código de ejemplo HTML</h1>
+<code>
+	&lt;ui-pagination <br />[totalItems]="100" <br />[items]="10"
+	<br />(paginationAction)="clg($event)"<br />
+	&gt; <br />&lt;/ui-pagination&gt;
+</code>
+<br />
+
+<h1>Propiedades Input()</h1>
+<pre>
+<span>items</span> : Number con los items actuales.
+<span>totalItems</span> : Number con los items totales.
+</pre>
+
+<h1>Propiedades Output()</h1>
+<pre>
+<span>(paginationAction)</span>: Evento que emite al hacer click en el icono de página siguiente o anterior.
+</pre>
+
+<br />
+<ui-pagination [totalItems]="100" [items]="10" (paginationAction)="clg($event)"> </ui-pagination>

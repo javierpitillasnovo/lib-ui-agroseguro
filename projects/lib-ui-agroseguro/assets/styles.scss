@@ -1,0 +1,42 @@
+//Import all
+
+// Reset
+@import './reset';
+
+//Variables and utilities
+@import './variables';
+@import './extensible';
+
+//Fonts
+@import './base';
+@import './fonts';
+
+// Bootstrap
+@import './vendors/bootstrap/bootstrap-grid';
+
+// Project icons
+@import './icons/variables.scss';
+@import './icons/style.scss';
+
+@import './general';
+
+// Dev-only styles
+@import './devGrid';
+
+p {
+	@include body-regular;
+	color: $color-secondary-black-66;
+	i {
+		color: $color-primary-green;
+		vertical-align: middle;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: $color-primary-green;
+}

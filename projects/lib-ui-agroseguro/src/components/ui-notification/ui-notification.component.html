@@ -1,0 +1,11 @@
+<div class="notification__icon">
+	@if (hasError()) {
+		<i class="icon-danger"></i>
+	} @else {
+		<i class="icon-check"></i>
+	}
+</div>
+<div class="notification__message">
+	{{ message() }}
+</div>
+<i class="icon-cross" (click)="close()"></i>

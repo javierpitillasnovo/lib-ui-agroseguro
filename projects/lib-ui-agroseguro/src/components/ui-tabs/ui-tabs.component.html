@@ -1,0 +1,18 @@
+<div class="tabs__menu">
+	@for (tab of data(); track $index) {
+		<a
+			class="tabs__menu--title"
+			[ngClass]="{ active: itemActive() === tab }"
+			(click)="manualItemActive.set(tab)"
+		>
+			{{ tab }}
+		</a>
+	}
+</div>
+<div class="tabs__content">
+	@for (template of templates(); track $index) {
+		@if (itemActive() === template.title) {
+			<ng-container *ngTemplateOutlet="template.template"></ng-container>
+		}
+	}
+</div>

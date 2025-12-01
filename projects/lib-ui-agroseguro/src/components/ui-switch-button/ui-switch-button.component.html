@@ -1,0 +1,15 @@
+<label class="switch" [ngClass]="{ text: haveText(), noText: !haveText() }">
+	<input type="checkbox" [checked]="power()" (click)="power.set(!power())" />
+	<div class="slider">
+		<span class="slider__round"></span>
+		@if (haveText()) {
+			<span class="slider__text">
+				@if (power()) {
+					SÍ
+				} @else {
+					NO
+				}
+			</span>
+		}
+	</div>
+</label>

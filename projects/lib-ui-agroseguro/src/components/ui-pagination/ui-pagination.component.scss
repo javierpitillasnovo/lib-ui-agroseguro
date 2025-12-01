@@ -1,0 +1,29 @@
+@use '../../../assets/variables' as *;
+@use '../../../assets/base' as *;
+
+.pagination {
+	@include body-regular;
+	color: $color-primary-green;
+	padding: 12px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	border-top: 1px solid $color-grey;
+	i {
+		font-size: 32px;
+		cursor: pointer;
+		color: $color-primary-green;
+	}
+	&__pageSize {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 12px;
+	}
+	&__current {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+}

@@ -1,0 +1,45 @@
+@use '../../../assets/variables' as *;
+@use '../../../assets/base' as *;
+@use '../../../assets/extensible' as *;
+@use '../../../assets/icons/variables.scss' as *;
+
+.fieldSearch {
+	display: flex;
+	flex-direction: column;
+	@include body-regular;
+	font-size: 14px;
+
+	&__content {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 12px;
+		background: $color-secondary-green-80;
+		border-radius: 14px;
+		color: $color-white;
+		padding: 12px;
+		box-shadow: 0px 0px 2px 0px $color-shadow;
+		input[type='search'] {
+			@include body-regular;
+			font-size: 14px;
+			width: 100%;
+			background: transparent;
+			border: none;
+			color: $color-white;
+			&::placeholder {
+				color: $color-white;
+			}
+			&::-webkit-search-cancel-button {
+				display: none !important;
+			}
+		}
+	}
+
+	input[type='text']:-webkit-autofill,
+	input[type='text']:-webkit-autofill:hover,
+	input[type='text']:-webkit-autofill:focus,
+	input[type='text']:-webkit-autofill:active {
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: $color-secondary-black-66;
+	}
+}

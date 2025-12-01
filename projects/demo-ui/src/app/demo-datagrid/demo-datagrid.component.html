@@ -1,0 +1,60 @@
+<h1>Código a incluir en TS para el correcto funcionamiento</h1>
+<pre>
+<span>Imports</span>
+import &#123; UiDatagridComponent &#125; from '&#64;agroseguro/lib-ui-agroseguro';
+
+<span>Dentro del decorador &#64;Component incluir:</span>
+imports: [UiDatagridComponent]
+</pre>
+
+<h1>Código de ejemplo HTML</h1>
+<code>
+	&lt;ui-datagrid <br />filterId="id_ratio"<br />
+	[headers]="['Desde', 'Hasta', 'Límite máximo de daños']"<br />
+	[dataOriginal]="ratios()"<br />
+	[fieldsToShow]="[ <br />&#123; name: 'ratioDesde' &#125;, <br />&#123; name: 'ratioHasta' &#125;,
+	<br />&#123; name: 'limiteMaximoDanios' &#125;<br />
+	]"<br />
+	(itemAdd)="itemAdd('ratios')"<br />
+	(itemSave)="itemSave($event, 'ratios')"<br />
+	(itemDelete)="itemDelete($event, 'ratios')"<br />
+	&gt; <br />&lt;/ui-datagrid&gt;
+</code>
+<br />
+
+<h1>Propiedades Input()</h1>
+<pre>
+<span>title</span> : Input Título de la tabla
+<span>filterId</span>: En caso de querer usar alguna propiedad de la respuesta como id, sino se usa la propiedad id y si no la trae genera uno aleatorio.
+<span>[headers] <span class="required">*</span></span> : Headers de la tabla, string[].
+<span>[dataOriginal] <span class="required">*</span></span>: Data de la tabla, generalmente la recuperaremos de un endpoint.
+<span>[newItem] <span class="required">*</span></span>: Nueva instancia de item del mismo tipo que la dataOriginal para generar uno nuevo con el botón de añadir.
+<span>[fieldsToShow] <span class="required">*</span></span>:
+  <span>export interface fieldsToShow</span> &#123;
+    <span>name</span>: string;   -->  Propiedad del objeto dataOriginal a mostrar.
+    <span>options?</span>: any[]; --> Opciones del select, lo ideal es pasar una signal() computada que ya tenga los valores.
+    <span>selectedOption?</span>: any;  -->  Propiedad del objeto correspondiente al valor del select.
+    <span>readonly?</span>: boolean;  --> Propiedad que marca el campo como deshabilitado en el modo de edición.
+  &#125;
+<span>showAddButton</span> : Input para ver o no el botón de añadir registros.
+<span>showPagination</span> : Input para ver si queremos mostrar o no la paginación.
+</pre>
+
+<h1>Propiedades Output()</h1>
+<pre>
+  <span>(itemSelected)</span>: Evento que emite el registro seleccionado al hacer click en los checkbox de la izquierda de la tabla.
+  <span>(itemAdd)</span>: Evento que emite un boolean cuando se añade un registro a la tabla.
+  <span>(itemSave)</span>: Evento que emite el registro guardado o editado al hacer click en el icono de guardar.
+  <span>(itemDelete)</span>: Evento que emite el registro eliminado al hacer click en el icono de eliminar.
+  <span>(anySelectChange)</span>: Evento que emite el valor seleccionado y nombre del select que cambia cuando se cambia una opción en cualquier select.
+</pre>
+
+<br />
+<ui-datagrid
+	[headers]="['Colmuna1', 'Columna2', 'Columna3']"
+	[newItem]="newItem"
+	[dataOriginal]="data()"
+	[fieldsToShow]="[{ name: 'col1' }, { name: 'col2' }, { name: 'col3' }]"
+	[showPagination]="true"
+>
+</ui-datagrid>

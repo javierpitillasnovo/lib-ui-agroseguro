@@ -1,0 +1,35 @@
+@use '@ui-styles/_variables.scss' as *;
+@use '@ui-styles/_base.scss' as *;
+
+.baseApps {
+	.row {
+		margin: 0;
+		width: 100%;
+	}
+	&__sidebar {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		background: $color-secondary-green-80;
+		padding: 24px;
+
+		&--menu {
+			img {
+				width: 160px;
+				display: block;
+				margin-right: auto !important;
+				margin-left: auto !important;
+			}
+			display: flex;
+			flex-direction: column;
+			gap: 18px;
+		}
+	}
+	&__content {
+		display: flex;
+		flex-direction: column;
+		&--component {
+			padding: 24px;
+		}
+	}
+}

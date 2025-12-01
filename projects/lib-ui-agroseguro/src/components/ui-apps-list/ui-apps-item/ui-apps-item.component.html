@@ -1,0 +1,18 @@
+@for (app of appItems(); track $index) {
+	<a [routerLink]="['/baseapps', app.link]" [ngClass]="{ hide: !showAll() && !app.hasPermission }">
+		<div class="appItem" [ngClass]="{ disabled: !app.hasPermission }">
+			<div class="appItem__title">
+				{{ app.name }}
+			</div>
+			<div class="appItem__actions">
+				@if (app.hasPermission && app.isFavorite) {
+					<i class="icon-starfilled" (click)="setFavorite($event, app)"></i>
+				} @else if (app.hasPermission && !app.isFavorite) {
+					<i class="icon-star" (click)="setFavorite($event, app)"></i>
+				} @else if (!app.hasPermission) {
+					<i class="icon-star"></i>
+				}
+			</div>
+		</div>
+	</a>
+}

@@ -1,0 +1,36 @@
+<div class="fieldTextArea__main" [ngClass]="{ 'fieldTextArea__main--row': align() === 'row' }">
+	@if (label() || required()) {
+		<div class="fieldTextArea__label">
+			@if (label()) {
+				<label>{{ label() }}</label>
+			}
+			@if (required()) {
+				<span class="fieldTextArea__label--required">*</span>
+			}
+		</div>
+	}
+
+	<div class="fieldTextArea__content">
+		<div class="fieldTextArea__field">
+			<textarea
+				placeholder="{{ placeholder() }}"
+				(blur)="onInputBlur()"
+				(input)="onInputChange($event)"
+				[value]="value()"
+				[disabled]="disabled()"
+				[required]="required()"
+				[ngStyle]="{ width: width() ? width() + 'px' : '100%' }"
+			></textarea>
+		</div>
+
+		@if (error() && errorMessage()) {
+			<span class="fieldTextArea__errorMessage">{{ errorMessage() }}</span>
+		}
+
+		@if (helpText()) {
+			<span class="fieldTextArea__helpText">
+				{{ helpText() }}
+			</span>
+		}
+	</div>
+</div>

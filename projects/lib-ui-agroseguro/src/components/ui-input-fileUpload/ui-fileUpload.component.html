@@ -1,0 +1,26 @@
+<div class="fieldFileupload__main" [ngClass]="{ 'fieldFileupload__main--row': align() === 'row' }">
+	@if (label() || required()) {
+		<div class="fieldFileupload__label">
+			@if (label()) {
+				<label>{{ label() }}</label>
+			}
+			@if (required()) {
+				<span class="fieldFileupload__label--required">*</span>
+			}
+		</div>
+	}
+	<div class="fieldFileupload__content">
+		<div class="fieldFileupload__field">
+			<input
+				type="file"
+				(blur)="onInputBlur()"
+				(change)="onFileChange($event)"
+				[disabled]="disabled()"
+				[required]="required()"
+			/>
+		</div>
+		@if (error() && errorMessage()) {
+			<span class="fieldFileupload__errorMessage">{{ errorMessage() }}</span>
+		}
+	</div>
+</div>

@@ -1,0 +1,41 @@
+@use '../../../assets/variables' as *;
+@use '../../../assets/base' as *;
+
+.tag {
+	display: inline-flex;
+	padding: 8px 12px;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	border-radius: 6px;
+	box-shadow: 0px 0px 2px 0px $color-shadow;
+	i {
+		font-size: 14px;
+	}
+	p {
+		font-size: 14px;
+		width: max-content;
+		color: $color-white;
+	}
+	&.green {
+		background: $color-secondary-green-80;
+		i {
+			color: $color-white;
+		}
+	}
+	&.red {
+		background: $color-secondary-red-80;
+		i {
+			color: $color-white;
+		}
+	}
+	&.yellow {
+		background: $color-secondary-yellow-80;
+		p {
+			color: $color-secondary-black-66;
+		}
+		i {
+			color: $color-secondary-black-66;
+		}
+	}
+}

@@ -1,0 +1,80 @@
+@use '../../../assets/variables' as *;
+@use '../../../assets/base' as *;
+@use '../../../assets/extensible' as *;
+@use '../../../assets/icons/variables.scss' as *;
+
+.fieldMultiCheckbox {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	@include body-regular;
+	font-size: 14px;
+	width: fit-content;
+
+	&__main {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		width: fit-content;
+		&--row {
+			flex-direction: row;
+			gap: 12px;
+			.fieldMultiCheckbox__field {
+				ul {
+					flex-direction: row;
+				}
+			}
+		}
+	}
+
+	&__label {
+		display: flex;
+		flex-direction: row;
+		gap: 4px;
+		width: fit-content;
+
+		label {
+			@include body-bold;
+			font-size: 14px;
+			color: $color-secondary-black-66;
+		}
+
+		&--required {
+			color: $color-primary-red;
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	&__field {
+		@include body-regular;
+		font-size: 14px;
+		color: $color-secondary-black-66;
+
+		ul {
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+		}
+	}
+
+	&__helpText {
+		@include body-regular;
+		color: $color-secondary-black-33;
+		width: fit-content;
+		font-size: 12px;
+	}
+
+	&__errorMessage {
+		@include body-regular;
+		color: $color-primary-red;
+		width: 190px;
+		font-size: 13px;
+		white-space: normal;
+		overflow-wrap: break-word;
+	}
+}

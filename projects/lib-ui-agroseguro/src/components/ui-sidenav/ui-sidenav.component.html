@@ -1,0 +1,5 @@
+<ul class="sideMenu">
+	@for (sideNavItem of sideNav(); track $index) {
+		<ui-sidenav-item [sideNavItem]="sideNavItem"></ui-sidenav-item>
+	}
+</ul>

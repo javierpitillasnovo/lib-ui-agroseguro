@@ -1,0 +1,132 @@
+{
+	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+	"version": 1,
+	"newProjectRoot": "projects",
+	"projects": {
+		"lib-ui-agroseguro": {
+			"projectType": "library",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss",
+					"changeDetection": "OnPush"
+				}
+			},
+			"root": "projects/lib-ui-agroseguro",
+			"sourceRoot": "projects/lib-ui-agroseguro/src",
+			"prefix": "",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/lib-ui-agroseguro/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/lib-ui-agroseguro/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/lib-ui-agroseguro/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"tsConfig": "projects/lib-ui-agroseguro/tsconfig.spec.json",
+						"polyfills": ["zone.js", "zone.js/testing"]
+					}
+				}
+			}
+		},
+		"demo-ui": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss",
+					"changeDetection": "OnPush"
+				}
+			},
+			"root": "projects/demo-ui",
+			"sourceRoot": "projects/demo-ui/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:application",
+					"options": {
+						"outputPath": "dist/demo-ui",
+						"index": "projects/demo-ui/src/index.html",
+						"browser": "projects/demo-ui/src/main.ts",
+						"polyfills": ["zone.js"],
+						"tsConfig": "projects/demo-ui/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": ["projects/demo-ui/src/favicon.ico", "projects/demo-ui/src/assets"],
+						"styles": ["projects/demo-ui/src/styles.scss"],
+						"stylePreprocessorOptions": {
+							"includePaths": ["./dist/lib-ui-agroseguro/"]
+						},
+						"scripts": []
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"outputHashing": "all"
+						},
+						"development": {
+							"optimization": false,
+							"extractLicenses": false,
+							"sourceMap": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "@angular-devkit/build-angular:dev-server",
+					"options": {
+						"port": 4500
+					},
+					"configurations": {
+						"production": {
+							"buildTarget": "demo-ui:build:production"
+						},
+						"development": {
+							"buildTarget": "demo-ui:build:development"
+						}
+					},
+					"defaultConfiguration": "development"
+				},
+				"extract-i18n": {
+					"builder": "@angular-devkit/build-angular:extract-i18n",
+					"options": {
+						"buildTarget": "demo-ui:build"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"polyfills": ["zone.js", "zone.js/testing"],
+						"tsConfig": "projects/demo-ui/tsconfig.spec.json",
+						"inlineStyleLanguage": "scss",
+						"assets": ["projects/demo-ui/src/favicon.ico", "projects/demo-ui/src/assets"],
+						"styles": ["projects/demo-ui/src/styles.scss"],
+						"scripts": []
+					}
+				}
+			}
+		}
+	},
+	"cli": {
+		"analytics": false
+	}
+}

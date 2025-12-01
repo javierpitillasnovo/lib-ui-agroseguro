@@ -1,0 +1,112 @@
+@if (title()) {
+	<div class="tableBasic__title">{{ title() }}</div>
+}
+<div class="tableBasic__table">
+	<table>
+		<thead>
+			@if (headersGroups()) {
+				@for (headerGroup of headersGroups(); track headerGroup.row) {
+					<tr>
+						@for (
+							header of headerGroup.row;
+							track $index;
+							let isFirst = $first;
+							let isLast = $last
+						) {
+							<th
+								[attr.colspan]="
+									(header?.colspan || 0) +
+									(isFirst && this.defaultActions() != false ? 1 : 0) +
+									(isLast && showAddButton() ? 1 : 0)
+								"
+								[attr.rowspan]="header?.rowspan"
+							>
+								{{ header?.name }}
+							</th>
+						}
+					</tr>
+				}
+			}
+			<tr>
+				@if (this.defaultActions() != false) {
+					<th></th>
+				}
+				@for (template of templates(); track $index) {
+					<th>
+						@if (template.headerIsVisible) {
+							{{ template.header }}
+						}
+					</th>
+				}
+				@if (showAddButton()) {
+					<th>
+						<i class="icon-add" (click)="addRow()"></i>
+					</th>
+				}
+			</tr>
+		</thead>
+		<tbody>
+			@for (row of data(); track $index) {
+				<tr [class.selected]="row.selected">
+					@if (this.defaultActions() != false) {
+						<td>
+							@if (this.defaultActions() === 'checkbox') {
+								<ui-checkbox
+									[checked]="row.selected"
+									(checkboxChanges)="onRowSelect($event, row.id)"
+								></ui-checkbox>
+							} @else if (this.defaultActions() === 'radio') {
+								<ui-radio
+									name="radioCheck"
+									[options]="[row.id]"
+									(radioChanges)="onRowSelect($event, row.id)"
+								></ui-radio>
+							}
+						</td>
+					}
+					@for (template of templates(); track $index) {
+						<td>
+							<div
+								[ngStyle]="{
+									display: 'flex',
+									'justify-content': template.contentAlign,
+									'align-items': 'center'
+								}"
+							>
+								<ng-container
+									*ngTemplateOutlet="template.template; context: { $implicit: row }"
+								></ng-container>
+							</div>
+						</td>
+					}
+					@if (showAddButton()) {
+						<td><!--Temporaly empty td for addRowAction--></td>
+					}
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+@if (showPagination()) {
+	<div class="tableBasic__pagination">
+		<div class="tableBasic__pagination--pageSize">
+			Número de registros por página:
+			<ui-select
+				[selectOptions]="rowsPerPageOptions()"
+				[value]="pageSize()"
+				[width]="80"
+				(selectChanges)="rowPerPageChange($event)"
+			></ui-select>
+		</div>
+		<div class="tableBasic__pagination--current">
+			Mostrando los registros {{ startIndex() + 1 }} - {{ endIndex() }} de
+			{{ totalItemsComputed() }}
+			@if (currentPage() > 0) {
+				<i class="icon-arrow-double-left" (click)="previous()"></i>
+			}
+			@if (currentPage() < totalPages() - 1) {
+				<i class="icon-arrow-double-right" (click)="next()"></i>
+			}
+		</div>
+	</div>
+}

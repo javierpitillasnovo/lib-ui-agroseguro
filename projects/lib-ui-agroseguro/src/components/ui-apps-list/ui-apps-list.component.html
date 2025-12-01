@@ -1,0 +1,30 @@
+<div class="appList__title">
+	{{ title() }}
+	@if (appList()) {
+		<div class="appList__title--showAll">
+			<span>Ver todas las apps</span>
+			<ui-switch-button [(power)]="showAll"></ui-switch-button>
+		</div>
+	}
+</div>
+<hr />
+<div class="appList__appGroups">
+	@if (appList()) {
+		@for (appGroup of appList(); track $index) {
+			<div class="appGroup">
+				<div class="appGroup__title">
+					{{ appGroup.groupName }}
+				</div>
+				<div class="appGroup__apps">
+					<ui-apps-item
+						[appItems]="appGroup.appItems"
+						[showAll]="showAll"
+						(favorite)="this.favorite.emit($event)"
+					></ui-apps-item>
+				</div>
+			</div>
+		}
+	} @else if (appItems()) {
+		<ui-apps-item [appItems]="appItems()" (favorite)="this.favorite.emit($event)"></ui-apps-item>
+	}
+</div>

@@ -1,0 +1,84 @@
+<h1>Código a incluir en TS para el correcto funcionamiento</h1>
+<pre>
+<span>Imports</span>
+import: &#123; UiMultiCheckboxComponent &#125; from '&#64;agroseguro/lib-ui-agroseguro';
+
+<span>Dentro del decorador &#64;Component incluir:</span>
+imports: [UiMultiCheckboxComponent]
+</pre>
+
+<h1>Código de ejemplo HTML</h1>
+<code>
+	&lt;ui-multiCheckbox <br />[required]="true"<br />[checkboxOptions]="checkBoxData"
+	<br />label="Campo de texto normal"<br />
+	placeholder="PlaceholderText" <br />helpText="Texto de ayuda de un campo normal"
+	<br />&lt;/ui-multiCheckbox&gt;
+</code>
+<br />
+<br />
+
+<p>
+	<span>** Para ver el funcionamiento completo, ver ejemplo de formulario reactivo en Inputs</span>
+</p>
+
+<h1>Propiedades input&lt;&gt;() del componente</h1>
+<pre>
+<span>label</span> : Etiqueta del campo
+<span>helpText</span> : Texto de ayuda del campo
+<span>[required]</span> : Valor booleano para indicar si es requerido o no
+<span>[disabled]</span> : Valor booleano para disabled
+<span>[checkboxOptions]</span> : Opciones del checkbox
+<span>[align]</span> : Propiedad para elegir la alineación enum <span>'column' | 'row'</span> por defecto a column
+<span>[width]</span> : Ancho en píxeles, por defecto a <span>100%</span>
+<span>[error]</span>: Propiedad para controlar el estado de error
+<span>errorMessage</span>: Texto de error a mostrar
+</pre>
+
+<h1>Propiedades output&lt;&gt;() del componente</h1>
+<pre>
+<span>checkboxChanges</span> : Evento que emite cuando hay cambios en el inputs
+</pre>
+
+<h1>Inputs de tipo select</h1>
+<div class="flex__h">
+	<ui-multiCheckbox
+		formControlName="multiCheckbox"
+		[checkboxOptions]="checkBoxData"
+		label="Campo multiCheckbox"
+		[required]="true"
+		helpText="Texto de ayuda del checkbox"
+		(checkboxChanges)="checkboxSelected($event)"
+	></ui-multiCheckbox>
+	<ui-multiCheckbox
+		formControlName="multiCheckbox"
+		[checkboxOptions]="checkBoxData"
+		label="Campo multiCheckbox"
+		[required]="true"
+		[disabled]="true"
+		helpText="Texto de ayuda del checkbox"
+		(checkboxChanges)="checkboxSelected($event)"
+	></ui-multiCheckbox>
+	<ui-multiCheckbox
+		formControlName="multiCheckbox"
+		[error]="true"
+		errorMessage="Campo multiCheckbox requerido"
+		[checkboxOptions]="checkBoxData"
+		label="Campo multiCheckbox"
+		[required]="true"
+		helpText="Texto de ayuda del checkbox"
+		(checkboxChanges)="checkboxSelected($event)"
+	></ui-multiCheckbox>
+</div>
+<div class="flex__h">
+	<ui-multiCheckbox
+		formControlName="multiCheckbox"
+		[error]="true"
+		errorMessage="Campo multiCheckbox requerido"
+		[checkboxOptions]="checkBoxData"
+		label="Campo multiCheckbox"
+		[required]="true"
+		helpText="Texto de ayuda del checkbox"
+		[align]="'row'"
+		(checkboxChanges)="checkboxSelected($event)"
+	></ui-multiCheckbox>
+</div>

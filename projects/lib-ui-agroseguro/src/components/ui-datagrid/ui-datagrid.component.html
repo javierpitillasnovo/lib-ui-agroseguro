@@ -1,0 +1,104 @@
+<form [formGroup]="formDatagrid">
+	@if (title()) {
+		<div class="datagrid__title">{{ title() }}</div>
+	}
+	<div class="datagrid__table">
+		<table>
+			<thead>
+				<tr>
+					<th></th>
+					@for (header of headers(); track idHeader; let idHeader = $index) {
+						<th>{{ header }}</th>
+					}
+					<th>
+						@if (showAddButton() && !disabled()) {
+							<i class="icon-add" (click)="addRow()"></i>
+						}
+					</th>
+				</tr>
+			</thead>
+			<tbody formArrayName="fieldsArray">
+				@for (row of dataOriginal(); track rowID; let rowID = $index) {
+					<tr [class.disabled]="row.disabled || disabled()" [class.selected]="row.selected">
+						<td>
+							<ui-checkbox
+								[checked]="row.selected"
+								[disabled]="row.selected || row.disabled || disabled()"
+								(checkboxChanges)="onRowSelect(row, $event, row.idForFormArray)"
+							></ui-checkbox>
+						</td>
+						@defer (when formItsBuilded) {
+							<ng-container [formGroupName]="row.idForFormArray">
+								@for (fieldToShow of fieldsToShow(); track idField; let idField = $index) {
+									<td>
+										@if (row.selected && fieldToShow.options) {
+											@defer (when fieldToShow.options.length >= 1) {
+												<ui-select
+													[width]="220"
+													[formControlName]="fieldToShow.selectedOption"
+													[selectOptions]="fieldToShow.options"
+													(selectChanges)="selectChanges($event, fieldToShow, row)"
+												></ui-select>
+											}
+										} @else if (row.selected && !fieldToShow.options) {
+											@if (fieldToShow.readonly != undefined) {
+												<ui-input
+													[formControlName]="fieldToShow.name"
+													[disabled]="fieldToShow.readonly"
+												></ui-input>
+											} @else {
+												<ui-input [formControlName]="fieldToShow.name"></ui-input>
+											}
+										} @else {
+											{{ row[fieldToShow.name] }}
+										}
+									</td>
+								}
+							</ng-container>
+						}
+
+						<td>
+							@if (row.selected) {
+								<div class="actions">
+									<i class="icon-save" (click)="onRowSave(row)"></i>
+									<i class="icon-cross" (click)="onRowCancel(row)"></i>
+								</div>
+							}
+							@if (!row.selected) {
+								<i class="icon-trash" (click)="onRowDelete(row)"></i>
+							}
+						</td>
+					</tr>
+				} @empty {
+					<tr>
+						<td [attr.colspan]="headers().length + 2">No se han encontrado registros</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</form>
+
+@if (showPagination()) {
+	<div class="datagrid__pagination">
+		<div class="datagrid__pagination--pageSize">
+			Número de registros por página:
+			<ui-select
+				[selectOptions]="rowsPerPageOptions()"
+				[value]="pageSize()"
+				[width]="80"
+				(selectChanges)="rowPerPageChange($event)"
+			></ui-select>
+		</div>
+		<div class="tableBasic__pagination--current">
+			Mostrando los registros {{ startIndex() + 1 }} - {{ endIndex() }} de
+			{{ totalItemsComputed() }}
+			@if (currentPage() > 0) {
+				<i class="icon-arrow-double-left" (click)="previous()"></i>
+			}
+			@if (currentPage() < totalPages() - 1) {
+				<i class="icon-arrow-double-right" (click)="next()"></i>
+			}
+		</div>
+	</div>
+}

@@ -1,0 +1,27 @@
+@use '../../../../assets/variables' as *;
+@use '../../../../assets/base' as *;
+
+.acciones {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 12px;
+
+	.title {
+		@include body-bold;
+	}
+
+	&__titularidad {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 12px;
+	}
+
+	&__actions {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 12px;
+	}
+}

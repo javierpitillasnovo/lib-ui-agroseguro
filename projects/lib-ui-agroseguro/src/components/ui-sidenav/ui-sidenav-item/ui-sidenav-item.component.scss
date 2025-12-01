@@ -1,0 +1,118 @@
+@use '../../../../assets/variables' as *;
+@use '../../../../assets/base' as *;
+
+a {
+	@include body-regular;
+	font-size: 14px;
+	font-weight: 400;
+	color: $color-white;
+	text-decoration: none;
+	display: block;
+	width: 100%;
+}
+
+i {
+	font-size: 24px;
+	color: $color-white;
+}
+
+.menu__item {
+	padding: 12px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	cursor: pointer;
+
+	&--title {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 8px;
+		width: 100%;
+	}
+
+	&:hover {
+		background-color: $color-secondary-black-33;
+		border-radius: 4px;
+	}
+	&.active {
+		background-color: $color-secondary-black-66;
+		border-radius: 4px;
+	}
+	&.activeGroup {
+		background-color: $color-secondary-black-66;
+		border-top-left-radius: 4px;
+		border-top-right-radius: 4px;
+		&:hover {
+			border-bottom-left-radius: 0px;
+			border-bottom-right-radius: 0px;
+		}
+	}
+}
+
+.submenu {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0s ease-out;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	background-color: $color-secondary-black-10;
+
+	&.active {
+		max-height: 1000px;
+	}
+
+	&__item {
+		padding: 12px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		background-color: $color-secondary-black-33;
+		cursor: pointer;
+
+		&--title {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			gap: 8px;
+			width: 100%;
+		}
+
+		&.active {
+			a {
+				color: $color-primary-yellow;
+			}
+		}
+		&:hover {
+			background-color: $color-secondary-black-66;
+			border-bottom-left-radius: 0px;
+			border-bottom-right-radius: 0px;
+		}
+		&.activeGroup {
+			background-color: $color-secondary-black-66;
+		}
+	}
+}
+/* Estilo para el primer nivel de submenús */
+.submenu > ui-sidenav-item > .submenu__item {
+	padding-left: 36px;
+}
+
+/* Estilo para el segundo nivel de submenús */
+.submenu > ui-sidenav-item > .submenu > ui-sidenav-item > .submenu__item {
+	padding-left: 62px;
+}
+
+/* Estilo para el tercer nivel de submenús */
+.submenu
+	> ui-sidenav-item
+	> .submenu
+	> ui-sidenav-item
+	> .submenu
+	> ui-sidenav-item
+	> .submenu__item {
+	padding-left: 86px;
+}

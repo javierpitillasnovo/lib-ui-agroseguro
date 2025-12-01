@@ -1,0 +1,21 @@
+<h1>Código a incluir en TS para el correcto funcionamiento</h1>
+<pre>
+<span>Imports</span>
+import &#123; UiSwitchButtonComponent &#125; from '&#64;agroseguro/lib-ui-agroseguro';
+
+<span>Dentro del decorador &#64;Component incluir:</span>
+imports: [UiSwitchButtonComponent]
+</pre>
+
+<h1>Código de ejemplo HTML</h1>
+<code> &lt;ui-switch-button [power]="false"&gt;&lt;/ui-switch-button&gt;</code>
+
+<h1>Propiedades model&lt;&gt;() del componente</h1>
+<p>
+	<span>[(power)]</span> : Propiedad de tipo model, input y output al mismo tiempo, recibirá el
+	valor booleano de la propiedad definida, y el mismo se encargará de cambiarlo al ser pulsado. no
+</p>
+
+<h1>Switch Button</h1>
+<ui-switch-button [power]="true"></ui-switch-button>
+<ui-switch-button [power]="false"></ui-switch-button>

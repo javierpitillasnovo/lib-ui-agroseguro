@@ -1,0 +1,51 @@
+<h1>Código a incluir en TS para el correcto funcionamiento</h1>
+<pre>
+<span>Imports</span>
+import &#123; StepTemplateDirective, UiStepperComponent &#125; from '&#64;agroseguro/lib-ui-agroseguro';
+
+<span>Dentro del decorador &#64;Component incluir:</span>
+imports: [StepTemplateDirective, UiStepperComponent]
+</pre>
+
+<h1>Código de ejemplo HTML</h1>
+<code>
+	&lt;ui-stepper [steps]="steps" [buttonsDisabled]="false"&gt;<br />&lt;ng-template stepContent
+	[step]="1" let-item&gt; Contenido a proyectar &lt;/ng-template&gt;<br />&lt;ng-template
+	stepContent [step]="1" let-item&gt; Contenido a proyectar &lt;/ng-template&gt;<br />&lt;ng-template
+	stepContent [step]="1" let-item&gt; Contenido a proyectar &lt;/ng-template&gt;<br />&lt;/ui-stepper&gt;</code
+>
+<br /><br />
+
+<h1>Propiedades input&lt;&gt;() del componente</h1>
+<pre>
+<span>[steps]</span> : Input con el objeto de steps, número y título.
+<span>[buttonsDisabled]</span> : Boolean para controlar si los botones del step en el que estamos están habilitados o no para pasar al paso anterior o siguiente.
+<span>[activeStep]</span> : Step activo.
+<span>[showInitialButton]</span> : Boolean para mostrar o no el botón inicial.
+<span>[showInitialButtonText]</span> : String para definir el texto del botón inicial.
+<span>[showEndButton]</span> : Boolean para mostrar o no el botón final.
+<span>[showEndButtonText]</span> : String para definir el texto del botón final.
+</pre>
+
+<h1>Propiedades output&lt;&gt;() del componente</h1>
+<pre>
+<span>[initialButtonClicked]</span> : Evento que se emite cuando se hace clic en el botón inicial.
+<span>[endButtonClicked]</span> : Evento que se emite cuando se hace clic en el botón final.
+</pre>
+
+<h1>Proyecciones de contenido hacia el componente</h1>
+<p>
+	Hace falta pasar tantas proyecciones como pasos tenga el step y es importante utilizar la
+	directiva stepContent indicando el numero de step a continuación : [step]=1
+</p>
+<code
+	>&lt;ng-template stepContent [step]="1" let-item&gt; Contenido a proyectar
+	&lt;/ng-template&gt;</code
+>
+
+<h1>Stepper</h1>
+<ui-stepper [steps]="steps" [buttonsDisabled]="false">
+	<ng-template stepContent [step]="1" let-item> </ng-template>
+	<ng-template stepContent [step]="2" let-item> </ng-template>
+	<ng-template stepContent [step]="3" let-item> </ng-template>
+</ui-stepper>

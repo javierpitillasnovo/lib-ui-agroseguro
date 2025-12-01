@@ -1,0 +1,51 @@
+<div class="stepper__steps">
+	@for (step of steps(); track $index; let lastItem = $last) {
+		<div class="steps__step" [ngClass]="{ active: step.number === activeStep() }">
+			<div class="steps__step--number">{{ step.number }}</div>
+			<div class="steps__step--title">
+				{{ step.title }}
+			</div>
+			@if (!lastItem) {
+				<hr />
+			}
+		</div>
+	}
+</div>
+<div class="stepper__content">
+	@for (template of templates(); track $index) {
+		@if (activeStep() === template.stepNumber) {
+			<ng-container *ngTemplateOutlet="template.template"></ng-container>
+		}
+	}
+</div>
+<div class="stepper__actions">
+	@if (showInitialButton()) {
+		<ui-button
+			text="showInitialButtonText()"
+			additionalClasses="btn__secondary xl"
+			(click)="this.initialButtonClicked.emit(true)"
+		></ui-button>
+	} @else if (activeStep() != 1) {
+		<ui-button
+			text="Anterior"
+			additionalClasses="btn__primary--red iFirst xl"
+			icon="icon-arrow-left"
+			(click)="prev()"
+		></ui-button>
+	}
+	@if (activeStep() != steps()?.length) {
+		<ui-button
+			text="Siguiente"
+			additionalClasses="btn__primary xl"
+			icon="icon-arrow-right"
+			[disabled]="buttonsDisabled()"
+			(click)="next()"
+		></ui-button>
+	} @else if (showEndButton()) {
+		<ui-button
+			[text]="showEndButtonText()"
+			additionalClasses="btn__primary xl"
+			(click)="this.endButtonClicked.emit(true)"
+		></ui-button>
+	}
+</div>

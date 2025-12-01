@@ -1,0 +1,43 @@
+<div class="fieldRadio__main" [ngClass]="{ 'fieldRadio__main--row': align() === 'row' }">
+	@if (label() || required()) {
+		<div class="fieldRadio__label">
+			@if (label()) {
+				<label>{{ label() }}</label>
+			}
+			@if (required()) {
+				<span class="fieldRadio__label--required">*</span>
+			}
+		</div>
+	}
+	<div class="fieldRadio__content">
+		<div class="fieldRadio__field">
+			@for (option of options(); track $index) {
+				<div class="fieldRadio__field--item">
+					<input
+						type="radio"
+						[value]="option"
+						(blur)="onInputBlur()"
+						(change)="onInputChange($event)"
+						[disabled]="disabled()"
+						[required]="required()"
+						[name]="name()"
+						[checked]="value() === option"
+					/>
+					@if (optionsLabels()) {
+						<span>{{ option }}</span
+						><br />
+					}
+				</div>
+			}
+		</div>
+		@if (error() && errorMessage()) {
+			<span class="fieldRadio__errorMessage">{{ errorMessage() }}</span>
+		}
+
+		@if (helpText()) {
+			<span class="fieldRadio__helpText">
+				{{ helpText() }}
+			</span>
+		}
+	</div>
+</div>

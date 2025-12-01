@@ -1,0 +1,34 @@
+<h1>Código a incluir en TS para el correcto funcionamiento</h1>
+<pre>
+<span>Imports</span>
+import &#123; SessionService, UiHeaderComponent &#125; from '&#64;agroseguro/lib-ui-agroseguro';
+
+<span>Dentro del decorador &#64;Component incluir:</span>
+imports: [UiHeaderComponent]
+
+<span>Dentro de la clase del componente incluir:</span>
+readonly #sessionService = inject(SessionService);
+constructor() &#123;
+  this.#sessionService.set('user', 'userTest');
+&#125;
+</pre>
+
+<h1>Código de ejemplo HTML</h1>
+<code>
+	&lt;ui-header&gt;<br />
+	&lt;img src="../../../assets/img/logo-transparente.svg" alt="Logo" /&gt;<br />
+	&lt;/ui-header&gt;
+</code>
+
+<h1>Propiedades input&lt;&gt;() del componente</h1>
+<p>
+	Este componente no recibe ninguna propiedad input&lt;&gt;(), en cambio si que proyecta el
+	contenido con un &lt;ng-content&gt;&lt;/ng-content&gt; lo que significa que severá todo lo que
+	pasemos dentro. Esto debería de utlizarse solo y únicamente para pasar el logo deseado
+</p>
+
+<br />
+<h1>Header principal</h1>
+<ui-header>
+	<img src="../../../assets/img/logo-transparente.svg" alt="Logo" />
+</ui-header>

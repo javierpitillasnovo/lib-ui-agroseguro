@@ -1,0 +1,156 @@
+@use '../../../assets/variables' as *;
+@use '../../../assets/base' as *;
+
+.datagrid {
+	display: block;
+	border-radius: 12px;
+	border: 0.25px solid $color-grey;
+	min-width: fit-content;
+	width: 100%;
+
+	&.showHeader {
+		.datagrid__table {
+			table {
+				thead tr {
+					border-top: 2px solid $color-primary-green;
+					th {
+						&:first-child {
+							border-radius: 0px;
+						}
+						&:last-child {
+							border-radius: 0px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&__title {
+		@include body-bold;
+		color: $color-primary-green;
+		padding: 12px;
+		text-transform: uppercase;
+	}
+
+	&__table {
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			overflow: hidden;
+			table-layout: auto;
+
+			th,
+			td {
+				text-align: center;
+				i {
+					vertical-align: middle;
+					cursor: pointer;
+				}
+			}
+
+			thead th {
+				@include body-bold;
+				background: $color-secondary-green-80;
+				color: $color-white;
+				padding: 12px;
+				border-bottom: 2px solid $color-primary-green;
+				border-right: 0.25px solid $color-primary-green;
+				text-transform: uppercase;
+				i {
+					font-size: 22px;
+					color: $color-white;
+				}
+				&:first-child {
+					width: 42px;
+					border-radius: 12px 0px 0px 0px;
+				}
+				&:last-child {
+					width: 42px;
+					border-right: none;
+					border-radius: 0px 12px 0px 0px;
+				}
+			}
+
+			tbody tr {
+				// Estilos para las filas pares
+				&:nth-of-type(even) {
+					background: rgba($color-grey-03, 0.7);
+				}
+				&.selected {
+					background: $color-secondary-green-30 !important;
+				}
+				&.disabled {
+					background: $color-grey-03;
+					cursor: not-allowed;
+					td {
+						i {
+							pointer-events: none;
+						}
+					}
+				}
+				td {
+					@include body-regular;
+					color: $color-secondary-black-66;
+					padding: 12px;
+					border-top: 0.25px solid $color-grey;
+					border-right: 0.25px solid $color-grey;
+					text-transform: uppercase;
+					text-align: -webkit-center;
+					&:first-child {
+						width: 44px;
+					}
+					&:last-child {
+						width: 44px;
+						border-right: none;
+					}
+					.actions {
+						display: flex;
+						flex-direction: row;
+						align-items: center;
+						gap: 12px;
+					}
+					i {
+						&.icon-trash {
+							color: $color-primary-red;
+						}
+						&.icon-cross {
+							color: $color-primary-red;
+							font-size: 20px;
+						}
+						&.icon-save {
+							color: $color-primary-green;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&__pagination {
+		@include body-regular;
+		color: $color-primary-green;
+		padding: 12px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		border-top: 1px solid $color-grey;
+		i {
+			font-size: 32px;
+			cursor: pointer;
+			color: $color-primary-green;
+		}
+		&--pageSize {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			gap: 12px;
+		}
+		&--current {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+		}
+	}
+}

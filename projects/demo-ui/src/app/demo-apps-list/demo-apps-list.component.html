@@ -1,0 +1,40 @@
+<h1>Código a incluir en TS para el correcto funcionamiento</h1>
+<pre>
+<span>Imports</span>
+import &#123; UiAccordionComponent &#125; from '&#64;agroseguro/lib-ui-agroseguro';
+
+<span>Dentro del decorador &#64;Component incluir:</span>
+imports: [UiAccordionComponent]
+</pre>
+
+<h1>Código de ejemplo HTML</h1>
+<code> &lt;ui-apps-list title="Favoritos" [appItems]="appsFavs()"&gt;&lt;/ui-apps-list&gt; </code>
+
+<h1>Tipos de Listas:</h1>
+<pre>
+<span>Favoritos</span>: Para mostrar varios ítems sin agruparlos, pasamos el input <strong>[appItems]</strong>.
+&lt;ui-apps-list title="Favoritos" <span>[appItems]</span>="appsFavs()"&gt;&lt;/ui-apps-list&gt;
+
+<span>Apps</span>: Para mostrar grupos de apps con ítems, pasamos el input <strong>[appList]</strong>.
+&lt;ui-apps-list title="Apps" <span>[appList]</span>="appsList()"&gt;&lt;/ui-apps-list&gt;
+</pre>
+
+<h1>Propiedades input() del componente</h1>
+<pre>
+<span>title</span> : Título de la sección
+<span>[appList]</span> : Lista de grupos de apps
+<span>[appItems]</span> : Lista de apps
+</pre>
+
+<h1>Propiedades output() del componente</h1>
+<pre>
+  <span>(favorite)</span> : Output que emite al hacer click en la estrella de favoritos en un appItem
+</pre>
+
+<h1>Ejemplos de uso en HTML</h1>
+<div class="flex__h fav">
+	<ui-apps-list title="Favoritos" [appItems]="appsFavs()"></ui-apps-list>
+</div>
+<div class="flex__h">
+	<ui-apps-list title="Apps" [appList]="appsList()"></ui-apps-list>
+</div>

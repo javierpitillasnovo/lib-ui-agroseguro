@@ -1,0 +1,33 @@
+<div id="page">
+	<div id="notifications"></div>
+	<div id="main">
+		<div class="container-fluid p-0 d-flex baseApps">
+			<div class="row">
+				<div class="col-2 baseApps__sidebar">
+					<div class="baseApps__sidebar--menu">
+						<img src="../assets/img/logo-transparente.svg" />
+						<ui-sidenav [sideNavData]="sideNav()"></ui-sidenav>
+						<hr />
+					</div>
+				</div>
+				<div class="col-10 p-0 baseApps__content">
+					<div class="baseApps__content--component">
+						<router-outlet></router-outlet>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="dev-grid" [class.hidden]="isHidden">
+	<div class="container-fluid p-0">
+		<div class="row m-0">
+			@for (item of [].constructor(12); track $index) {
+				<div class="col-1">
+					<div class="inner"></div>
+				</div>
+			}
+		</div>
+	</div>
+</div>

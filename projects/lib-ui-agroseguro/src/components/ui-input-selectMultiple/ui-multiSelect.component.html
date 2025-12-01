@@ -1,0 +1,56 @@
+<div
+	class="fieldMultiSelect__main"
+	[ngClass]="{ 'fieldMultiSelect__main--row': align() === 'row' }"
+	#multiSelect
+>
+	@if (label() || required()) {
+		<div class="fieldMultiSelect__label">
+			@if (label()) {
+				<label>{{ label() }}</label>
+			}
+			@if (required()) {
+				<span class="fieldMultiSelect__label--required">*</span>
+			}
+		</div>
+	}
+	<div class="fieldMultiSelect__content">
+		<div
+			class="fieldMultiSelect__field"
+			(click)="toggleDropdown($event)"
+			[ngStyle]="{ width: width() === 'full' ? '100%' : width() + 'px' }"
+			[ngClass]="{
+				'fieldMultiSelect__field--dropDownOpen': isDropdownOpen(),
+				'fieldMultiSelect__field--error': error() && errorMessage(),
+				'fieldMultiSelect__field--disabled': disabled()
+			}"
+		>
+			<span class="placeholder">Selecciona una o varias opciones</span>
+			<i class="icon-arrow-down"></i>
+			@if (isDropdownOpen()) {
+				<ul
+					class="fieldMultiSelect__options"
+					[ngStyle]="{ width: width() === 'full' ? '100%' : width() + 'px' }"
+					(click)="$event.stopPropagation()"
+				>
+					@for (selectOption of selectOptions(); track $index) {
+						<li class="fieldMultiSelect__item">
+							<ui-checkbox
+								[text]="selectOption.text"
+								(checkboxChanges)="optionChanges($event, $index)"
+							></ui-checkbox>
+						</li>
+					}
+				</ul>
+			}
+		</div>
+		@if (error() && errorMessage()) {
+			<span class="fieldMultiSelect__errorMessage">{{ errorMessage() }}</span>
+		}
+
+		@if (helpText()) {
+			<span class="fieldMultiSelect__helpText">
+				{{ helpText() }}
+			</span>
+		}
+	</div>
+</div>

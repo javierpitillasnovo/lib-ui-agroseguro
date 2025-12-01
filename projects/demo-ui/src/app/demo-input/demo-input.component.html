@@ -1,0 +1,115 @@
+<h1>Inputs</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+	<div class="flex__h">
+		<ui-input
+			formControlName="textNormal"
+			[error]="
+				(form.get('textNormal')?.touched && form.get('textNormal')?.invalid) ||
+				(formSubmitted() && form.get('textNormal')?.invalid)
+			"
+			errorMessage="Campo de texto requerido"
+			[required]="true"
+			label="Campo de texto normal"
+			placeholder="PlaceholderText"
+			helpText="Texto de ayuda de un campo normal"
+			icon="icon-icon"
+			[iconFirst]="true"
+		></ui-input>
+
+		<ui-input
+			formControlName="textLectura"
+			label="Campo de texto solo de lectura"
+			placeholder="PlaceholderText"
+			helpText="Texto de ayuda de un campo normal de lectura"
+			icon="icon-icon"
+		></ui-input>
+
+		<ui-date
+			formControlName="fecha"
+			[error]="
+				(form.get('fecha')?.touched && form.get('fecha')?.invalid) ||
+				(formSubmitted() && form.get('fecha')?.invalid)
+			"
+			errorMessage="Campo de fecha requerido"
+			label="Campo de fecha"
+			[required]="true"
+			helpText="Texto de ayuda de un campo fecha"
+		></ui-date>
+	</div>
+
+	<div class="flex__h">
+		<ui-select
+			formControlName="select"
+			[error]="
+				(form.get('select')?.touched && form.get('select')?.invalid) ||
+				(formSubmitted() && form.get('select')?.invalid)
+			"
+			errorMessage="Debes de seleccionar una opción"
+			[selectOptions]="selectData"
+			label="Campo select"
+			[required]="true"
+			helpText="Texto de ayuda del select"
+		></ui-select>
+		<ui-checkbox
+			formControlName="checkbox"
+			[error]="
+				(form.get('checkbox')?.touched && form.get('checkbox')?.invalid) ||
+				(formSubmitted() && form.get('checkbox')?.invalid)
+			"
+			errorMessage="Campo de texto requerido"
+			[text]="'Opción del checkbox'"
+			label="Campo checkbox"
+			[required]="true"
+			helpText="Texto de ayuda del checkbox"
+		></ui-checkbox>
+
+		<ui-radio
+			formControlName="radio"
+			[error]="
+				(form.get('radio')?.touched && form.get('radio')?.invalid) ||
+				(formSubmitted() && form.get('radio')?.invalid)
+			"
+			errorMessage="Campo de texto requerido"
+			[options]="radioData"
+			[optionsLabels]="true"
+			name="radioTest"
+			label="Campo radio"
+			[required]="true"
+			helpText="Texto de ayuda del campo radio"
+		></ui-radio>
+	</div>
+	<div class="flex__h">
+		<ui-password
+			formControlName="contrasena"
+			[error]="
+				(form.get('contrasena')?.touched && form.get('contrasena')?.invalid) ||
+				(formSubmitted() && form.get('contrasena')?.invalid)
+			"
+			placeholder="Contraseña"
+		></ui-password>
+	</div>
+	<div class="flex__h">
+		<ui-textarea
+			formControlName="textArea"
+			[error]="
+				(form.get('textArea')?.touched && form.get('textArea')?.invalid) ||
+				(formSubmitted() && form.get('textArea')?.invalid)
+			"
+			label="Campo de textArea normal"
+			errorMessage="Campo de textArea requerido"
+			[required]="true"
+			placeholder="PlaceholderText"
+			helpText="Texto de ayuda de un campo textArea"
+		>
+		</ui-textarea>
+		<ui-input-fileUpload
+			formControlName="fileUpload"
+			[error]="
+				(form.get('fileUpload')?.touched && form.get('fileUpload')?.invalid) ||
+				(formSubmitted() && form.get('fileUpload')?.invalid)
+			"
+			label="Campo de subida de archivo"
+		></ui-input-fileUpload>
+	</div>
+	<ui-button type="submit" text="Enviar" additionalClasses="btn__primary xl"></ui-button>
+</form>

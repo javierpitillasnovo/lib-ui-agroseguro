@@ -1,0 +1,34 @@
+<h1>Código a incluir en TS para el correcto funcionamiento</h1>
+<pre>
+<span>Imports</span>
+import &#123; TabTemplateDirective, UiTabsComponent &#125; from '&#64;agroseguro/lib-ui-agroseguro';
+
+<span>Dentro del decorador &#64;Component incluir:</span>
+imports: [TabTemplateDirective, UiTabsComponent]
+</pre>
+
+<p>Dentro de la clase del componente incluir:</p>
+<code> public tabData = ['Tab1', 'Tab2', 'Tab3']; </code>
+<h1>Código de ejemplo HTML</h1>
+<code>
+	&lt;ui-tabs [data]="tabData"&gt;<br />
+	&lt;ng-template tabContent title="Tab1" let-item&gt; Contenido del tab1 &lt;/ng-template&gt;<br />
+	&lt;ng-template tabContent title="Tab2" let-item&gt; Contenido del tab2 &lt;/ng-template&gt;<br />&lt;ng-template
+	tabContent title="Tab3" let-item&gt; Contenido del tab3 &lt;/ng-template&gt;<br />
+	&lt;/ui-tabs&gt;
+</code>
+
+<h1>Propiedades input&lt;&gt;() del componente</h1>
+<p><span>[data]</span> : Propiedad con las cabeceras de las tabs</p>
+<h1>Proyecciones de la estructura del modal</h1>
+<p>Las tabs recibe directamente el contenido proyectado:</p>
+<code>
+	&lt;ng-template tabContent title="Tab1" let-item&gt; Contenido del tab1 &lt;/ng-template&gt;
+</code>
+
+<h1>Tabs</h1>
+<ui-tabs [data]="tabData">
+	<ng-template tabContent title="Tab1" let-item> Contenido del tab1 </ng-template>
+	<ng-template tabContent title="Tab2" let-item> Contenido del tab2 </ng-template>
+	<ng-template tabContent title="Tab3" let-item> Contenido del tab3 </ng-template>
+</ui-tabs>

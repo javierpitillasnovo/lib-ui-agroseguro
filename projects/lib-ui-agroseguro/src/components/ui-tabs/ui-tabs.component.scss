@@ -1,0 +1,46 @@
+@use '../../../assets/variables' as *;
+@use '../../../assets/base' as *;
+
+ui-tabs {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+.tabs {
+	flex-grow: 1;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	&__menu {
+		display: flex;
+		align-items: center;
+		&--title {
+			@include body-regular;
+			font-size: 16px;
+			color: $color-grey;
+			border-bottom: 1px solid $color-grey;
+			flex: auto;
+			display: flex;
+			justify-content: center;
+			padding: 12px;
+			cursor: pointer;
+			&.active {
+				color: $color-primary-green;
+				border-color: $color-primary-green;
+			}
+
+			&:hover {
+				color: $color-secondary-green-80;
+				border-color: $color-secondary-green-80;
+			}
+		}
+	}
+	&__content {
+		margin-top: 24px;
+		padding: 0px 24px 24px 24px;
+		overflow: auto;
+		flex-grow: 1;
+	}
+}

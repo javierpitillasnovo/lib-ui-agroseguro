@@ -1,0 +1,47 @@
+<div
+	class="fieldMultiCheckbox__main"
+	[ngClass]="{ 'fieldMultiCheckbox__main--row': align() === 'row' }"
+>
+	@if (label() || required()) {
+		<div class="fieldMultiCheckbox__label">
+			@if (label()) {
+				<label>{{ label() }}</label>
+			}
+			@if (required()) {
+				<span class="fieldMultiCheckbox__label--required">*</span>
+			}
+		</div>
+	}
+	<div class="fieldMultiCheckbox__content">
+		<div
+			class="fieldMultiCheckbox__field"
+			[ngStyle]="{ width: width() === 'full' ? '100%' : width() + 'px' }"
+		>
+			<ul
+				class="fieldMultiCheckbox__options"
+				[ngStyle]="{ width: width() === 'full' ? '100%' : width() + 'px' }"
+				(click)="$event.stopPropagation()"
+			>
+				@for (checkboxOption of checkboxOptions(); track $index) {
+					<li class="fieldMultiCheckbox__item">
+						<ui-checkbox
+							[text]="checkboxOption.value"
+							(checkboxChanges)="optionChanges($event, $index)"
+							[error]="error()"
+							[disabled]="disabled()"
+						></ui-checkbox>
+					</li>
+				}
+			</ul>
+		</div>
+		@if (error() && errorMessage()) {
+			<span class="fieldMultiCheckbox__errorMessage">{{ errorMessage() }}</span>
+		}
+
+		@if (helpText()) {
+			<span class="fieldMultiCheckbox__helpText">
+				{{ helpText() }}
+			</span>
+		}
+	</div>
+</div>

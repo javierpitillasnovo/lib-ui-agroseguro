@@ -1,0 +1,103 @@
+@use '../../../assets/variables' as *;
+@use '../../../assets/base' as *;
+
+.fieldFileupload {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	@include body-regular;
+	font-size: 14px;
+	width: fit-content;
+
+	&__main {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		width: fit-content;
+		&--row {
+			flex-direction: row;
+			gap: 12px;
+			.fieldFileupload__label {
+				padding-top: 8px;
+			}
+		}
+	}
+
+	&__label {
+		display: flex;
+		flex-direction: row;
+		gap: 4px;
+		width: fit-content;
+
+		label {
+			@include body-bold;
+			font-size: 14px;
+			color: $color-secondary-black-66;
+		}
+
+		&--required {
+			color: $color-primary-red;
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	&__field {
+		input {
+			@include body-regular;
+			font-size: 14px;
+			color: $color-primary-green;
+		}
+
+		input::file-selector-button {
+			@include body-bold;
+			font-size: 16px;
+			background: $color-primary-green;
+			color: $color-white;
+			padding: 6px 12px;
+			border-radius: 16px;
+			border: none;
+			text-transform: uppercase;
+			cursor: pointer;
+		}
+	}
+
+	&__errorMessage {
+		color: $color-primary-red;
+		width: 190px;
+		font-size: 13px;
+		white-space: normal;
+		overflow-wrap: break-word;
+	}
+
+	&--disabled {
+		.fieldFileupload {
+			&__field {
+				input::file-selector-button {
+					background: $color-grey-02;
+					cursor: not-allowed;
+				}
+				input {
+					color: $color-secondary-black-66;
+				}
+			}
+		}
+	}
+
+	&--error {
+		.fieldFileupload {
+			&__field {
+				input::file-selector-button {
+					background: $color-primary-red;
+				}
+				input {
+					color: $color-primary-red;
+				}
+			}
+		}
+	}
+}

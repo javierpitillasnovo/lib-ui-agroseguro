@@ -1,0 +1,53 @@
+//Variables de colores
+
+//Primarys
+$color-primary-black: #1b1b1f;
+$color-primary-red: #e60003;
+$color-primary-yellow: #ffd300;
+$color-primary-green: #007c2a;
+
+//Secondarys
+$color-secondary-black-66: rgba($color-primary-black, 0.66);
+$color-secondary-black-33: rgba($color-primary-black, 0.33);
+$color-secondary-black-10: rgba($color-primary-black, 0.1);
+$color-secondary-red-80: rgba($color-primary-red, 0.8);
+$color-secondary-red-30: rgba($color-primary-red, 0.3);
+$color-secondary-green-80: rgba($color-primary-green, 0.8);
+$color-secondary-green-60: rgba($color-primary-green, 0.6);
+$color-secondary-green-30: rgba($color-primary-green, 0.4);
+$color-secondary-green-15: rgba($color-primary-green, 0.15);
+$color-secondary-green-07: rgba($color-primary-green, 0.07);
+$color-secondary-yellow-80: rgba($color-primary-yellow, 0.8);
+$color-secondary-yellow-60: rgba($color-primary-yellow, 0.6);
+$color-secondary-yellow-30: rgba($color-primary-yellow, 0.3);
+
+//Gradient
+$color-gradient: linear-gradient(
+	90deg,
+	rgba($color-primary-green, 0) 0%,
+	rgba($color-primary-green, 0.1) 49.91%,
+	rgba($color-primary-green, 0.66) 50.04%,
+	$color-primary-green 100%
+);
+
+//Dark, White, Greys
+$color-white: #ffffff;
+$color-black: #000000;
+$color-grey: #c1c1c1;
+$color-grey-02: #e8ebed;
+$color-grey-03: #f5f5f5;
+
+//Errors
+$color-error: #fdf2f2;
+$color-shadow: rgba($color-black, 0.25);
+
+//Puntos de corte
+$grid-columns: 12;
+$grid-breakpoints: (
+	xs: 0,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1250px,
+	x2: 1440px
+);

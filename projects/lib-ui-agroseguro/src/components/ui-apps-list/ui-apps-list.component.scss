@@ -1,0 +1,66 @@
+@use '../../../assets/variables' as *;
+@use '../../../assets/base' as *;
+
+.appList {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	&__title {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		@include h6;
+		color: $color-white;
+		&:first-letter {
+			text-transform: capitalize;
+		}
+		&--showAll {
+			@include body-regular;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			gap: 8px;
+		}
+	}
+	hr {
+		border: 2px solid $color-white;
+	}
+	&__appGroups {
+		margin-top: 12px;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 12px;
+
+		ui-apps-item {
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: row;
+			align-items: center;
+			gap: 8px;
+		}
+
+		.appGroup {
+			display: flex;
+			flex-direction: column;
+			border: 1px solid $color-white;
+			border-radius: 12px;
+			max-width: 240px;
+			box-shadow: 0px 0px 3px 0px $color-shadow;
+
+			&__title {
+				background: $color-white;
+				color: $color-primary-green;
+				padding: 12px;
+				width: 100%;
+				border-top-left-radius: 12px;
+				border-top-right-radius: 12px;
+				@include body-regular;
+			}
+			&__apps {
+				padding: 12px;
+			}
+		}
+	}
+}

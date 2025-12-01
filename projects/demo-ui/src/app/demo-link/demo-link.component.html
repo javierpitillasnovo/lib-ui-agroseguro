@@ -1,0 +1,30 @@
+<h1>Código a incluir en TS para el correcto funcionamiento</h1>
+<pre>
+<span>Imports</span>
+import &#123; UiLinkComponent &#125; from '&#64;agroseguro/lib-ui-agroseguro';
+
+<span>Dentro del decorador &#64;Component incluir:</span>
+imports: [UiLinkComponent]
+</pre>
+
+<h1>Código de ejemplo HTML</h1>
+<code>
+	&lt;ui-link text="Action link" icon="icon-icon" additionalClasses="iFirst"&gt;&lt;/ui-link&gt;
+</code>
+
+<h1>Links</h1>
+<div class="flex__h">
+	<ui-link text="Action link"></ui-link>
+	<ui-link text="Action link" icon="icon-icon"></ui-link>
+	<ui-link text="Action link" icon="icon-icon" additionalClasses="iFirst"></ui-link>
+</div>
+
+<h1>Propiedades input&lt;&gt;() del componente</h1>
+<pre>
+<span>text</span> : Texto del enlace
+<span>icon</span> : Icono del enlace
+
+<span>additionalClasses</span> :
+<span>secondary</span>: Estilos de enlace secundario (color blanco)
+<span>iFirst</span>: nos pone el icono a la izquierda del texto
+</pre>

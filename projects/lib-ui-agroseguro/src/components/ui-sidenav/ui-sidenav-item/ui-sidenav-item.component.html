@@ -1,0 +1,41 @@
+@if (sideNavItem().link) {
+	<li
+		[ngClass]="{ menu__item: !isSubMenu(), submenu__item: isSubMenu() }"
+		[routerLinkActive]="['active']"
+		[routerLinkActiveOptions]="{ exact: true }"
+	>
+		<div class="menu__item--title">
+			@if (sideNavItem().icon) {
+				<i class="{{ sideNavItem().icon }}"></i>
+			}
+			<a [routerLink]="sideNavItem().link" routerLinkActive="active">{{ sideNavItem().label }}</a>
+		</div>
+	</li>
+} @else {
+	<li
+		[ngClass]="{
+			menu__item: !isSubMenu(),
+			submenu__item: isSubMenu(),
+			activeGroup: sideNavItem().active
+		}"
+		(click)="toggleSubmenu($event, sideNavItem())"
+	>
+		<div
+			[ngClass]="{
+				'menu__item--title': !isSubMenu,
+				'submenu__item--title': isSubMenu
+			}"
+		>
+			@if (sideNavItem().icon) {
+				<i class="{{ sideNavItem().icon }}"></i>
+			}
+			<a>{{ sideNavItem().label }}</a>
+		</div>
+		<i class="icon-arrow-down"></i>
+	</li>
+	<ul class="submenu" [class.active]="sideNavItem().active">
+		@for (subMenuItem of sideNavItem().children; track $index) {
+			<ui-sidenav-item [sideNavItem]="subMenuItem" [isSubMenu]="true"></ui-sidenav-item>
+		}
+	</ul>
+}

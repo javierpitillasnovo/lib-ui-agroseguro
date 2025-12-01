@@ -1,0 +1,39 @@
+<h1>Código a incluir en TS para el correcto funcionamiento</h1>
+<pre>
+<span>Imports</span>
+import &#123; UiAccordionComponent &#125; from '&#64;agroseguro/lib-ui-agroseguro';
+
+<span>Dentro del decorador &#64;Component incluir:</span>
+imports: [UiAccordionComponent]
+</pre>
+
+<h1>Código de ejemplo HTML</h1>
+<code>
+	&lt;ui-accordion title="Test" [status]="0"><br />
+	&lt;div&gt;contenido1&lt;/div&gt;<br />
+	&lt;/ui-accordion&gt;
+</code>
+
+<h1>Tipos de acordeones:</h1>
+<div class="flex__h">
+	<ui-accordion title="Test" [showIcon]="true" [status]="0">
+		<div>contenido1</div>
+	</ui-accordion>
+	<ui-accordion title="Test" [showIcon]="true" [status]="1">
+		<div>contenido2</div>
+	</ui-accordion>
+	<ui-accordion title="Test" [showIcon]="true" [status]="2">
+		<div>contenido3</div>
+	</ui-accordion>
+</div>
+
+<h1>Propiedades input() del componente</h1>
+<pre>
+<span>title</span> : Título del accordeón
+<span>[showIcon]</span> : Boolean para mostrar o no el icono
+<span>[status]</span> : Input de tipo number para el control del estado del accordeón
+  0 === Verde,
+  1 === Amarillo
+  2 === Rojo.
+<span>[open]</span> : Input de tipo boolean para controlar si el accordeón debe de estar abierto o no, por defecto en false.
+</pre>

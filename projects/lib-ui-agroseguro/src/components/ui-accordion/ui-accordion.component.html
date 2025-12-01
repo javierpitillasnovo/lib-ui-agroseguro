@@ -1,0 +1,26 @@
+<div class="accordion__header" (click)="showContent()">
+	<div class="accordion__header--title">
+		@if (showIcon()) {
+			@switch (status()) {
+				@case (0) {
+					<i class="icon-check"></i>
+				}
+				@case (1) {
+					<i class="icon-danger"></i>
+				}
+				@case (2) {
+					<i class="icon-cross"></i>
+				}
+			}
+		}
+		{{ title() }}
+	</div>
+	@if (open()) {
+		<i class="icon-arrow-up"></i>
+	} @else {
+		<i class="icon-arrow-down"></i>
+	}
+</div>
+@if (open()) {
+	<div class="accordion__content"><ng-content></ng-content></div>
+}

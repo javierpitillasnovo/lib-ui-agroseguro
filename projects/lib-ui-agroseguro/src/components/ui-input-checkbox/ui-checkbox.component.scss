@@ -1,0 +1,131 @@
+@use '../../../assets/variables' as *;
+@use '../../../assets/base' as *;
+@use '../../../assets/extensible' as *;
+@use '../../../assets/icons/variables.scss' as *;
+
+.fieldCheckbox {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	@include body-regular;
+	font-size: 14px;
+	width: fit-content;
+
+	&__main {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		width: fit-content;
+		&--row {
+			flex-direction: row;
+			gap: 12px;
+			.fieldCheckbox__field {
+				flex-direction: row;
+				gap: 16px;
+			}
+		}
+	}
+
+	&__label {
+		display: flex;
+		flex-direction: row;
+		gap: 4px;
+		width: fit-content;
+
+		label {
+			@include body-bold;
+			font-size: 14px;
+			color: $color-secondary-black-66;
+		}
+
+		&--required {
+			color: $color-primary-red;
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	&__field {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+		width: fit-content;
+
+		&--item {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			width: fit-content;
+
+			span {
+				margin-left: 8px;
+				color: $color-secondary-black-66;
+			}
+
+			input[type='checkbox'] {
+				cursor: pointer;
+				-webkit-appearance: none;
+				appearance: none;
+				background-color: $color-white;
+				margin: 0;
+				width: 20px;
+				height: 20px;
+				border: 1px solid $color-secondary-black-66;
+				border-radius: 2px;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+
+				&::before {
+					content: '';
+					width: 14px;
+					height: 14px;
+					border-radius: 2px;
+					border: none transparent;
+					transform: scale(0);
+					transition: 120ms transform ease-in-out;
+					background: $color-primary-green;
+				}
+			}
+
+			input[type='checkbox']:checked::before {
+				transform: scale(1);
+			}
+		}
+	}
+
+	&__helpText {
+		color: $color-secondary-black-33;
+		width: fit-content;
+		font-size: 12px;
+	}
+
+	&__errorMessage {
+		color: $color-primary-red;
+		width: 190px;
+		font-size: 13px;
+		white-space: normal;
+		overflow-wrap: break-word;
+	}
+
+	&.disabled {
+		.fieldCheckbox__content {
+			input[type='checkbox'] {
+				background: $color-grey-02;
+				cursor: not-allowed;
+			}
+		}
+	}
+
+	&.error {
+		.fieldCheckbox__content {
+			input[type='checkbox'] {
+				border-color: $color-primary-red;
+			}
+		}
+	}
+}

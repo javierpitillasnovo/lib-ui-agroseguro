@@ -1,0 +1,42 @@
+<div class="fieldText__main" [ngClass]="{ 'fieldText__main--row': align() === 'row' }">
+	@if (label() || required()) {
+		<div class="fieldText__label">
+			@if (label()) {
+				<label>{{ label() }}</label>
+			}
+			@if (required()) {
+				<span class="fieldText__label--required">*</span>
+			}
+		</div>
+	}
+
+	<div class="fieldText__content">
+		<div class="fieldText__field">
+			<input
+				type="text"
+				placeholder="{{ placeholder() }}"
+				(blur)="onInputBlur()"
+				(input)="onInputChange($event)"
+				[value]="value()"
+				[disabled]="disabled()"
+				[required]="required()"
+				[ngStyle]="{ width: (icon() ? width() - 30 : width()) + 'px' }"
+			/>
+			@if (icon()) {
+				<i
+					class="{{ icon() }}"
+					(click)="this.selected.set(!this.selected()); this.iconClicked.emit(this.selected())"
+				></i>
+			}
+		</div>
+		@if (error() && errorMessage()) {
+			<span class="fieldText__errorMessage">{{ errorMessage() }}</span>
+		}
+
+		@if (helpText()) {
+			<span class="fieldText__helpText">
+				{{ helpText() }}
+			</span>
+		}
+	</div>
+</div>

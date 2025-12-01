@@ -1,0 +1,16 @@
+<div class="acciones">
+	<p class="title">Confirmar acción</p>
+	<p>Vas a {{ actionType() }} este registro ¿estás seguro?</p>
+	<div class="acciones__actions">
+		<ui-button
+			text="cancelar"
+			additionalClasses="btn__primary--red xl"
+			(click)="this.modalOutput.emit(false)"
+		></ui-button>
+		<ui-button
+			text="aceptar"
+			additionalClasses="btn__primary xl"
+			(click)="this.modalOutput.emit(true)"
+		></ui-button>
+	</div>
+</div>

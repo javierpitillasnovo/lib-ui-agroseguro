@@ -1,0 +1,159 @@
+<h1>Código a incluir en TS para el correcto funcionamiento</h1>
+<pre>
+<span>Imports</span>
+import &#123; NgTemplateOutlet &#125; from '&#64;angular/common';
+import &#123; tableDirective, UiTableComponent &#125; from '&#64;agroseguro/lib-ui-agroseguro';
+
+<span>Dentro del decorador &#64;Component incluir:</span>
+imports: [tableDirective, UiTableComponent, NgTemplateOutlet]
+</pre>
+
+<h1>Código de ejemplo HTML</h1>
+<code>
+	&lt;ui-table title="Titulo de la tabla" [dataOriginal]="ArrayDeData" [filterId]="'id'"
+	[showAddButton]="true" [defaultActions]="'checkbox'" [showPagination]="true"
+	(itemSelected)="itemSelected($event)" (itemAdd)="itemAdd($event)"&gt;<br />
+	&lt;ng-template tableColumn header="NombreDeUnHEader" [headerIsVisible]="true" let-item&gt; <br />
+	&#123; &#123; item.nombrevariable &#125; &#125; <br />
+	&lt;/ng-template&gt;<br />&lt;/ui-table&gt;
+</code>
+
+<h1>Propiedades Input()</h1>
+<pre>
+<span>title</span> : Input Título de la tabla.
+<span>[dataOriginal]</span> <span class="required">*</span>: Input data de la tabla.
+<span>[filterId]</span> : Propiedad de id de la data que luego el componente usará para filtrados y el correcto funcionamiento. Evitando que back deba de devolver la propiedad siempre como id
+<span>[defaultActions]</span> : Boolean para mostrar o no los chebkbox o radios, acepta los siguientes valores: false | 'checkbox' | 'radio'
+<span>[showAddButton]</span> : Boolean para mostrar o no el botón de añadir.
+<span>[showPagination]</span> : Boolean para mostrar o no la paginación.
+<span>totalItems</span> : Number con los items totales.
+<span>hasError</span> : Boolean para activar las clases de error.
+</pre>
+
+<h1>Propiedades Model</h1>
+<pre>
+<span>[(pageSize)]</span> : Model de la cantidad de items por página
+<span>[(currentPage)]</span> : Model del total de items
+</pre>
+
+<h1>Propiedades Output()</h1>
+<pre>
+<span>(itemSelected)</span> : Evento al que suscribirnos, nos pasa el id y estado del checkbox al
+seleccionar una fila
+<span>(itemAdd)</span>: Disponible cuando <span>[defaultActions]</span> es 'checkbox' o 'radio'.
+Evento al que suscribirnos, nos dice que item se ha seleccionado, válido para checkbox o
+radiobuttons
+<span>(paginationAction)</span>: Evento que emite al hacer click en el icono de página siguiente o anterior.
+</pre>
+
+<br />
+<h1>Tabla</h1>
+<ui-table
+	title="Título de tabla"
+	[headersGroups]="headersGroup()"
+	[dataOriginal]="data()"
+	[filterId]="'id'"
+	[showAddButton]="true"
+	[defaultActions]="'checkbox'"
+	[showPagination]="true"
+	(itemSelected)="itemSelected($event)"
+	(itemAdd)="itemAdd($event)"
+>
+	<ng-template tableColumn header="Orden" [headerIsVisible]="true" let-item>
+		{{ item.id }}
+	</ng-template>
+	<ng-template tableColumn header="Operaciones" [headerIsVisible]="true" let-item
+		><ui-select
+			[selectOptions]="selectData()"
+			(selectChanges)="selectChanges($event, item.id)"
+		></ui-select
+	></ng-template>
+	<ng-template tableColumn header="Ordenar" [headerIsVisible]="true" let-item>test</ng-template>
+	<ng-template tableColumn header="Arriba" [headerIsVisible]="true" let-item
+		><i class="icon-arrow-up" (click)="upRow(item)"></i
+	></ng-template>
+	<ng-template tableColumn header="Abajo" [headerIsVisible]="true" let-item
+		><i class="icon-arrow-down" (click)="downRow(item)"></i
+	></ng-template> </ui-table
+><br />
+<ui-table
+	[headersGroups]="headersGroup()"
+	[dataOriginal]="data()"
+	[filterId]="'id'"
+	[showAddButton]="false"
+	[defaultActions]="false"
+	[showPagination]="true"
+	(itemSelected)="itemSelected($event)"
+	(itemAdd)="itemAdd($event)"
+>
+	<ng-template tableColumn header="Orden" [headerIsVisible]="true" let-item>
+		{{ item.id }}
+	</ng-template>
+	<ng-template tableColumn header="Operaciones" [headerIsVisible]="true" let-item
+		><ui-select
+			[selectOptions]="selectData()"
+			(selectChanges)="selectChanges($event, item.id)"
+		></ui-select
+	></ng-template>
+	<ng-template tableColumn header="Ordenar" [headerIsVisible]="true" let-item>test</ng-template>
+	<ng-template tableColumn header="Arriba" [headerIsVisible]="true" let-item
+		><i class="icon-arrow-up" (click)="upRow(item)"></i
+	></ng-template>
+	<ng-template tableColumn header="Abajo" [headerIsVisible]="true" let-item
+		><i class="icon-arrow-down" (click)="downRow(item)"></i
+	></ng-template> </ui-table
+><br />
+<ui-table
+	title="Título de tabla"
+	[dataOriginal]="data()"
+	[filterId]="'id'"
+	[showAddButton]="true"
+	[defaultActions]="'checkbox'"
+	[showPagination]="true"
+	(itemSelected)="itemSelected($event)"
+	(itemAdd)="itemAdd($event)"
+>
+	<ng-template tableColumn header="Orden" [headerIsVisible]="true" let-item>
+		{{ item.id }}
+	</ng-template>
+	<ng-template tableColumn header="Operaciones" [headerIsVisible]="true" let-item
+		><ui-select
+			[selectOptions]="selectData()"
+			(selectChanges)="selectChanges($event, item.id)"
+		></ui-select
+	></ng-template>
+	<ng-template tableColumn header="Ordenar" [headerIsVisible]="true" let-item>test</ng-template>
+	<ng-template tableColumn header="Arriba" [headerIsVisible]="true" let-item
+		><i class="icon-arrow-up" (click)="upRow(item)"></i
+	></ng-template>
+	<ng-template tableColumn header="Abajo" [headerIsVisible]="true" let-item
+		><i class="icon-arrow-down" (click)="downRow(item)"></i
+	></ng-template> </ui-table
+><br />
+<ui-table
+	[dataOriginal]="data()"
+	[filterId]="'id'"
+	[showAddButton]="true"
+	[defaultActions]="'checkbox'"
+	[showPagination]="true"
+	(itemSelected)="itemSelected($event)"
+	(itemAdd)="itemAdd($event)"
+>
+	<ng-template tableColumn header="Orden" [headerIsVisible]="true" let-item>
+		{{ item.id }}
+	</ng-template>
+	<ng-template tableColumn header="Operaciones" [headerIsVisible]="true" let-item
+		><ui-select
+			[selectOptions]="selectData()"
+			(selectChanges)="selectChanges($event, item.id)"
+		></ui-select
+	></ng-template>
+	<ng-template tableColumn header="Ordenar" [headerIsVisible]="true" let-item>test</ng-template>
+	<ng-template tableColumn header="Arriba" [headerIsVisible]="true" let-item
+		><i class="icon-arrow-up" (click)="upRow(item)"></i
+	></ng-template>
+	<ng-template tableColumn header="Abajo" [headerIsVisible]="true" let-item
+		><i class="icon-arrow-down" (click)="downRow(item)"></i
+	></ng-template> </ui-table
+><br />
+<ui-button text="Guardar" (click)="showData()" additionalClasses="btn__primary"></ui-button>

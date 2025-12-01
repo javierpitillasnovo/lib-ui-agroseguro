@@ -1,0 +1,26 @@
+<h1>Código a incluir en TS para el correcto funcionamiento</h1>
+<pre>
+<span>Imports</span>
+import &#123; UiTagComponent &#125; from '&#64;agroseguro/lib-ui-agroseguro';
+
+<span>Dentro del decorador &#64;Component incluir:</span>
+imports: [UiTagComponent]
+</pre>
+
+<h1>Código de ejemplo HTML</h1>
+<code> &lt;ui-tag type="check" [icon]="true" text="Lorem ipsum"&gt;&lt;/ui-tag&gt; </code>
+
+<h1>Propiedades Input()</h1>
+<p><span>[status]</span> : Input, enum con los siguientes valores : '0 | 1 | 2'</p>
+<p><span>[icon]</span> : Boolean para controlar si se muestra el icono o no</p>
+<p><span>text</span> : Texto de la etiqueta</p>
+
+<h1>Tags</h1>
+<div class="flex__h">
+	<ui-tag [status]="0" [icon]="true" text="Lorem ipsum"></ui-tag>
+	<ui-tag [status]="1" [icon]="true" text="Lorem ipsum"></ui-tag>
+	<ui-tag [status]="2" [icon]="true" text="Lorem ipsum"></ui-tag>
+	<ui-tag [status]="0" text="Lorem ipsum"></ui-tag>
+	<ui-tag [status]="1" text="Lorem ipsum"></ui-tag>
+	<ui-tag [status]="2" text="Lorem ipsum"></ui-tag>
+</div>

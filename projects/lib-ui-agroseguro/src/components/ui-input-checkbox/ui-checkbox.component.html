@@ -1,0 +1,40 @@
+<div class="fieldCheckbox__main" [ngClass]="{ 'fieldCheckbox__main--row': align() === 'row' }">
+	@if (label() || required()) {
+		<div class="fieldCheckbox__label">
+			@if (label()) {
+				<label>{{ label() }}</label>
+			}
+			@if (required()) {
+				<span class="fieldCheckbox__label--required">*</span>
+			}
+		</div>
+	}
+
+	<div class="fieldCheckbox__content">
+		<div class="fieldCheckbox__field">
+			<div class="fieldCheckbox__field--item">
+				<input
+					type="checkbox"
+					[value]="checked()"
+					(blur)="onInputBlur()"
+					(change)="onInputChange($event)"
+					[disabled]="disabled()"
+					[required]="required()"
+					[checked]="checked()"
+				/>
+				@if (text()) {
+					<span>{{ text() }}</span>
+				}
+			</div>
+		</div>
+		@if (error() && errorMessage()) {
+			<span class="fieldCheckbox__errorMessage">{{ errorMessage() }}</span>
+		}
+
+		@if (helpText()) {
+			<span class="fieldCheckbox__helpText">
+				{{ helpText() }}
+			</span>
+		}
+	</div>
+</div>

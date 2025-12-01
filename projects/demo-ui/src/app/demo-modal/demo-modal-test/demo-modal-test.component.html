@@ -1,0 +1,15 @@
+<div class="modalTest">
+	<p>Vas a realizar una acción ¿estás seguro?</p>
+	<div class="modalTest__actions">
+		<ui-button
+			text="cancelar"
+			additionalClasses="btn__secondary"
+			(click)="this.modalOutput.emit(false)"
+		></ui-button>
+		<ui-button
+			text="aceptar"
+			additionalClasses="btn__primary"
+			(click)="this.modalOutput.emit(true)"
+		></ui-button>
+	</div>
+</div>

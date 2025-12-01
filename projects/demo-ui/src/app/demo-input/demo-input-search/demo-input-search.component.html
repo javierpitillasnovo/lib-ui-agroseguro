@@ -1,0 +1,42 @@
+<h1>Código a incluir en TS para el correcto funcionamiento</h1>
+<pre>
+<span>Imports</span>
+import: &#123; UiSearchComponent &#125; from '&#64;agroseguro/lib-ui-agroseguro';
+
+<span>Dentro del decorador &#64;Component incluir:</span>
+imports: [UiSearchComponent]
+</pre>
+
+<h1>Código de ejemplo HTML</h1>
+<code>
+	&lt;ui-select <br />[required]="true"<br />[selectOptions]="selectData" <br />label="Campo de
+	texto normal"<br />
+	placeholder="PlaceholderText" <br />helpText="Texto de ayuda de un campo normal"
+	<br />&lt;/ui-select&gt;
+</code>
+<br />
+
+<h1>Código de ejemplo HTML</h1>
+<code>
+	&lt;ui-search placeholder="Placeholder de búsqueda..." icon="icon-search"&gt;&lt;/ui-search&gt;
+</code>
+
+<br /><br />
+
+<p>
+	<span>** Para ver el funcionamiento completo, ver ejemplo de formulario reactivo en Inputs</span>
+</p>
+
+<h1>Propiedades input&lt;&gt;() del componente</h1>
+<pre>
+<span>placeholder</span> : Placeholder del campo
+<span>icon</span> : Icono a mostrar en el campo
+</pre>
+
+<h1>Propiedades output&lt;&gt;() del componente</h1>
+<pre>
+<span>searchChanges</span> : Evento que emite cuando hay cambios en el inputs
+</pre>
+
+<h1>Inputs de tipo search</h1>
+<ui-search placeholder="Placeholder de búsqueda..." icon="icon-search"></ui-search>

@@ -1,0 +1,73 @@
+@use '../../../assets/variables' as *;
+@use '../../../assets/base' as *;
+
+.stepper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 24px;
+	width: 100%;
+
+	&__steps {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+		.steps__step {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			gap: 8px;
+			&--number {
+				@include body-regular;
+				background: $color-secondary-black-33;
+				border: 1px solid $color-primary-black;
+				border-radius: 50%;
+				color: $color-white;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 32px;
+				width: 32px;
+			}
+			&--title {
+				@include body-regular;
+				color: $color-secondary-black-33;
+			}
+
+			&.active {
+				.steps__step--number {
+					background: $color-primary-green;
+				}
+				.steps__step--title {
+					color: $color-primary-green;
+				}
+			}
+			hr {
+				border: 1px solid $color-primary-black;
+				width: 56px;
+			}
+		}
+	}
+
+	&__content {
+		width: 100%;
+
+		> * {
+			width: 100%;
+			overflow: auto;
+			display: flex;
+			flex-direction: column;
+		}
+	}
+
+	&__actions {
+		width: 100%;
+		display: flex;
+		justify-content: flex-end !important;
+		gap: 12px !important;
+	}
+}

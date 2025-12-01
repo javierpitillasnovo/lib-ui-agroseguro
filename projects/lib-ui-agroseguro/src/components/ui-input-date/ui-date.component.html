@@ -1,0 +1,35 @@
+<div class="fieldDate__main" [ngClass]="{ 'fieldDate__main--row': align() === 'row' }">
+	@if (label() || required()) {
+		<div class="fieldDate__label">
+			@if (label()) {
+				<label>{{ label() }}</label>
+			}
+			@if (required()) {
+				<span class="fieldDate__label--required">*</span>
+			}
+		</div>
+	}
+
+	<div class="fieldDate__content">
+		<div class="fieldDate__field">
+			<input
+				type="date"
+				(blur)="onInputBlur()"
+				(input)="onInputChange($event)"
+				[value]="value()"
+				[disabled]="disabled()"
+				[required]="required()"
+				[ngStyle]="{ width: width() + 'px' }"
+			/>
+		</div>
+		@if (error() && errorMessage()) {
+			<span class="fieldDate__errorMessage">{{ errorMessage() }}</span>
+		}
+
+		@if (helpText()) {
+			<span class="fieldDate__helpText">
+				{{ helpText() }}
+			</span>
+		}
+	</div>
+</div>

@@ -1,0 +1,12 @@
+@use '@ui-styles/_variables.scss' as *;
+
+ui-apps-list {
+	width: 100%;
+}
+.flex__h {
+	background: $color-secondary-green-80;
+
+	&.fav ui-apps-list .appList .appList__appGroups ui-apps-item {
+		flex-wrap: nowrap !important;
+	}
+}

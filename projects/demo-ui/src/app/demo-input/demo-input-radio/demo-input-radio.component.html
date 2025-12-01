@@ -1,0 +1,86 @@
+<h1>Código a incluir en TS para el correcto funcionamiento</h1>
+<pre>
+<span>Imports</span>
+import: &#123; UiRadioComponent &#125; from '&#64;agroseguro/lib-ui-agroseguro';
+
+<span>Dentro del decorador &#64;Component incluir:</span>
+imports: [UiRadioComponent]
+</pre>
+
+<h1>Código de ejemplo HTML</h1>
+<code>
+	&lt;ui-radio <br />[required]="true"<br />[options]="radioData" <br />[optionsLabels]="true"<br />
+	name="radioCheck" <br />label="Campo de texto normal"<br />
+	placeholder="PlaceholderText" <br />helpText="Texto de ayuda de un campo normal"
+	<br />&lt;/ui-radio&gt;
+</code>
+
+<br /><br />
+
+<p>
+	<span>** Para ver el funcionamiento completo, ver ejemplo de formulario reactivo en Inputs</span>
+</p>
+
+<h1>Propiedades input&lt;&gt;() del componente</h1>
+<pre>
+<span>placeholder</span> : Placeholder del campo
+<span>label</span> : Etiqueta del campo
+<span>helpText</span> : Texto de ayuda del campo
+<span>[required]</span> : Valor booleano para indicar si es requerido o no
+<span>[disabled]</span> : Valor booleano para disabled
+<span>[options]</span> : Opciones del radio
+<span>[optionsLabels]</span> : Boolean para mostrar las labels
+<span>[align]</span> : Propiedad para elegir la alineación enum <span>'column' | 'row'</span> por defecto a column
+<span>[error]</span>: Propiedad para controlar el estado de error
+<span>errorMessage</span>: Texto de error a mostrar
+</pre>
+
+<h1>Propiedadses output&lt;&gt;() del componente</h1>
+<pre>
+<span>radioChanges</span> : Evento que emite cuando hay cambios en el inputs
+</pre>
+
+<h1>Inputs de tipo radio</h1>
+<div class="flex__h">
+	<ui-radio
+		[required]="true"
+		[options]="radioData"
+		[optionsLabels]="true"
+		name="radioCheck"
+		label="Campo radio"
+		helpText="Texto de ayuda de un radio"
+	></ui-radio>
+
+	<ui-radio
+		[required]="true"
+		[options]="radioData"
+		[optionsLabels]="true"
+		name="radioCheck"
+		label="Campo radio"
+		helpText="Texto de ayuda de un radio"
+		[disabled]="true"
+	></ui-radio>
+
+	<ui-radio
+		[required]="true"
+		[options]="radioData"
+		[optionsLabels]="true"
+		name="radioCheck"
+		label="Campo radio"
+		helpText="Texto de ayuda de un radio"
+		[error]="true"
+		errorMessage="Mensaje de error"
+	></ui-radio>
+</div>
+
+<div class="flex__h">
+	<ui-radio
+		[required]="true"
+		[options]="radioData"
+		[optionsLabels]="true"
+		[align]="'row'"
+		name="radioCheck"
+		label="Campo radio"
+		helpText="Texto de ayuda de un radio"
+	></ui-radio>
+</div>

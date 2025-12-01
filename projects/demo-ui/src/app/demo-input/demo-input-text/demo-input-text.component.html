@@ -1,0 +1,108 @@
+<h1>Código a incluir en TS para el correcto funcionamiento</h1>
+<pre>
+<span>Imports</span>
+import: &#123; UiInputComponent &#125; from '&#64;agroseguro/lib-ui-agroseguro';
+
+<span>Dentro del decorador &#64;Component incluir:</span>
+imports: [UiInputComponent]
+</pre>
+
+<h1>Código de ejemplo HTML</h1>
+<code>
+	&lt;ui-input <br />[required]="true"<br />label="Etiqueta"<br />
+	placeholder="PlaceholderText" <br />helpText="Texto de ayuda de un campo normal"
+	<br />icon="icon-icon" <br />[iconFirst]="true"&gt;<br />&lt;/ui-input&gt;
+</code>
+
+<br /><br />
+
+<p>
+	<span>** Para ver el funcionamiento completo, ver ejemplo de formulario reactivo en Inputs</span>
+</p>
+
+<h1>Propiedades input&lt;&gt;() del componente</h1>
+<pre>
+<span>placeholder</span> : Placeholder del campo
+<span>label</span> : Etiqueta del campo
+<span>helpText</span> : Texto de ayuda del campo
+<span>[required]</span> : Valor booleano para indicar si es requerido o no
+<span>[disabled]</span> : Valor booleano para disabled
+<span>icon</span> : Icono a mostrar en el campo
+<span>[iconFirst]</span> : Boolean
+<span>[align]</span> : Propiedad para elegir la alineación enum <span>'column' | 'row'</span> por defecto a column
+<span>[width]</span> : Ancho en píxeles, por defecto a <span>164px</span>, cuando el campo lleva icono se le resta <span>30px</span> que es el espacio del icono
+<span>[error]</span>: Propiedad para controlar el estado de error
+<span>errorMessage</span>: Texto de error a mostrar
+</pre>
+
+<h1>Propiedades output&lt;&gt;() del componente</h1>
+<pre>
+<span>inputChanges</span> : Evento que emite cuando hay cambios en el inputs
+<span>iconClicked</span> : Evento que emite si se ha hecho click en el icono del campo
+</pre>
+
+<h1>Inputs de tipo texto</h1>
+<div class="flex__h">
+	<ui-input
+		[required]="true"
+		label="Etiqueta"
+		placeholder="PlaceholderText"
+		helpText="Texto de ayuda de un campo normal"
+		icon="icon-icon"
+		[iconFirst]="true"
+	></ui-input>
+	<ui-input
+		[required]="true"
+		label="Etiqueta"
+		[value]="'Texto'"
+		helpText="Texto de ayuda de un campo normal"
+		icon="icon-icon"
+		[iconFirst]="true"
+		[disabled]="true"
+	></ui-input>
+
+	<ui-input
+		[required]="true"
+		label="Etiqueta"
+		placeholder="PlaceholderText"
+		helpText="Texto de ayuda de un campo normal"
+		icon="icon-icon"
+		[iconFirst]="true"
+		[error]="true"
+		errorMessage="Mensaje de error"
+	></ui-input>
+</div>
+<div class="flex__v">
+	<ui-input
+		[required]="true"
+		label="Etiqueta"
+		placeholder="PlaceholderText"
+		helpText="Texto de ayuda de un campo normal"
+		icon="icon-icon"
+		[align]="'row'"
+		[iconFirst]="true"
+	></ui-input>
+	<ui-input
+		[required]="true"
+		label="Etiqueta"
+		[value]="'Texto'"
+		helpText="Texto de ayuda de un campo normal"
+		icon="icon-icon"
+		[iconFirst]="true"
+		[align]="'row'"
+		[disabled]="true"
+	></ui-input>
+
+	<ui-input
+		[required]="true"
+		label="Etiqueta"
+		placeholder="PlaceholderText"
+		helpText="Texto de ayuda de un campo normal"
+		icon="icon-icon"
+		[iconFirst]="true"
+		[align]="'row'"
+		[width]="260"
+		[error]="true"
+		errorMessage="Ha excedido el número máximo de caracteres"
+	></ui-input>
+</div>
