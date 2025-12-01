@@ -1,16 +1,18 @@
 // ============================================================================
-// AGROSEGURO - TIPOGRAFÍA
-// Inter - Tipografía del Sistema de Diseño
+// AGROSEGURO - TIPOGRAFÍA CORPORATIVA
+// Mulish - Según Manual de Marca Agroseguro
 // ============================================================================
 
 // Google Fonts Import
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
-// Variables de tipografía
-$font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+// Variable de tipografía (formato prototipos)
+$font: 'Mulish', -apple-system, BlinkMacSystemFont, sans-serif;
 $font-family-primary: $font;
 
-// Pesos tipográficos
+// Pesos tipográficos según Manual de Marca
+// Se priorizan: Regular (400), Semibold (600), Bold (700)
+// Evitar: Extralight (200), Extrabold (800), Black (900)
 $font-weight-light: 300;
 $font-weight-regular: 400;
 $font-weight-medium: 500;
@@ -42,32 +44,32 @@ $letter-spacing-wider: 0.05em;
 
 
 // ============================================================================
-// COMPATIBILIDAD CON VERSIÓN ANTERIOR (Frutiger → Inter)
+// COMPATIBILIDAD CON VERSIÓN ANTERIOR (Frutiger → Mulish)
 // ============================================================================
 @font-face {
   font-family: 'Frutiger';
-  src: local('Inter');
+  src: local('Mulish');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'FrutigerBold';
-  src: local('Inter');
+  src: local('Mulish');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'FrutigerLight';
-  src: local('Inter');
+  src: local('Mulish');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'FrutigerRoman';
-  src: local('Inter');
+  src: local('Mulish');
   font-weight: 400;
   font-style: normal;
 }
