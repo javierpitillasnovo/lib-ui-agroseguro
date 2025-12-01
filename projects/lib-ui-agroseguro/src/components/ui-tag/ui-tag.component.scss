@@ -9,7 +9,7 @@
   align-items: center;
   gap: 6px;
   padding: 4px 10px;
-  font-family: $font-family-primary;
+  font-family: $font;
   font-size: $font-size-xs;
   font-weight: $font-weight-medium;
   border-radius: $radius-full;
@@ -21,18 +21,18 @@
   
   // Variantes de color
   &--verde {
-    background: $color-verde-50;
-    color: $color-primary-green;
+    background: $verde-50;
+    color: $verde;
   }
   
   &--rojo {
     background: $color-error-light;
-    color: $color-primary-red;
+    color: $rojo;
   }
   
   &--azul {
     background: $color-info-light;
-    color: $color-primary-blue;
+    color: $azul;
   }
   
   &--amarillo {
@@ -41,8 +41,8 @@
   }
   
   &--gris {
-    background: $color-grey-100;
-    color: $color-grey-600;
+    background: $gray-100;
+    color: $gray-600;
   }
   
   // Outline

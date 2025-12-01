@@ -7,7 +7,7 @@
 .tabs {
   &__nav {
     display: flex;
-    border-bottom: 2px solid $color-grey-200;
+    border-bottom: 2px solid $gray-200;
     gap: 4px;
     overflow-x: auto;
     
@@ -17,11 +17,11 @@
   }
   
   &__tab {
-    font-family: $font-family-primary;
+    font-family: $font;
     font-size: $font-size-sm;
     font-weight: $font-weight-medium;
-    color: $color-grey-500;
-    padding: $space-md $space-lg;
+    color: $gray-500;
+    padding: $space-4 $space-6;
     background: transparent;
     border: none;
     border-bottom: 2px solid transparent;
@@ -31,18 +31,18 @@
     transition: all $transition-fast;
     
     &:hover {
-      color: $color-primary-green;
-      background: $color-verde-50;
+      color: $verde;
+      background: $verde-50;
     }
     
     &--active {
-      color: $color-primary-green;
+      color: $verde;
       font-weight: $font-weight-semibold;
-      border-bottom-color: $color-primary-green;
+      border-bottom-color: $verde;
     }
     
     &:disabled {
-      color: $color-grey-300;
+      color: $gray-300;
       cursor: not-allowed;
       
       &:hover {
@@ -57,7 +57,7 @@
   }
   
   &__content {
-    padding: $space-xl 0;
+    padding: $space-8 0;
   }
   
   &__panel {
@@ -73,7 +73,7 @@
   &--pills {
     .tabs__nav {
       border-bottom: none;
-      background: $color-grey-100;
+      background: $gray-100;
       padding: 4px;
       border-radius: $radius-lg;
       gap: 0;
@@ -85,7 +85,7 @@
       border-bottom: none;
       
       &--active {
-        background: $color-white;
+        background: $white;
         box-shadow: $shadow-sm;
       }
     }

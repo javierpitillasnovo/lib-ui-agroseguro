@@ -28,7 +28,7 @@
   }
   
   &__container {
-    background: $color-white;
+    background: $white;
     border-radius: $radius-xl;
     box-shadow: $shadow-xl;
     max-width: 90vw;
@@ -53,14 +53,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: $space-lg $space-xl;
-    border-bottom: 1px solid $color-grey-200;
+    padding: $space-6 $space-8;
+    border-bottom: 1px solid $gray-200;
     
     h3 {
-      font-family: $font-family-primary;
+      font-family: $font;
       font-size: $font-size-xl;
       font-weight: $font-weight-semibold;
-      color: $color-primary-black;
+      color: $gray-900;
       margin: 0;
     }
     
@@ -74,12 +74,12 @@
       background: transparent;
       border-radius: $radius-full;
       cursor: pointer;
-      color: $color-grey-500;
+      color: $gray-500;
       transition: all $transition-fast;
       
       &:hover {
-        background: $color-grey-100;
-        color: $color-primary-black;
+        background: $gray-100;
+        color: $gray-900;
       }
       
       i { font-size: 20px; }
@@ -87,10 +87,10 @@
   }
   
   &__body {
-    padding: $space-xl;
+    padding: $space-8;
     overflow-y: auto;
     max-height: calc(90vh - 140px);
-    font-family: $font-family-primary;
+    font-family: $font;
     
     @include body-regular;
   }
@@ -99,9 +99,9 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: $space-md;
-    padding: $space-lg $space-xl;
-    border-top: 1px solid $color-grey-200;
-    background: $color-grey-50;
+    gap: $space-4;
+    padding: $space-6 $space-8;
+    border-top: 1px solid $gray-200;
+    background: $gray-50;
   }
 }

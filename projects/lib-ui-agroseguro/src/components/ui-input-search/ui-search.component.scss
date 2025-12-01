@@ -16,7 +16,7 @@
 		gap: 12px;
 		background: $color-secondary-green-80;
 		border-radius: 14px;
-		color: $color-white;
+		color: $white;
 		padding: 12px;
 		box-shadow: 0px 0px 2px 0px $color-shadow;
 		input[type='search'] {
@@ -25,9 +25,9 @@
 			width: 100%;
 			background: transparent;
 			border: none;
-			color: $color-white;
+			color: $white;
 			&::placeholder {
-				color: $color-white;
+				color: $white;
 			}
 			&::-webkit-search-cancel-button {
 				display: none !important;

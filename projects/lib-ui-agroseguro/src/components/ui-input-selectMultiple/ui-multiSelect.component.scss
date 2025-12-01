@@ -38,7 +38,7 @@
 		}
 
 		&--required {
-			color: $color-primary-red;
+			color: $rojo;
 		}
 	}
 
@@ -58,10 +58,10 @@
 		align-items: center;
 		justify-content: space-between;
 		height: 44px;
-		border: 1px solid $color-grey;
+		border: 1px solid $gray-300;
 		border-radius: 4px;
 		color: $color-secondary-black-66;
-		background: $color-white;
+		background: $white;
 		box-shadow: 0px 0px 2px 0px $color-shadow;
 		cursor: pointer;
 
@@ -78,16 +78,16 @@
 
 		&--error {
 			background: $color-error;
-			border-color: $color-primary-red;
-			color: $color-primary-red;
+			border-color: $rojo;
+			color: $rojo;
 			i {
-				color: $color-primary-red;
+				color: $rojo;
 			}
 		}
 
 		&--disabled {
 			cursor: not-allowed;
-			background: $color-grey-02;
+			background: $gray-300-02;
 		}
 	}
 
@@ -96,8 +96,8 @@
 		top: 42px;
 		left: 0px;
 		height: auto;
-		border: 1px solid $color-grey;
-		background-color: $color-white; /* Usa el color predeterminado del sistema */
+		border: 1px solid $gray-300;
+		background-color: $white; /* Usa el color predeterminado del sistema */
 		color: $color-secondary-black-66; /* Usa el color de texto predeterminado del sistema */
 		z-index: 10;
 		max-height: 200px;
@@ -121,7 +121,7 @@
 
 	&__errorMessage {
 		@include body-regular;
-		color: $color-primary-red;
+		color: $rojo;
 		width: 190px;
 		font-size: 13px;
 		white-space: normal;

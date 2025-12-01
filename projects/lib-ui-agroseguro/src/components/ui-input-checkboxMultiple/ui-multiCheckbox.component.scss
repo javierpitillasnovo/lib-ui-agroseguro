@@ -40,7 +40,7 @@
 		}
 
 		&--required {
-			color: $color-primary-red;
+			color: $rojo;
 		}
 	}
 
@@ -71,7 +71,7 @@
 
 	&__errorMessage {
 		@include body-regular;
-		color: $color-primary-red;
+		color: $rojo;
 		width: 190px;
 		font-size: 13px;
 		white-space: normal;

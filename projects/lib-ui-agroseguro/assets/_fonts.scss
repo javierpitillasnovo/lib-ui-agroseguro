@@ -1,18 +1,16 @@
 // ============================================================================
-// AGROSEGURO - TIPOGRAFÍA CORPORATIVA
-// Mulish - Tipografía principal según Manual de Marca
+// AGROSEGURO - TIPOGRAFÍA
+// Inter - Tipografía del Sistema de Diseño
 // ============================================================================
 
-// Google Fonts Import (recomendado para web)
-@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+// Google Fonts Import
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 // Variables de tipografía
-$font-family-primary: 'Mulish', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-$font-family-system: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-family-primary: $font;
 
-// Pesos tipográficos según Manual de Marca
-// Se priorizan: Regular (400), Semibold (600), Bold (700)
-// Evitar: Extralight (200), Extrabold (800), Black (900)
+// Pesos tipográficos
 $font-weight-light: 300;
 $font-weight-regular: 400;
 $font-weight-medium: 500;
@@ -42,83 +40,34 @@ $letter-spacing-normal: 0;
 $letter-spacing-wide: 0.025em;
 $letter-spacing-wider: 0.05em;
 
-// ============================================================================
-// CLASES DE TIPOGRAFÍA SEGÚN MANUAL DE MARCA
-// ============================================================================
-
-// Mixin para antetítulos (Mulish Bold Mayúscula)
-@mixin text-antetitulo {
-  font-family: $font-family-primary;
-  font-weight: $font-weight-bold;
-  text-transform: uppercase;
-  letter-spacing: $letter-spacing-wide;
-}
-
-// Mixin para títulos (Mulish Regular)
-@mixin text-titulo {
-  font-family: $font-family-primary;
-  font-weight: $font-weight-regular;
-}
-
-// Mixin para entradillas/destacados (Mulish Bold)
-@mixin text-entradilla {
-  font-family: $font-family-primary;
-  font-weight: $font-weight-bold;
-}
-
-// Mixin para cuerpo de texto (Mulish Regular)
-@mixin text-cuerpo {
-  font-family: $font-family-primary;
-  font-weight: $font-weight-regular;
-  line-height: $line-height-normal;
-}
-
-// Mixin para notas al pie (Mulish Regular, gris)
-@mixin text-nota {
-  font-family: $font-family-primary;
-  font-weight: $font-weight-regular;
-  font-size: $font-size-sm;
-  color: #D3D3D3;
-}
-
-// Mixin para pie de documento (Mulish Bold Mayúscula, verde)
-@mixin text-pie {
-  font-family: $font-family-primary;
-  font-weight: $font-weight-bold;
-  text-transform: uppercase;
-  color: #587A43;
-}
 
 // ============================================================================
-// COMPATIBILIDAD CON VERSIÓN ANTERIOR (Frutiger → Mulish)
+// COMPATIBILIDAD CON VERSIÓN ANTERIOR (Frutiger → Inter)
 // ============================================================================
-// Mapeo de fuentes antiguas a nuevas para compatibilidad
-$font-frutiger: $font-family-primary;
-
 @font-face {
   font-family: 'Frutiger';
-  src: local('Mulish');
+  src: local('Inter');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'FrutigerBold';
-  src: local('Mulish');
+  src: local('Inter');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'FrutigerLight';
-  src: local('Mulish');
+  src: local('Inter');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'FrutigerRoman';
-  src: local('Mulish');
+  src: local('Inter');
   font-weight: 400;
   font-style: normal;
 }

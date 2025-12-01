@@ -1,8 +1,6 @@
 // ============================================================================
 // AGROSEGURO - UI BUTTON COMPONENT
-// Botones con nueva imagen corporativa 2024
 // ============================================================================
-
 @use '../../../assets/variables' as *;
 @use '../../../assets/base' as *;
 
@@ -11,236 +9,103 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  flex-wrap: nowrap;
   gap: 8px;
-  color: $color-white;
-  padding: 10px 20px;
-  border-radius: $radius-md;
-  border: 2px solid transparent;
-  font-family: $font-family-primary;
+  color: $white;
+  padding: 10px 16px;
+  border-radius: $radius-lg;
+  border: 1px solid transparent;
+  font-family: $font;
   font-size: $font-size-sm;
-  font-weight: $font-weight-semibold;
-  text-transform: none;
-  width: fit-content;
+  font-weight: $font-weight-medium;
   cursor: pointer;
   transition: all $transition-fast;
   text-decoration: none;
 
   i {
-    font-size: 20px;
+    font-size: 16px;
     color: inherit;
-    transition: color $transition-fast;
-  }
-
-  span {
-    font-weight: $font-weight-semibold;
   }
 
   &:hover:not(:disabled) {
-    box-shadow: $shadow-md;
-    transform: translateY(-1px);
-  }
-  
-  &:active:not(:disabled) {
-    transform: translateY(0);
+    box-shadow: $shadow-sm;
   }
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba($color-primary-green, 0.25);
+    box-shadow: 0 0 0 3px rgba($verde, 0.2);
   }
 
-  // Tamaños
-  &.sm {
-    padding: 6px 12px;
-    font-size: $font-size-xs;
-    border-radius: $radius-sm;
-    
-    i {
-      font-size: 16px;
-    }
-  }
-  
   &.xl {
-    padding: 14px 28px;
+    padding: 12px 20px;
     font-size: $font-size-base;
-    border-radius: $radius-lg;
-    
-    i {
-      font-size: 24px;
-    }
+    border-radius: $radius-xl;
   }
 
-  // Icono primero
+  &.sm {
+    padding: 8px 12px;
+    font-size: $font-size-xs;
+  }
+
   &.iFirst {
     flex-direction: row-reverse;
   }
-  
-  // Solo icono
-  &.icon-only {
-    padding: 10px;
-    border-radius: $radius-full;
-    
-    &.sm {
-      padding: 6px;
-    }
-    
-    &.xl {
-      padding: 14px;
-    }
-  }
 
-  // ========================================
-  // VARIANTES DE COLOR
-  // ========================================
-
-  // Botón primario (verde corporativo)
   &__primary {
-    background: $color-primary-green;
-    color: $color-white;
+    background: $verde;
     
     &:hover:not(:disabled) {
-      background: $color-verde-hover;
-    }
-    
-    &:active:not(:disabled) {
-      background: $color-verde-active;
+      background: $verde-dark;
     }
     
     &:disabled {
-      background: $color-grey-300 !important;
-      color: $color-grey-500;
+      background: $gray-300 !important;
+      color: $gray-500;
       cursor: not-allowed;
-      box-shadow: none;
-      transform: none;
     }
 
-    // Variante roja
     &--red {
-      background: $color-primary-red;
+      background: $rojo;
       
       &:hover:not(:disabled) {
-        background: darken($color-primary-red, 8%);
+        background: darken($rojo, 8%);
       }
       
       &:focus {
-        box-shadow: 0 0 0 3px rgba($color-primary-red, 0.25);
-      }
-    }
-    
-    // Variante azul
-    &--blue {
-      background: $color-primary-blue;
-      
-      &:hover:not(:disabled) {
-        background: darken($color-primary-blue, 8%);
-      }
-      
-      &:focus {
-        box-shadow: 0 0 0 3px rgba($color-primary-blue, 0.25);
+        box-shadow: 0 0 0 3px rgba($rojo, 0.2);
       }
     }
   }
   
-  // Botón secundario (outline verde)
   &__secondary {
-    background: transparent;
-    border: 2px solid $color-primary-green;
-    color: $color-primary-green;
+    background: $white;
+    border: 1px solid $verde;
+    color: $verde;
     
     i {
-      color: $color-primary-green;
+      color: $verde;
     }
     
     &:hover:not(:disabled) {
-      background: $color-verde-50;
-      box-shadow: none;
-    }
-    
-    &:active:not(:disabled) {
-      background: $color-verde-100;
+      background: $verde-50;
     }
     
     &:disabled {
-      border-color: $color-grey-300;
-      color: $color-grey-400;
+      border-color: $gray-300;
+      color: $gray-400;
       cursor: not-allowed;
       
       i {
-        color: $color-grey-400;
-      }
-    }
-    
-    // Variante roja
-    &--red {
-      border-color: $color-primary-red;
-      color: $color-primary-red;
-      
-      i {
-        color: $color-primary-red;
-      }
-      
-      &:hover:not(:disabled) {
-        background: rgba($color-primary-red, 0.05);
+        color: $gray-400;
       }
     }
   }
   
-  // Botón terciario (ghost/text)
   &__tertiary {
     background: transparent;
-    color: $color-primary-green;
-    padding: 10px 12px;
-    
-    i {
-      color: $color-primary-green;
-    }
+    color: $verde;
     
     &:hover:not(:disabled) {
-      background: $color-verde-50;
-      box-shadow: none;
+      background: $verde-50;
     }
-    
-    &:disabled {
-      color: $color-grey-400;
-      cursor: not-allowed;
-      
-      i {
-        color: $color-grey-400;
-      }
-    }
-  }
-  
-  // Botón de peligro
-  &__danger {
-    background: $color-error;
-    color: $color-white;
-    
-    &:hover:not(:disabled) {
-      background: darken($color-error, 8%);
-    }
-    
-    &:focus {
-      box-shadow: 0 0 0 3px rgba($color-error, 0.25);
-    }
-    
-    &:disabled {
-      background: $color-grey-300 !important;
-      color: $color-grey-500;
-      cursor: not-allowed;
-    }
-  }
-}
-
-// ========================================
-// GRUPO DE BOTONES
-// ========================================
-
-.btn-group {
-  display: inline-flex;
-  gap: 8px;
-  
-  &--vertical {
-    flex-direction: column;
   }
 }

@@ -8,10 +8,10 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-family: $font-family-primary;
+  font-family: $font;
   font-size: $font-size-sm;
   font-weight: $font-weight-semibold;
-  color: $color-primary-green;
+  color: $verde;
   text-decoration: none;
   cursor: pointer;
   transition: all $transition-fast;
@@ -22,7 +22,7 @@
   }
   
   &:hover {
-    color: $color-verde-hover;
+    color: $verde-dark;
     text-decoration: underline;
     
     i {
@@ -31,34 +31,34 @@
   }
   
   &:active {
-    color: $color-verde-active;
+    color: $verde-dark;
   }
   
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 2px rgba($color-primary-green, 0.2);
+    box-shadow: 0 0 0 2px rgba($verde, 0.2);
     border-radius: 2px;
   }
   
   // Variantes
   &--secondary {
-    color: $color-grey-600;
+    color: $gray-600;
     
     &:hover {
-      color: $color-primary-black;
+      color: $gray-900;
     }
   }
   
   &--danger {
-    color: $color-primary-red;
+    color: $rojo;
     
     &:hover {
-      color: darken($color-primary-red, 10%);
+      color: darken($rojo, 10%);
     }
   }
   
   &--disabled {
-    color: $color-grey-400;
+    color: $gray-400;
     cursor: not-allowed;
     pointer-events: none;
   }

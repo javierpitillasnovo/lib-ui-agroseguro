@@ -9,7 +9,7 @@
   align-items: center;
   gap: 12px;
   cursor: pointer;
-  font-family: $font-family-primary;
+  font-family: $font;
   
   &__input {
     position: absolute;
@@ -18,7 +18,7 @@
     height: 0;
     
     &:checked + .switch__track {
-      background: $color-primary-green;
+      background: $verde;
       
       .switch__thumb {
         transform: translateX(20px);
@@ -26,27 +26,27 @@
     }
     
     &:focus + .switch__track {
-      box-shadow: 0 0 0 3px rgba($color-primary-green, 0.2);
+      box-shadow: 0 0 0 3px rgba($verde, 0.2);
     }
     
     &:disabled + .switch__track {
-      background: $color-grey-200;
+      background: $gray-200;
       cursor: not-allowed;
       
       .switch__thumb {
-        background: $color-grey-300;
+        background: $gray-300;
       }
     }
     
     &:disabled:checked + .switch__track {
-      background: rgba($color-primary-green, 0.4);
+      background: rgba($verde, 0.4);
     }
   }
   
   &__track {
     width: 44px;
     height: 24px;
-    background: $color-grey-300;
+    background: $gray-300;
     border-radius: $radius-full;
     position: relative;
     transition: all $transition-fast;
@@ -56,7 +56,7 @@
   &__thumb {
     width: 20px;
     height: 20px;
-    background: $color-white;
+    background: $white;
     border-radius: 50%;
     position: absolute;
     top: 2px;
@@ -67,7 +67,7 @@
   
   &__label {
     font-size: $font-size-sm;
-    color: $color-primary-black;
+    color: $gray-900;
     user-select: none;
     
     &--left {
@@ -79,7 +79,7 @@
     cursor: not-allowed;
     
     .switch__label {
-      color: $color-grey-400;
+      color: $gray-400;
     }
   }
   

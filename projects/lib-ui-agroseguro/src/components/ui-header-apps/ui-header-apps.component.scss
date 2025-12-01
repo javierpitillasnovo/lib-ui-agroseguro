@@ -18,9 +18,9 @@
 	&__appName {
 		@include body-bold;
 		font-size: 18px;
-		color: $color-primary-black;
+		color: $gray-900;
 		span {
-			color: $color-primary-green;
+			color: $verde;
 		}
 	}
 }

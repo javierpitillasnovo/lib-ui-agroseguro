@@ -9,7 +9,7 @@
   align-items: center;
   gap: 10px;
   cursor: pointer;
-  font-family: $font-family-primary;
+  font-family: $font;
   
   &__input {
     position: absolute;
@@ -18,8 +18,8 @@
     height: 0;
     
     &:checked + .checkbox__box {
-      background: $color-primary-green;
-      border-color: $color-primary-green;
+      background: $verde;
+      border-color: $verde;
       
       &::after {
         opacity: 1;
@@ -28,26 +28,26 @@
     }
     
     &:focus + .checkbox__box {
-      box-shadow: 0 0 0 3px rgba($color-primary-green, 0.2);
+      box-shadow: 0 0 0 3px rgba($verde, 0.2);
     }
     
     &:disabled + .checkbox__box {
-      background: $color-grey-100;
-      border-color: $color-grey-300;
+      background: $gray-100;
+      border-color: $gray-300;
       cursor: not-allowed;
     }
     
     &:disabled:checked + .checkbox__box {
-      background: $color-grey-300;
+      background: $gray-300;
     }
   }
   
   &__box {
     width: 20px;
     height: 20px;
-    border: 2px solid $color-grey-300;
+    border: 2px solid $gray-300;
     border-radius: $radius-sm;
-    background: $color-white;
+    background: $white;
     position: relative;
     transition: all $transition-fast;
     flex-shrink: 0;
@@ -59,7 +59,7 @@
       top: 2px;
       width: 5px;
       height: 10px;
-      border: solid $color-white;
+      border: solid $white;
       border-width: 0 2px 2px 0;
       transform: rotate(45deg) scale(0);
       opacity: 0;
@@ -67,19 +67,19 @@
     }
     
     &:hover {
-      border-color: $color-primary-green;
+      border-color: $verde;
     }
   }
   
   &__label {
     font-size: $font-size-sm;
-    color: $color-primary-black;
+    color: $gray-900;
     user-select: none;
     
     &--required {
       &::after {
         content: '*';
-        color: $color-primary-red;
+        color: $rojo;
         margin-left: 4px;
       }
     }
@@ -89,7 +89,7 @@
     cursor: not-allowed;
     
     .checkbox__label {
-      color: $color-grey-400;
+      color: $gray-400;
     }
   }
   

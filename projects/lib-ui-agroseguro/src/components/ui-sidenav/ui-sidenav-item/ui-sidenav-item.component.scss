@@ -10,10 +10,10 @@
 // ESTILOS BASE DE ENLACES
 // ========================================
 a {
-  font-family: $font-family-primary;
+  font-family: $font;
   font-size: $font-size-sm;
   font-weight: $font-weight-regular;
-  color: $color-white;
+  color: $white;
   text-decoration: none;
   display: block;
   width: 100%;
@@ -22,7 +22,7 @@ a {
 
 i {
   font-size: 20px;
-  color: $color-white;
+  color: $white;
   opacity: 0.8;
   transition: opacity $transition-fast;
 }
@@ -59,24 +59,24 @@ i {
 
   // Hover
   &:hover {
-    background-color: rgba($color-white, 0.1);
+    background-color: rgba($white, 0.1);
     
     i {
       opacity: 1;
     }
     
     a {
-      color: $color-white;
+      color: $white;
     }
   }
   
   // Activo (seleccionado)
   &.active {
-    background-color: rgba($color-white, 0.15);
+    background-color: rgba($white, 0.15);
     
     a {
       font-weight: $font-weight-semibold;
-      color: $color-white;
+      color: $white;
     }
     
     i {
@@ -92,14 +92,14 @@ i {
       transform: translateY(-50%);
       width: 4px;
       height: 60%;
-      background: $color-verde-light;
+      background: $verde-light;
       border-radius: 0 2px 2px 0;
     }
   }
   
   // Grupo activo (con submenu abierto)
   &.activeGroup {
-    background-color: rgba($color-white, 0.1);
+    background-color: rgba($white, 0.1);
     border-radius: $radius-md $radius-md 0 0;
     
     .menu__item--arrow {
@@ -159,16 +159,16 @@ i {
 
     // Item activo en submenu
     &.active {
-      background-color: rgba($color-white, 0.1);
+      background-color: rgba($white, 0.1);
       
       a {
-        color: $color-verde-light;
+        color: $verde-light;
         font-weight: $font-weight-semibold;
         opacity: 1;
       }
       
       i {
-        color: $color-verde-light;
+        color: $verde-light;
         opacity: 1;
       }
       
@@ -181,13 +181,13 @@ i {
         transform: translateY(-50%);
         width: 6px;
         height: 6px;
-        background: $color-verde-light;
+        background: $verde-light;
         border-radius: 50%;
       }
     }
     
     &:hover {
-      background-color: rgba($color-white, 0.08);
+      background-color: rgba($white, 0.08);
       
       a {
         opacity: 1;
@@ -199,7 +199,7 @@ i {
     }
     
     &.activeGroup {
-      background-color: rgba($color-white, 0.1);
+      background-color: rgba($white, 0.1);
     }
   }
 }

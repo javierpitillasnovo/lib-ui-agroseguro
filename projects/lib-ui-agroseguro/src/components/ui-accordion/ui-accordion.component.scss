@@ -5,12 +5,12 @@
 @use '../../../assets/base' as *;
 
 .accordion {
-  border: 1px solid $color-grey-200;
+  border: 1px solid $gray-200;
   border-radius: $radius-lg;
   overflow: hidden;
   
   &__item {
-    border-bottom: 1px solid $color-grey-200;
+    border-bottom: 1px solid $gray-200;
     
     &:last-child {
       border-bottom: none;
@@ -21,27 +21,27 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: $space-lg;
-    background: $color-white;
+    padding: $space-6;
+    background: $white;
     cursor: pointer;
     transition: all $transition-fast;
     
     &:hover {
-      background: $color-grey-50;
+      background: $gray-50;
     }
     
     h4 {
-      font-family: $font-family-primary;
+      font-family: $font;
       font-size: $font-size-base;
       font-weight: $font-weight-semibold;
-      color: $color-primary-black;
+      color: $gray-900;
       margin: 0;
       display: flex;
       align-items: center;
       gap: 12px;
       
       i {
-        color: $color-primary-green;
+        color: $verde;
         font-size: 20px;
       }
     }
@@ -53,8 +53,8 @@
       align-items: center;
       justify-content: center;
       border-radius: $radius-full;
-      background: $color-verde-50;
-      color: $color-primary-green;
+      background: $verde-50;
+      color: $verde;
       transition: all $transition-fast;
       
       i {
@@ -64,15 +64,15 @@
     }
     
     &.active {
-      background: $color-verde-50;
+      background: $verde-50;
       
       h4 {
-        color: $color-primary-green;
+        color: $verde;
       }
       
       .accordion__header-icon {
-        background: $color-primary-green;
-        color: $color-white;
+        background: $verde;
+        color: $white;
         
         i {
           transform: rotate(180deg);
@@ -85,7 +85,7 @@
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out;
-    background: $color-white;
+    background: $white;
     
     &.active {
       max-height: 1000px;
@@ -94,11 +94,11 @@
   }
   
   &__body {
-    padding: $space-lg;
+    padding: $space-6;
     padding-top: 0;
-    font-family: $font-family-primary;
+    font-family: $font;
     @include body-regular;
-    color: $color-grey-700;
+    color: $gray-700;
   }
   
   // Variante sin bordes

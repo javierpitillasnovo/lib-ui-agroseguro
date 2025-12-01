@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  font-family: $font-family-primary;
+  font-family: $font;
   
   &__item {
     min-width: 36px;
@@ -19,7 +19,7 @@
     padding: 0 8px;
     font-size: $font-size-sm;
     font-weight: $font-weight-medium;
-    color: $color-grey-600;
+    color: $gray-600;
     background: transparent;
     border: 1px solid transparent;
     border-radius: $radius-md;
@@ -27,18 +27,18 @@
     transition: all $transition-fast;
     
     &:hover:not(:disabled) {
-      background: $color-grey-100;
-      color: $color-primary-black;
+      background: $gray-100;
+      color: $gray-900;
     }
     
     &--active {
-      background: $color-primary-green;
-      color: $color-white;
+      background: $verde;
+      color: $white;
       font-weight: $font-weight-semibold;
       
       &:hover:not(:disabled) {
-        background: $color-verde-hover;
-        color: $color-white;
+        background: $verde-dark;
+        color: $white;
       }
     }
     
@@ -53,7 +53,7 @@
   }
   
   &__ellipsis {
-    color: $color-grey-400;
+    color: $gray-400;
     padding: 0 4px;
   }
   
@@ -61,7 +61,7 @@
   &__info {
     margin-left: 16px;
     font-size: $font-size-sm;
-    color: $color-grey-500;
+    color: $gray-500;
   }
   
   // Selector de items por página
@@ -73,20 +73,20 @@
     
     span {
       font-size: $font-size-sm;
-      color: $color-grey-500;
+      color: $gray-500;
     }
     
     select {
       padding: 6px 28px 6px 10px;
       font-size: $font-size-sm;
-      border: 1px solid $color-grey-300;
+      border: 1px solid $gray-300;
       border-radius: $radius-sm;
-      background: $color-white;
+      background: $white;
       cursor: pointer;
       
       &:focus {
         outline: none;
-        border-color: $color-primary-green;
+        border-color: $verde;
       }
     }
   }

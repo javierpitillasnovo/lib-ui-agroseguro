@@ -9,7 +9,7 @@
   align-items: center;
   gap: 10px;
   cursor: pointer;
-  font-family: $font-family-primary;
+  font-family: $font;
   
   &__input {
     position: absolute;
@@ -18,7 +18,7 @@
     height: 0;
     
     &:checked + .radio__circle {
-      border-color: $color-primary-green;
+      border-color: $verde;
       
       &::after {
         opacity: 1;
@@ -27,26 +27,26 @@
     }
     
     &:focus + .radio__circle {
-      box-shadow: 0 0 0 3px rgba($color-primary-green, 0.2);
+      box-shadow: 0 0 0 3px rgba($verde, 0.2);
     }
     
     &:disabled + .radio__circle {
-      background: $color-grey-100;
-      border-color: $color-grey-300;
+      background: $gray-100;
+      border-color: $gray-300;
       cursor: not-allowed;
     }
     
     &:disabled:checked + .radio__circle::after {
-      background: $color-grey-400;
+      background: $gray-400;
     }
   }
   
   &__circle {
     width: 20px;
     height: 20px;
-    border: 2px solid $color-grey-300;
+    border: 2px solid $gray-300;
     border-radius: 50%;
-    background: $color-white;
+    background: $white;
     position: relative;
     transition: all $transition-fast;
     flex-shrink: 0;
@@ -59,20 +59,20 @@
       transform: translate(-50%, -50%) scale(0);
       width: 10px;
       height: 10px;
-      background: $color-primary-green;
+      background: $verde;
       border-radius: 50%;
       opacity: 0;
       transition: all $transition-fast;
     }
     
     &:hover {
-      border-color: $color-primary-green;
+      border-color: $verde;
     }
   }
   
   &__label {
     font-size: $font-size-sm;
-    color: $color-primary-black;
+    color: $gray-900;
     user-select: none;
   }
   
@@ -80,7 +80,7 @@
     cursor: not-allowed;
     
     .radio__label {
-      color: $color-grey-400;
+      color: $gray-400;
     }
   }
 }
@@ -98,7 +98,7 @@
   &__label {
     font-weight: $font-weight-semibold;
     font-size: $font-size-sm;
-    color: $color-grey-700;
+    color: $gray-700;
     margin-bottom: 8px;
   }
 }

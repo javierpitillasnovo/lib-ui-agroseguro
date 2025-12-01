@@ -36,7 +36,7 @@
 		}
 
 		&--required {
-			color: $color-primary-red;
+			color: $rojo;
 		}
 	}
 
@@ -50,14 +50,14 @@
 		input {
 			@include body-regular;
 			font-size: 14px;
-			color: $color-primary-green;
+			color: $verde;
 		}
 
 		input::file-selector-button {
 			@include body-bold;
 			font-size: 16px;
-			background: $color-primary-green;
-			color: $color-white;
+			background: $verde;
+			color: $white;
 			padding: 6px 12px;
 			border-radius: 16px;
 			border: none;
@@ -67,7 +67,7 @@
 	}
 
 	&__errorMessage {
-		color: $color-primary-red;
+		color: $rojo;
 		width: 190px;
 		font-size: 13px;
 		white-space: normal;
@@ -78,7 +78,7 @@
 		.fieldFileupload {
 			&__field {
 				input::file-selector-button {
-					background: $color-grey-02;
+					background: $gray-300-02;
 					cursor: not-allowed;
 				}
 				input {
@@ -92,10 +92,10 @@
 		.fieldFileupload {
 			&__field {
 				input::file-selector-button {
-					background: $color-primary-red;
+					background: $rojo;
 				}
 				input {
-					color: $color-primary-red;
+					color: $rojo;
 				}
 			}
 		}

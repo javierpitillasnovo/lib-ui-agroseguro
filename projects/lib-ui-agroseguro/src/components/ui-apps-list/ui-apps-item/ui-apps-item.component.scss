@@ -19,13 +19,13 @@ a {
 		box-shadow: 0px 0px 3px 0px $color-shadow;
 		&__title {
 			@include body-regular;
-			color: $color-white;
+			color: $white;
 		}
 		i {
-			color: $color-white;
+			color: $white;
 			cursor: pointer;
 			&.icon-starfilled {
-				color: $color-primary-yellow !important;
+				color: $amarillo !important;
 			}
 		}
 		&.disabled {
