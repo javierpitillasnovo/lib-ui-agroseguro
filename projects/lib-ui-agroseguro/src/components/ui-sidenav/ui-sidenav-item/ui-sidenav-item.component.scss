@@ -121,7 +121,7 @@ i {
   overflow: hidden;
   transition: max-height 0.3s ease-out;
   border-radius: 0 0 $radius-md $radius-md;
-  background-color: rgba($color-black, 0.2);
+  background-color: rgba($gray-900, 0.2);
   margin-bottom: 4px;
 
   &.active {
