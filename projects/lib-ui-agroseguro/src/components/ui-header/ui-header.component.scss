@@ -1,5 +1,6 @@
 // ============================================================================
 // AGROSEGURO - UI HEADER COMPONENT
+// Según prototipo Pantalla 1 del sistema de tarifas
 // ============================================================================
 @use '../../../assets/variables' as *;
 @use '../../../assets/base' as *;
@@ -9,10 +10,17 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
+  padding: 0 $space-6;
   height: $header-height;
   background: $white;
   border-bottom: 1px solid $gray-200;
+  font-family: $font;
+  
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: $space-4;
+  }
   
   &__logo {
     display: flex;
@@ -24,16 +32,88 @@
     }
   }
   
+  // Breadcrumbs
+  &__breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    font-size: $font-size-sm;
+    color: $gray-500;
+    
+    a {
+      color: $verde;
+      text-decoration: none;
+      font-weight: $font-weight-medium;
+      transition: color $transition-fast;
+      
+      &:hover {
+        color: $verde-dark;
+      }
+    }
+    
+    span.separator {
+      color: $gray-400;
+    }
+    
+    span.current {
+      color: $gray-700;
+      font-weight: $font-weight-medium;
+    }
+  }
+  
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+  }
+  
+  // Acciones del header
+  &__action {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    border-radius: $radius-md;
+    cursor: pointer;
+    transition: all $transition-fast;
+    color: $gray-500;
+    position: relative;
+    
+    i {
+      font-size: 20px;
+    }
+    
+    &:hover {
+      color: $verde;
+      background: $verde-50;
+    }
+    
+    // Badge de notificaciones
+    .badge {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      width: 8px;
+      height: 8px;
+      background: $rojo;
+      border-radius: $radius-full;
+      border: 2px solid $white;
+    }
+  }
+  
   &__userActions {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: $space-4;
 
     i {
       font-size: 20px;
       color: $gray-500;
       cursor: pointer;
-      padding: 8px;
+      padding: $space-2;
       border-radius: $radius-md;
       transition: all $transition-fast;
       
@@ -46,8 +126,8 @@
     &--info {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 8px 12px;
+      gap: $space-3;
+      padding: $space-2 $space-3;
       border: 1px solid $gray-200;
       border-radius: $radius-lg;
       cursor: pointer;
@@ -58,6 +138,25 @@
         background: $verde-50;
       }
 
+      .avatar {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $verde;
+        border-radius: $radius-full;
+        color: $white;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-semibold;
+      }
+      
+      .user-name {
+        font-size: $font-size-sm;
+        font-weight: $font-weight-medium;
+        color: $gray-700;
+      }
+
       i.icon-user {
         width: 32px;
         height: 32px;
@@ -65,10 +164,17 @@
         align-items: center;
         justify-content: center;
         background: $verde-50;
-        border-radius: 50%;
+        border-radius: $radius-full;
         color: $verde;
         font-size: 14px;
       }
     }
+  }
+  
+  // Separador vertical
+  &__divider {
+    width: 1px;
+    height: 24px;
+    background: $gray-200;
   }
 }
