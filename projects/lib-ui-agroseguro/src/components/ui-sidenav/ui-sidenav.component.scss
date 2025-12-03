@@ -1,5 +1,127 @@
+// ============================================================================
+// AGROSEGURO - UI SIDENAV COMPONENT
+// Según prototipo Pantalla 1 del sistema de tarifas
+// ============================================================================
+@use '../../../assets/variables' as *;
+@use '../../../assets/base' as *;
+
 .sideMenu {
-	display: flex;
-	flex-direction: column;
-	gap: 18px;
+  display: flex;
+  flex-direction: column;
+  width: $sidebar-width;
+  min-height: 100vh;
+  background: linear-gradient(180deg, $verde 0%, $verde-dark 100%);
+  padding: $space-6 0;
+  font-family: $font;
+  
+  // Header del sidebar
+  &__header {
+    padding: 0 $space-6 $space-6;
+    border-bottom: 1px solid rgba($white, 0.15);
+    margin-bottom: $space-4;
+    
+    &-logo {
+      display: flex;
+      align-items: center;
+      gap: $space-3;
+      margin-bottom: $space-4;
+      
+      img {
+        height: 40px;
+        width: auto;
+      }
+      
+      span {
+        font-size: $font-size-xl;
+        font-weight: $font-weight-bold;
+        color: $white;
+      }
+    }
+    
+    &-info {
+      font-size: $font-size-xs;
+      color: rgba($white, 0.7);
+      
+      p {
+        margin: 2px 0;
+      }
+    }
+  }
+  
+  // Navegación
+  &__nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: $space-1;
+    padding: 0 $space-3;
+  }
+  
+  // Sección del menú
+  &__section {
+    margin-bottom: $space-4;
+    
+    &-title {
+      @include section-title;
+      padding: $space-2 $space-3;
+      margin-bottom: $space-1;
+    }
+  }
+  
+  // Footer del sidebar
+  &__footer {
+    padding: $space-6;
+    border-top: 1px solid rgba($white, 0.15);
+    margin-top: auto;
+  }
+  
+  // Usuario
+  &__user {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+    
+    &-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: $radius-full;
+      background: rgba($white, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $white;
+      font-weight: $font-weight-semibold;
+    }
+    
+    &-info {
+      flex: 1;
+      
+      .name {
+        font-size: $font-size-sm;
+        font-weight: $font-weight-semibold;
+        color: $white;
+      }
+      
+      .role {
+        font-size: $font-size-xs;
+        color: rgba($white, 0.7);
+      }
+    }
+    
+    &-menu {
+      width: 32px;
+      height: 32px;
+      border: none;
+      background: transparent;
+      border-radius: $radius-md;
+      color: rgba($white, 0.7);
+      cursor: pointer;
+      transition: all $transition-fast;
+      
+      &:hover {
+        background: rgba($white, 0.1);
+        color: $white;
+      }
+    }
+  }
 }
